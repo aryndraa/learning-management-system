@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Router>
-        <AuthMiddleware isAuth={true} excludeRoutes={['/login']}>
+        <AuthMiddleware isAuth={false} excludeRoutes={['/login']}>
           <Routes>
             <Route path="/login" element={<Login/>} />
             <Route path="/" element={<Home />} />
