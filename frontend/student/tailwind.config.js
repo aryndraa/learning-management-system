@@ -17,7 +17,8 @@ export default {
         primary : '#5A2BBF',
         font : {
           100 : "#929292",
-          200 : "#4F4F4F"
+          200 : "#4F4F4F",
+          300 : "#11003D",
         },
         success : "#0FD45B",
         warning : "#FFD220",
