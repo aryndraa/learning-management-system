@@ -25,11 +25,11 @@ export default function Login() {
         <title>LMS - Student Login</title>
       </Helmet>
 
-      <div className="flex items-center min-h-[80vh] gap-24 justify-between ">
-        <div className="w-[40%]">
-          <div className="mb-8">
-            <h1 className="text-4xl font-medium tracking-wider mb-2 leading-[1.4]">{t('loginPage.greeting')}</h1>
-            <p className='text-lg'>{t('loginPage.subtitle')} <Link to={'/register'} className="text-primary ">{t('loginPage.actionSubTitle')}</Link></p>
+      <div className="flex mt-8 md:items-center md:mt-0 min-h-[80vh] lg:gap-24 justify-between ">
+        <div className="w-full lg:w-[40%]">
+          <div className="mb-6 md:mb-8">
+            <h1 className="text-3xl md:text-4xl font-medium tracking-wider mb-1 md:mb-2 leading-[1.4]">{t('loginPage.greeting')}</h1>
+            <p className='text-base md:text-lg'>{t('loginPage.subtitle')} <Link to={'/register'} className="text-primary ">{t('loginPage.actionSubTitle')}</Link></p>
           </div>
           <div>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col ">
@@ -69,7 +69,7 @@ export default function Login() {
 
         </div>
         <div>
-          <img src={loginSVG} alt="" className="w-full"/>
+          <img src={loginSVG} alt="" className="w-full hidden lg:block"/>
         </div>
       </div>
     </AuthLayout>
