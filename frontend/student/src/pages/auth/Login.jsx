@@ -1,5 +1,5 @@
 import {Helmet} from "react-helmet";
-// import {useTranslation} from "react-i18next";
+import {useTranslation} from "react-i18next";
 import AuthLayout from "../../layouts/AuthLayout.jsx";
 import {Link} from "react-router";
 import {useForm} from "react-hook-form";
@@ -7,7 +7,7 @@ import AuthLabel from "../../components/form/AuthLabel.jsx";
 import loginSVG from "../../assets/login.svg";
 
 export default function Login() {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
 
   const {
     register,
@@ -28,8 +28,8 @@ export default function Login() {
       <div className="flex items-center min-h-[80vh] gap-24 justify-between ">
         <div className="w-[40%]">
           <div className="mb-8">
-            <h1 className="text-4xl font-medium tracking-wider mb-2">Welcome Back</h1>
-            <p className='text-lg'>Don&apos;t have an account? <Link to={'/register'} className="text-primary ">Sign up</Link></p>
+            <h1 className="text-4xl font-medium tracking-wider mb-2 leading-[1.4]">{t('loginPage.greeting')}</h1>
+            <p className='text-lg'>{t('loginPage.subtitle')} <Link to={'/register'} className="text-primary ">{t('loginPage.actionSubTitle')}</Link></p>
           </div>
           <div>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col ">
@@ -38,6 +38,7 @@ export default function Login() {
                   id="username"
                   type="text"
                   name="username"
+                  placeholder={t('loginPage.placeholder')}
                   register={register}
                   validation={{
                     required: "Username is required",
@@ -48,6 +49,8 @@ export default function Login() {
                   id="password"
                   type="password"
                   name="password"
+                  placeholder={t('loginPage.placeholder')}
+
                   register={register}
                   validation={{
                     required: "Password is required",
@@ -60,7 +63,7 @@ export default function Login() {
                 />
               </div>
 
-              <button type="submit" className="bg-primary hover:bg-primary/90 transition p-4 text-white font-medium text-lg rounded-lg">Login</button>
+              <button type="submit" className="bg-primary hover:bg-primary/90 transition p-4 text-white font-medium text-lg rounded-lg">{t('loginPage.btnLogin')}</button>
             </form>
           </div>
 

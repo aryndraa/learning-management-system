@@ -7,6 +7,14 @@ const resources = {
       welcome : "Welcome",
       language: "Language",
       csServiceLink: "Need Help?",
+
+      loginPage : {
+        greeting : "Welcome Back!",
+        subtitle : "Don't have an account?",
+        actionSubTitle: "Sign up",
+        placeholder: "Enter Your",
+        btnLogin : "Login",
+      }
     },
   },
   id : {
@@ -15,6 +23,14 @@ const resources = {
       language : "Bahasa",
       csServiceLink: "Butuh Bantuan?",
 
+      loginPage : {
+        greeting : "Selamat Datang!",
+        subtitle : "Belum punya akun?",
+        actionSubTitle: "Daftar!",
+        placeholder: "Masukan",
+        btnLogin : "Masuk",
+
+      }
     }
   }
 }

@@ -7,7 +7,7 @@ const AuthLabel = (props) => {
       <input
         type={props.type}
         id={props.id}
-        placeholder={`Enter your ${props.name}!`}
+        placeholder={`${props.placeholder} ${props.name}!`}
         className="bg-white border border-font-100 p-3 rounded-lg placeholder:text-font-100 focus:outline-none"
         {...props.register(props.id, props.validation)}
       />
@@ -20,6 +20,7 @@ const AuthLabel = (props) => {
    name: PropTypes.string.isRequired,
    id: PropTypes.string.isRequired,
    type: PropTypes.string.isRequired,
+   placeholder: PropTypes.string,
    register: PropTypes.func.isRequired,
    validation: PropTypes.object.isRequired,
    error: PropTypes.object,
