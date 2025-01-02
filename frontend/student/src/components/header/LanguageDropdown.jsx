@@ -32,14 +32,14 @@ const LanguageDropdown = () => {
         </div>
 
         {isOpen && (
-          <div className="absolute mt-4 rounded-md bg-white p-4 z-10 w-56">
+          <div className="absolute mt-4 rounded-md bg-white p-4 z-10 w-56 shadow-md">
             {languages.map((lang) => (
               <button
                 key={lang.code}
                 onClick={() => changeLanguage(lang.code)}
                 className={`block w-full text-left py-1 px-2 ${
-                  i18n.language === lang.code ? 'font-bold' : ''
-                } hover:bg-gray-100`}
+                  i18n.language === lang.code ? 'text-primary font-medium' : ''
+                } `}
               >
                 {lang.label}
               </button>

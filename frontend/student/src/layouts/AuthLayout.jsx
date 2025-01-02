@@ -1,14 +1,17 @@
 import {AuthHeader} from "../components/header/AuthHeader.jsx";
+import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
 export default function AuthLayout({ children }) {
   return (
     <>
       <AuthHeader/>
-      <div className="px-24">
+      <div className="px-24 text-black">
         {children}
       </div>
     </>
   )
 }
 
+AuthLayout.propTypes = {
+  children: PropTypes.node,
+};
