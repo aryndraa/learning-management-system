@@ -5,9 +5,13 @@ import {Link} from "react-router";
 import {useForm} from "react-hook-form";
 import AuthLabel from "../../components/form/AuthLabel.jsx";
 import loginSVG from "../../assets/login.svg";
+import auth from '../../api/auth.js'
+import {useState} from "react";
 
 export default function Login() {
-  const { t } = useTranslation();
+  const  { t } = useTranslation();
+
+  const [error, setError] = useState(null);
 
   const {
     register,
@@ -15,8 +19,14 @@ export default function Login() {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (data) => {
-    console.log("Form Data:", data);
+  const onSubmit = async (data) => {
+    try {
+      const userData = await auth.login(data.username, data.password);
+      console.log("login successfully : ", userData);
+      alert("login Successfully")
+    } catch (error) {
+      setError(error);
+    }
   };
 
   return(
@@ -65,6 +75,7 @@ export default function Login() {
 
               <button type="submit" className="bg-primary hover:bg-primary/90 transition p-4 text-white font-medium text-lg rounded-lg">{t('loginPage.btnLogin')}</button>
             </form>
+            {/*{error && <p>{error}</p>}*/}
           </div>
 
         </div>
