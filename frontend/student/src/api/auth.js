@@ -1,5 +1,5 @@
 import apiClient from "./utils/apiClient.js";
-import {saveToStorage} from "./utils/storage.js";
+import {hasInStorage, saveToStorage} from "./utils/storage.js";
 
 const login = async (username, password) => {
   try {
@@ -19,4 +19,8 @@ const login = async (username, password) => {
   }
 }
 
-export default { login };
+const checkLoginStatus = () => {
+  return hasInStorage('studentToken', true);
+}
+
+export default { login, checkLoginStatus };
