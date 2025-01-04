@@ -7,5 +7,9 @@ Route::prefix('student')
     ->name('student.')
     ->group(function () {
         Route::post('/auth/login', [AuthController::class, 'login'])->name('login');
-        Route::delete('/auth/logout', [AuthController::class, 'logout'])->name('logout');
+
+        Route::middleware(['auth:student'])
+            ->group(function () {
+                Route::delete('/auth/logout', [AuthController::class, 'logout'])->name('logout');
+            });
     });
