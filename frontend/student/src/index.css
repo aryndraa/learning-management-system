@@ -3,9 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --toastify-color-info: #5A2BBF !important;
+}
 
 body {
   font-family: "Poppins", sans-serif;
   /*background: #F9F9F9;*/
   color: #4f4f4f;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--info {
+  background: #4f4f4f !important;
 }

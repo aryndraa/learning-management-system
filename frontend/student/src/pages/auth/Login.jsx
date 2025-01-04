@@ -7,19 +7,18 @@ import AuthLabel from "../../components/form/AuthLabel.jsx";
 import loginSVG from "../../assets/login.svg";
 import auth from '../../api/auth.js'
 import {useState} from "react";
-import {getFromStorage, hasInStorage} from "../../api/utils/storage.js";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function Login() {
   const  { t } = useTranslation();
 
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm()
-
 
   const onSubmit = async (data) => {
     try {
@@ -28,6 +27,7 @@ export default function Login() {
       alert("login Successfully")
 
     } catch (error) {
+      toast.error("username atau password salah");
       setError(error);
     }
   };
@@ -37,6 +37,8 @@ export default function Login() {
       <Helmet>
         <title>LMS - Student Login</title>
       </Helmet>
+
+      <ToastContainer position="top-center" autoClose={3000} />
 
       <div className="flex mt-8 md:items-center md:mt-0 min-h-[80vh] lg:gap-24 justify-between ">
         <div className="w-full lg:w-[40%]">

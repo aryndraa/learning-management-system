@@ -9,7 +9,6 @@ function App() {
   const hasLogin = auth.checkLoginStatus();
   console.log(hasLogin);
 
-
   return (
     <>
       <Router>
