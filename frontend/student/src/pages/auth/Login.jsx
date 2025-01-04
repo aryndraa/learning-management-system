@@ -7,7 +7,7 @@ import AuthLabel from "../../components/form/AuthLabel.jsx";
 import loginSVG from "../../assets/login.svg";
 
 export default function Login() {
-  const { t } = useTranslation();
+  const  { t } = useTranslation();
 
   const {
     register,
