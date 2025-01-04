@@ -7,7 +7,7 @@
  */
 export const saveToStorage = (key, value, useSession = false) => {
   const storage = useSession ? sessionStorage : sessionStorage;
-  storage.setItem(key, JSON.stringify(value));
+  storage.setItem(key, value);
 };
 
 /**

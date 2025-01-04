@@ -7,6 +7,7 @@ import AuthLabel from "../../components/form/AuthLabel.jsx";
 import loginSVG from "../../assets/login.svg";
 import auth from '../../api/auth.js'
 import {useState} from "react";
+import {getFromStorage, hasInStorage} from "../../api/utils/storage.js";
 
 export default function Login() {
   const  { t } = useTranslation();
@@ -19,11 +20,13 @@ export default function Login() {
     formState: { errors },
   } = useForm()
 
+
   const onSubmit = async (data) => {
     try {
       const userData = await auth.login(data.username, data.password);
       console.log("login successfully : ", userData);
       alert("login Successfully")
+
     } catch (error) {
       setError(error);
     }

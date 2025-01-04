@@ -8,8 +8,8 @@ const login = async (username, password) => {
       password,
     });
 
-    if(response.token) {
-      saveToStorage('studentToken', response.token, true);
+    if(response.data.access_token) {
+      saveToStorage('studentToken', response.data.access_token, true);
     }
 
     return response;
