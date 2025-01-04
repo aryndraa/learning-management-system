@@ -1,20 +1,21 @@
-import axios from "axios";
+import apiClient from "./utils/apiClient.js";
+import {saveToStorage} from "./utils/storage.js";
 
 const login = async (username, password) => {
   try {
-    const response = await axios.post("`${process.env.REACT_APP_BASE_URL}/api/student/auth/login", {
+    const response = await apiClient.post("/auth/login", {
       username,
-      password
-    })
+      password,
+    });
 
-    const { data } = response;
+    if(response.token) {
+      saveToStorage('studentToken', response.token, true);
+    }
 
-    localStorage.setItem("studentToken", data.data.token);
-
-    console.log("Login Success", data);
-    return data;
+    return response;
   } catch (error) {
-    console.log("Login Failed:", error);
+    console.error("login failed", error);
+    throw error;
   }
 }
 

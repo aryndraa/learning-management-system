@@ -44,5 +44,6 @@ export const removeFromStorage = (key, useSession = false) => {
  */
 export const hasInStorage = (key, useSession = false) => {
   const storage = useSession ? sessionStorage : localStorage;
+
   return storage.getItem(key) !== null;
 };
