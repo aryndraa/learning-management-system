@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\UploadedFile;
 
 class File extends Model
 {
@@ -21,6 +22,29 @@ class File extends Model
         return $this->morphTo();
     }
 
+    public function getFileUrlAttribute()
+    {
+        if ($this->file_path) {
+            return asset('storage/' . $this->file_path);
+        }
 
+        return secure_asset(null);
+    }
+
+    public static function uploadFile(UploadedFile $file, Model $model, $relation, $directory)
+    {
+        $fileOriginName = $file->getClientOriginalName();
+        $extension      = $file->getClientOriginalExtension();
+        $fileRename     =  'LMS_' . time() . '.' . $extension;
+        $filePath       = $file->store($directory, 'public');
+        $fileType       = $file->getMimeType();
+
+        return $model->$relation()->create([
+            'file_original_name' => $fileOriginName,
+            'file_renamed'      => $fileRename,
+            'file_path'        => $filePath,
+            'file_type'        => $fileType,
+        ]);
+    }
 
 }

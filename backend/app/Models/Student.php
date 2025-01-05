@@ -37,18 +37,6 @@ class Student extends Authenticatable implements JWTSubject
         return $this->hasOne(StudentProfile::class,);
     }
 
-    public function classroom()
-    {
-        return $this->belongsTo(Classroom::class);
-    }
-
-    public function major()
-    {
-        return $this->belongsTo(Major::class);
-    }
-
-
-
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.

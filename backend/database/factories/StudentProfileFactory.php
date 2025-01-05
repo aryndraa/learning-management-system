@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Classroom;
 use App\Models\Major;
 use App\Models\Student;
+use App\Models\StudentProfile;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -12,6 +13,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class StudentProfileFactory extends Factory
 {
+
+
     /**
      * Define the model's default state.
      *
@@ -19,8 +22,14 @@ class StudentProfileFactory extends Factory
      */
     public function definition(): array
     {
+        $usedStudentIds  = StudentProfile::query()->pluck('student_id')->toArray();
+        $availableStudent = Student::query()
+            ->whereNotIn('id', $usedStudentIds)
+            ->inRandomOrder()
+            ->first();
+
         return [
-            'student_id'      => Student::query()->inRandomOrder()->first()->id,
+            'student_id'   => $availableStudent ? $availableStudent->id : null,
             'full_name'    => $this->faker->name(),
             'name'         =>  function (array $attributes) {
                 return strtoupper($attributes['full_name']);

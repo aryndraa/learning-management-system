@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\Student\Auth\AuthController;
+use App\Http\Controllers\Api\V1\Student\Profile\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('student')
@@ -11,5 +12,13 @@ Route::prefix('student')
         Route::middleware(['auth:student'])
             ->group(function () {
                 Route::delete('/auth/logout', [AuthController::class, 'logout'])->name('logout');
+
+                Route::controller(ProfileController::class)
+                    ->prefix('profile')
+                    ->name('profile.')
+                    ->group(function () {
+                        Route::get('/', 'getAvatarProfile')->name('getAvatar');
+                        Route::post('/avatar', 'storeAvatar')->name('storeAvatar');
+                    });
             });
     });

@@ -29,4 +29,19 @@ class StudentProfile extends Model
     {
         return $this->belongsTo(Student::class);
     }
+
+    public function classroom()
+    {
+        return $this->belongsTo(Classroom::class);
+    }
+
+    public function major()
+    {
+        return $this->belongsTo(Major::class);
+    }
+
+    public function avatar()
+    {
+        return $this->morphOne(File::class, 'related');
+    }
 }
