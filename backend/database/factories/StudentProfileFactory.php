@@ -20,7 +20,7 @@ class StudentProfileFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id'      => Student::query()->inRandomOrder()->first()->id,
+            'student_id'      => Student::query()->inRandomOrder()->first()->id,
             'full_name'    => $this->faker->name(),
             'name'         =>  function (array $attributes) {
                 return strtoupper($attributes['full_name']);
@@ -37,7 +37,6 @@ class StudentProfileFactory extends Factory
             'phone'        => $this->faker->phoneNumber(),
             'email'        => $this->faker->unique()->safeEmail(),
             'religion'     => $this->faker->randomElement(['hindu', 'islam', 'kristen', 'buddha']),
-            ''
         ];
     }
 }

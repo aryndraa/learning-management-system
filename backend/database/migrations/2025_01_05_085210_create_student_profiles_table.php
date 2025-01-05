@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('student_profiles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
             $table->string('full_name');
             $table->string('name');
-            $table->foreignId('major_id')->constrained('majors');
-            $table->string('classroom_id')->default("classrooms");
+            $table->foreignId('major_id')->constrained('majors')->onDelete('cascade');
+            $table->foreignId('classroom_id')->constrained('classrooms')->onDelete('cascade');
             $table->string('number');
             $table->string('nis')->default("");
             $table->string('nisn')->default("");
             $table->string('address')->default("");
             $table->string('sex')->default("");
             $table->string('place_birth')->default("");
-            $table->date('birthday')->default("");
+            $table->date('birthday');
             $table->string('phone')->default("");
             $table->string('email')->default("");
             $table->string('religion')->default("");
