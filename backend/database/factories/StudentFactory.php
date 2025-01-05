@@ -18,7 +18,7 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'username' => fake()->unique()->username(),
+            'username' => $this->faker->unique()->username(),
             'password' => Hash::make('password'),
         ];
     }
