@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Student\Profile;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\Student\Profile\UploadAvatarRequest;
 use App\Http\Resources\Api\V1\Student\Profile\AvatarProfileResource;
 use App\Models\File;
 use App\Models\Student;
@@ -21,7 +22,7 @@ class ProfileController extends Controller
         return AvatarProfileResource::make($student);
     }
 
-    public function storeAvatar(Request $request) {
+    public function uploadAvatar(UploadAvatarRequest $request) {
         $studentProfile = StudentProfile::query()
             ->where('student_id', auth()->id())
             ->first();

@@ -18,7 +18,7 @@ Route::prefix('student')
                     ->name('profile.')
                     ->group(function () {
                         Route::get('/', 'getAvatarProfile')->name('getAvatar');
-                        Route::post('/avatar', 'storeAvatar')->name('storeAvatar');
+                        Route::post('/avatar', 'uploadAvatar')->name('storeAvatar');
                     });
             });
     });
