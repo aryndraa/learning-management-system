@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('name');
             $table->foreignId('major_id')->constrained('majors');
             $table->string('classroom_id')->default("classrooms");
-            $table->string('absent');
+            $table->string('number');
             $table->string('nis')->default("");
             $table->string('nisn')->default("");
             $table->string('address')->default("");
             $table->string('sex')->default("");
             $table->string('place_birth')->default("");
-            $table->date('date_birth')->default("");
+            $table->date('birthday')->default("");
             $table->string('phone')->default("");
             $table->string('email')->default("");
             $table->string('religion')->default("");

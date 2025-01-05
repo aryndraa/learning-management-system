@@ -13,8 +13,6 @@ class StudentProfile extends Model
     protected $fillable = [
         'full_name',
         'name',
-        'major',
-        'class',
         'absent',
         'nis',
         'nisn',
