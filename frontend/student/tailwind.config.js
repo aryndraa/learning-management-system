@@ -20,6 +20,7 @@ export default {
           200 : "#4F4F4F",
           300 : "#11003D",
         },
+        border  : "#CECECE",
         success : "#0FD45B",
         warning : "#FFD220",
         fatal   : "#D9333D",
