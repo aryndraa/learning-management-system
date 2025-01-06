@@ -1,7 +1,7 @@
 import {Helmet} from "react-helmet";
 import {useTranslation} from "react-i18next";
 import AuthLayout from "../../layouts/AuthLayout.jsx";
-import {Link} from "react-router";
+import {Link, useNavigate} from "react-router";
 import {useForm} from "react-hook-form";
 import AuthLabel from "../../components/form/AuthLabel.jsx";
 import loginSVG from "../../assets/login.svg";
@@ -11,7 +11,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 export default function Login() {
   const  { t } = useTranslation();
-
+  const navigate = useNavigate();
   const [, setError] = useState(null);
 
   const {
@@ -24,8 +24,9 @@ export default function Login() {
     try {
       const userData = await auth.login(data.username, data.password);
       console.log("login successfully : ", userData);
-      alert("login Successfully")
+      toast.info("Login successfully");
 
+      navigate('/');
     } catch (error) {
       toast.error("username atau password salah");
       setError(error);
