@@ -9,9 +9,8 @@ const resources = {
       csServiceLink: "Need Help?",
 
       loginPage : {
-        greeting : "Welcome Back!",
-        subtitle : "Don't have an account?",
-        actionSubTitle: "Sign up",
+        greeting : "Welcome!",
+        subtitle : "e-learning based digital learning",
         placeholder: "Enter Your",
         btnLogin : "Login",
       }
@@ -25,8 +24,7 @@ const resources = {
 
       loginPage : {
         greeting : "Selamat Datang!",
-        subtitle : "Belum punya akun?",
-        actionSubTitle: "Daftar!",
+        subtitle : "pembelajaran digital berbasis e learning",
         placeholder: "Masukan",
         btnLogin : "Masuk",
 

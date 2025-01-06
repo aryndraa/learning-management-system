@@ -1,7 +1,6 @@
 import {Helmet} from "react-helmet";
 import {useTranslation} from "react-i18next";
-import AuthLayout from "../../layouts/AuthLayout.jsx";
-import {Link, useNavigate} from "react-router";
+import {useNavigate} from "react-router";
 import {useForm} from "react-hook-form";
 import AuthLabel from "../../components/form/AuthLabel.jsx";
 import loginSVG from "../../assets/login.svg";
@@ -34,7 +33,7 @@ export default function Login() {
   };
 
   return(
-    <AuthLayout>
+    <div>
       <Helmet>
         <title>LMS - Student Login</title>
       </Helmet>
@@ -45,7 +44,7 @@ export default function Login() {
         <div className="w-full lg:w-[40%]">
           <div className="mb-6 md:mb-8">
             <h1 className="text-3xl md:text-4xl font-medium tracking-wider mb-1 md:mb-2 leading-[1.4]">{t('loginPage.greeting')}</h1>
-            <p className='text-base md:text-lg'>{t('loginPage.subtitle')} <Link to={'/register'} className="text-primary ">{t('loginPage.actionSubTitle')}</Link></p>
+            <p className='text-base md:text-lg'>{t('loginPage.subtitle')}</p>
           </div>
           <div>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col ">
@@ -89,7 +88,7 @@ export default function Login() {
           <img src={loginSVG} alt="" className="w-full hidden lg:block"/>
         </div>
       </div>
-    </AuthLayout>
+    </div>
 
   )
 }

@@ -8,6 +8,8 @@ import {Resource} from "./pages/resource/Resource.jsx";
 import {Chat} from "./pages/chat/Chat.jsx";
 import {Date} from "./pages/date/Date.jsx";
 import {DefaultLayout} from "./layouts/DefaultLayout.jsx";
+import AuthLayout from "./layouts/AuthLayout.jsx";
+import {CustomerService} from "./pages/auth/CustomerService.jsx";
 
 function App() {
 
@@ -19,7 +21,18 @@ function App() {
       <Router>
         <AuthMiddleware isAuth={hasLogin} excludeRoutes={['/login']}>
           <Routes>
-            <Route path="/login" element={<Login/>} />
+            <Route
+              path="auth/*"
+              element={
+                <AuthLayout>
+                  <Routes>
+                    <Route path="/login" element={<Login/>} />
+                    <Route path="/customer-service" element={<CustomerService/>} />
+                  </Routes>
+                </AuthLayout>
+              }
+           />
+
             <Route
               path="*"
               element={
