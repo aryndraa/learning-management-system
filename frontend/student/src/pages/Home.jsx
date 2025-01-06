@@ -1,7 +1,11 @@
+import {DefaultLayout} from "../layouts/DefaultLayout.jsx";
+
 export function Home() {
   return (
     <>
-      <h1>Home</h1>
+      <DefaultLayout>
+        <h1>Home</h1>
+      </DefaultLayout>
     </>
   )
 }
