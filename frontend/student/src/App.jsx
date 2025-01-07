@@ -10,14 +10,10 @@ import {Date} from "./pages/date/Date.jsx";
 import {DefaultLayout} from "./layouts/DefaultLayout.jsx";
 import AuthLayout from "./layouts/AuthLayout.jsx";
 import {CustomerService} from "./pages/auth/CustomerService.jsx";
-import {removeFromStorage} from "./utils/storage.js";
 
-function App() {
+function  App() {
 
   const hasLogin = auth.checkLoginStatus();
-  console.log(hasLogin);
-
-  // removeFromStorage("studentToken", true );
 
   return (
     <>

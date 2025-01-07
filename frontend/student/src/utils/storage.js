@@ -17,11 +17,15 @@ export const saveToStorage = (key, value, useSession = false) => {
  * @param {boolean} useSession - Gunakan sessionStorage jika true, localStorage jika false (default: false).
  * @returns {any} - Data yang diambil atau null jika tidak ditemukan.
  */
-export const getFromStorage = (key, useSession = false) => {
+export const getFromStorage = (key, useSession = false, parse = false) => {
   const storage = useSession ? sessionStorage : sessionStorage;
   const data = storage.getItem(key);
 
-  return data ? JSON.parse(data) : null;
+  if (data) {
+    return parse ? JSON.parse(data) : data
+  }
+
+  return null;
 }
 
 /**
