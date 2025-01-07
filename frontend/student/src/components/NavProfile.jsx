@@ -8,7 +8,7 @@ export const NavProfile = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fecthProfile = async () => {
+    const fetchProfile = async () => {
       try {
         const response = await profile.avatarProfile()
 
@@ -24,7 +24,7 @@ export const NavProfile = () => {
       }
     }
 
-    fecthProfile()
+    fetchProfile()
   }, [])
 
   if (loading) return <p>Loading...</p>;
@@ -32,7 +32,13 @@ export const NavProfile = () => {
 
   return (
     <>
-
+      <div className="pl-8 flex items-center gap-4">
+        <span className="text-lg font-medium">{avatarProfile.name}</span>
+        {avatarProfile.avatar ?
+          <img src={avatarProfile.avatar} alt="" className="w-[46px] h-[46px] rounded-full object-center object-cover"/>
+          :
+          <div className="text-lg p-2 px-4 rounded-full bg-primary text-white border">A</div>}
+      </div>
     </>
   )
 }
