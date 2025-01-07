@@ -1,6 +1,5 @@
 import {Helmet} from "react-helmet";
 import {useTranslation} from "react-i18next";
-import {useNavigate} from "react-router";
 import {useForm} from "react-hook-form";
 import AuthLabel from "../../components/form/AuthLabel.jsx";
 import loginSVG from "../../assets/login.svg";
@@ -10,7 +9,6 @@ import { toast, ToastContainer } from "react-toastify";
 
 export default function Login() {
   const  { t } = useTranslation();
-  const navigate = useNavigate();
   const [, setError] = useState(null);
 
   const {
@@ -19,13 +17,14 @@ export default function Login() {
     formState: { errors },
   } = useForm()
 
+
   const onSubmit = async (data) => {
     try {
       const userData = await auth.login(data.username, data.password);
-      console.log("login successfully : ", userData);
       toast.info("Login successfully");
+      console.log("login successfully : ", userData);
 
-      navigate('/');
+      window.location.replace(import.meta.env.VITE_APP_URL);
     } catch (error) {
       toast.error("username atau password salah");
       setError(error);

@@ -6,8 +6,8 @@ const AuthMiddleware = ({ isAuth, children, excludeRoutes = []}) => {
     const currentPath = window.location.pathname;
 
     useEffect(() => {
-        if  (!isAuth && !excludeRoutes.includes(currentPath)) {
-            navigate('/login');
+        if (!isAuth && !excludeRoutes.includes(currentPath)) {
+            navigate('auth/login');
         }
     }, [isAuth, excludeRoutes, currentPath]);
 
