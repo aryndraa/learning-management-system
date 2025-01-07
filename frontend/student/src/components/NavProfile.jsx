@@ -27,18 +27,29 @@ export const NavProfile = () => {
     fetchProfile()
   }, [])
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
     <>
-      <div className="pl-8 flex items-center gap-4">
-        <span className="text-lg font-medium">{avatarProfile.name}</span>
-        {avatarProfile.avatar ?
-          <img src={avatarProfile.avatar} alt="" className="w-[46px] h-[46px] rounded-full object-center object-cover"/>
-          :
-          <div className="text-lg p-2 px-4 rounded-full bg-primary text-white border">A</div>}
-      </div>
+      {loading ?
+
+        <div className="pl-8 flex items-center gap-2">
+          <span className="skeleton  rounded-full w-48 h-[46px]"></span>
+          <span className="skeleton  rounded-full w-[46px] h-[46px]"></span>
+        </div>
+
+        :
+
+        <div className="pl-8 flex items-center gap-4">
+          <span className="text-lg font-medium">{avatarProfile.name}</span>
+          {avatarProfile.avatar ?
+            <img src={avatarProfile.avatar} alt=""
+                 className="w-[46px] h-[46px] rounded-full object-center object-cover"/>
+            :
+            <div className="text-lg p-2 px-4 rounded-full bg-primary text-white border">A</div>}
+        </div>
+
+      }
     </>
   )
 }
