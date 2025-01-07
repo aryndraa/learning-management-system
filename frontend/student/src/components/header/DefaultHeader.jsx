@@ -1,5 +1,6 @@
 import Logo from "../Logo.jsx";
 import { IoNotificationsOutline, IoSettingsOutline  } from "react-icons/io5";
+import {NavProfile} from "../NavProfile.jsx";
 
 
 export const DefaultHeader = () => {
@@ -16,10 +17,11 @@ export const DefaultHeader = () => {
               <IoSettingsOutline/>
             </button>
           </div>
-          <div className="pl-8 flex items-center gap-4">
-            <span className="text-lg font-medium">Arya</span>
-            <div className="text-lg p-2 px-4 rounded-full bg-primary text-white border">A</div>
-          </div>
+          {/*<div className="pl-8 flex items-center gap-4">*/}
+          {/*  <span className="text-lg font-medium">Arya</span>*/}
+          {/*  <div className="text-lg p-2 px-4 rounded-full bg-primary text-white border">A</div>*/}
+          {/*</div>*/}
+          <NavProfile/>
         </div>
       </div>
     </>
