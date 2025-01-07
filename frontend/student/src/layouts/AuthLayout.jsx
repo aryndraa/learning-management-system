@@ -5,7 +5,7 @@ export default function AuthLayout({ children }) {
   return (
     <>
       <AuthHeader/>
-      <div className="px-4 md:px-12 xl:px-24 text-black bg-white ">
+      <div className="px-4 md:px-12 xl:px-24 text-black bg-white min-h-[86.5vh] ">
         {children}
       </div>
     </>
