@@ -7,7 +7,7 @@ export const DefaultLayout = ({ children }) => {
     <>
       <DefaultHeader/>
       <Navigation/>
-      <div className="px-4 md:px-12 xl:px-24">
+      <div className="px-4 md:px-12 xl:px-24 bg-background ">
         {children}
       </div>
     </>

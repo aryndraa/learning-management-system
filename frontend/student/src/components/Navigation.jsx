@@ -27,7 +27,7 @@ export const Navigation = () => {
 
   return (
     <>
-      <div className="flex px-4 md:px-12 xl:px-24 py-5 items-center gap-8 shadow sticky">
+      <div className="flex px-4 md:px-12 xl:px-24 py-5 items-center gap-8 shadow sticky bg-white">
         {navLinks.map((navLink, index) => (
           <NavLink key={index} path={navLink.path} name={navLink.name} />
         ))}

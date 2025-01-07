@@ -5,7 +5,7 @@ import { IoNotificationsOutline, IoSettingsOutline  } from "react-icons/io5";
 export const DefaultHeader = () => {
   return (
     <>
-      <div className="flex px-4 md:px-12 xl:px-24 py-6 justify-between items-center border-b border-border">
+      <div className="flex px-4 md:px-12 xl:px-24 py-6 justify-between items-center border-b border-border bg-white">
         <Logo/>
         <div className="flex items-center">
           <div className="pr-8 border-r border-border flex gap-4">

@@ -10,7 +10,7 @@ import { toast, ToastContainer } from "react-toastify";
 export default function Login() {
   const  { t } = useTranslation();
   const [, setError] = useState(null);
-
+  const [ loading, setLoading ] = useState(false);
   const {
     register,
     handleSubmit,
@@ -19,14 +19,19 @@ export default function Login() {
 
 
   const onSubmit = async (data) => {
+    setLoading(true);
+
     try {
       const userData = await auth.login(data.username, data.password);
       toast.info("Login successfully");
       console.log("login successfully : ", userData);
+      setLoading(false);
 
       window.location.replace(import.meta.env.VITE_APP_URL);
     } catch (error) {
       toast.error("username atau password salah");
+      setLoading(false);
+
       setError(error);
     }
   };
@@ -77,7 +82,21 @@ export default function Login() {
                 />
               </div>
 
-              <button type="submit" className="bg-primary hover:bg-primary/90 transition p-4 text-white font-medium text-lg rounded-lg">{t('loginPage.btnLogin')}</button>
+              {loading ?
+                <button
+                  disabled
+                  className="bg-primary hover:bg-primary/90 transition p-4 py-[1.1rem] text-white font-medium text-lg rounded-lg flex justify-center items-center "
+                >
+                  <span className="loading loading-dots loading-md"></span>
+                </button>
+                :
+                <button
+                  type="submit"
+                  className="bg-primary hover:bg-primary/90 transition p-4 text-white font-medium text-lg rounded-lg"
+                >
+                  {t('loginPage.btnLogin')}
+                </button>
+              }
             </form>
             {/*{error && <p>{error}</p>}*/}
           </div>
