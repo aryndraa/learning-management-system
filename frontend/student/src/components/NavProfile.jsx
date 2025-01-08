@@ -29,15 +29,15 @@ export const NavProfile = () => {
     fetchProfile()
   }, [])
 
-  if (error) return <p>Error: {error}</p>;
+  const [modalActive, setModalActive] = useState(false)
 
   return (
     <>
       {loading ?
 
         <div className="pl-8 flex items-center gap-2">
-          <span className="skeleton  rounded-full w-48 h-[46px]"></span>
-          <span className="skeleton  rounded-full w-[46px] h-[46px]"></span>
+          <span className="skeleton rounded-full w-48 h-[46px]"></span>
+          <span className="skeleton rounded-full w-[46px] h-[46px]"></span>
         </div>
 
         :
@@ -50,11 +50,11 @@ export const NavProfile = () => {
             :
             <div className="text-lg p-2 px-4 rounded-full bg-primary text-white border">A</div>
           }
-          <button className="text-2xl">
+          <button className="text-2xl" onClick={() => setModalActive(!modalActive)}>
             <IoMenuOutline/>
           </button>
 
-          <NavProfileModal/>
+          <NavProfileModal active={modalActive}/>
         </div>
       }
     </>
