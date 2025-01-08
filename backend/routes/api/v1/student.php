@@ -17,6 +17,7 @@ Route::prefix('student')
                     ->prefix('profile')
                     ->name('profile.')
                     ->group(function () {
+                        Route::get('/', 'index')->name('xindex');
                         Route::get('/avatar', 'getAvatarProfile')->name('getAvatar');
                         Route::post('/avatar', 'uploadAvatar')->name('storeAvatar');
                     });
