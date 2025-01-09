@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import profile from "../api/profile.js";
 import { IoMenuOutline } from "react-icons/io5";
-import {NavProfileModal} from "./NavProfileModal.jsx";
+import {NavProfileLink} from "./NavProfileLink.jsx";
 
 export const NavProfile = () => {
 
@@ -52,7 +52,7 @@ export const NavProfile = () => {
             <div className="text-lg p-2 px-4 rounded-full bg-primary text-white border">A</div>
           }
 
-          <NavProfileModal />
+          <NavProfileLink />
         </div>
       }
     </>

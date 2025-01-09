@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import {IoMenuOutline} from "react-icons/io5";
 import {useState} from "react";
 
-export const NavProfileModal = () => {
+export const NavProfileLink = () => {
 
   const [modalActive, setModalActive] = useState(false)
 
