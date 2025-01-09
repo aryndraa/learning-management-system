@@ -11,7 +11,7 @@ export const DefaultHeader = () => {
         <Logo/>
         <div className="flex items-center">
           <div className="pr-8 border-r border-border flex gap-4">
-            <NotificationButton/>
+            <NotificationButton notifications={0}/>
             <button className="text-2xl  p-2 border rounded-full border-font-100">
               <IoSettingsOutline/>
             </button>
