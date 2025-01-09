@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import profile from "../api/profile.js";
-import { IoMenuOutline } from "react-icons/io5";
 import {NavProfileLink} from "./NavProfileLink.jsx";
 
 export const NavProfile = () => {

@@ -35,11 +35,18 @@ export const Notification = () => {
           <ul>
             {notifications.map((notification, index) => (
               <li key={index} className="py-4 border-b border-b-border last:border-none">
-                <div>
+                <div className="flex items-center justify-between">
                   <div>
                     <h3 className="text-lg mb-1">{notification.title}</h3>
                     <p className="text-sm text-font-100">{notification.description.length > 40 ? notification.description.slice(0, 40) + "..." : notification.description}</p>
                   </div>
+                  <span className={`p-4 ${
+                    () => {
+                      if(notification.type === "warning") {
+                        return 'text-fatal'
+                      }
+                    }
+                  }`}>!</span>
                 </div>
               </li>
             ))}

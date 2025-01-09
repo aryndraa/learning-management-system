@@ -1,5 +1,5 @@
 import axios from "axios";
-import {getFromStorage} from "./storage.js";
+import {getFromStorage, removeFromStorage} from "./storage.js";
 
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -25,7 +25,11 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response.data,
   (error) => {
-    console.error(error);
+
+    if(error.response.status === 401) {
+      removeFromStorage('studentToken', true);
+    }
+
     return Promise.reject(error);
   }
 );
