@@ -35,7 +35,3 @@ export const NavProfileModal = () => {
     </>
   )
 }
-
-NavProfileModal.propTypes = {
-  active: PropTypes.bool.isRequired,
-}
