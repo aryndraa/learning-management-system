@@ -2,6 +2,7 @@ import {IoNotificationsOutline} from "react-icons/io5";
 import PropTypes from "prop-types";
 import {useEffect, useState} from "react";
 import notificationData from "../dummy/notificationData.js";
+import { RiErrorWarningLine } from "react-icons/ri";
 
 export const Notification = () => {
 
@@ -16,6 +17,17 @@ export const Notification = () => {
     getNotifications()
   }, [])
 
+  const getNotifType = (notification) => {
+    if(notification.type === "success") {
+      return "text-success bg-success/10"
+    } else if (notification.type === "info") {
+      return "text-primary bg-primary/10"
+    } else if (notification.type === "warning") {
+      return "text-warning bg-warning/10"
+    }
+
+    return "text-danger bg-danger/10"
+  }
 
   return (
     <>
@@ -40,13 +52,7 @@ export const Notification = () => {
                     <h3 className="text-lg mb-1">{notification.title}</h3>
                     <p className="text-sm text-font-100">{notification.description.length > 40 ? notification.description.slice(0, 40) + "..." : notification.description}</p>
                   </div>
-                  <span className={`p-4 ${
-                    () => {
-                      if(notification.type === "warning") {
-                        return 'text-fatal'
-                      }
-                    }
-                  }`}>!</span>
+                  <span className={`p-2 text-2xl rounded-full ${getNotifType(notification)}`}><RiErrorWarningLine/></span>
                 </div>
               </li>
             ))}

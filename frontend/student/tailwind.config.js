@@ -24,8 +24,8 @@ export default {
         },
         border  : "#CECECE",
         success : "#0FD45B",
-        warning : "#FFD220",
-        fatal   : "#D9333D",
+        warning : "#FFBF00",
+        danger  : "#D9333D",
         background : "#F9F9F9"
       }
     },
