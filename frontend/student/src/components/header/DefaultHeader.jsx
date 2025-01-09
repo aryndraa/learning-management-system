@@ -17,10 +17,6 @@ export const DefaultHeader = () => {
               <IoSettingsOutline/>
             </button>
           </div>
-          {/*<div className="pl-8 flex items-center gap-4">*/}
-          {/*  <span className="text-lg font-medium">Arya</span>*/}
-          {/*  <div className="text-lg p-2 px-4 rounded-full bg-primary text-white border">A</div>*/}
-          {/*</div>*/}
           <NavProfile/>
         </div>
       </div>

@@ -29,7 +29,7 @@ export const NavProfile = () => {
     fetchProfile()
   }, [])
 
-  const [modalActive, setModalActive] = useState(false)
+
 
   return (
     <>
@@ -51,11 +51,8 @@ export const NavProfile = () => {
             :
             <div className="text-lg p-2 px-4 rounded-full bg-primary text-white border">A</div>
           }
-          <button className="text-2xl" onClick={() => setModalActive(!modalActive)}>
-            <IoMenuOutline/>
-          </button>
 
-          <NavProfileModal active={modalActive}/>
+          <NavProfileModal />
         </div>
       }
     </>
