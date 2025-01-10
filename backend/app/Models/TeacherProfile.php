@@ -21,4 +21,5 @@ class TeacherProfile extends Model
     {
         return $this->belongsTo(Teacher::class);
     }
+
 }
