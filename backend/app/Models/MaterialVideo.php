@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class MaterialArticle extends Model
+class MaterialVideo extends Model
 {
     protected $fillable = [
-      'content'
+        'url',
+        'description'
     ];
 
     public function material() : BelongsTo

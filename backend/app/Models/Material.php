@@ -33,5 +33,10 @@ class Material extends Model
     {
         return $this->hasMany(MaterialArticle::class);
     }
+
+    public function videos() : hasMany
+    {
+        return $this->hasMany(MaterialVideo::class);
+    }
 }
 
