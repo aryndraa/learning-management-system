@@ -49,7 +49,7 @@ export const Notification = () => {
               <li key={index} className="py-4 border-b border-b-border last:border-none">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg mb-1">{notification.title}</h3>
+                    <h3 className="text-base mb-1">{notification.title}</h3>
                     <p className="text-sm text-font-100">{notification.description.length > 40 ? notification.description.slice(0, 40) + "..." : notification.description}</p>
                   </div>
                   <span className={`p-2 text-2xl rounded-full ${getNotifType(notification)}`}><RiErrorWarningLine/></span>
