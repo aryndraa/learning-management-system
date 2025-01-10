@@ -16,19 +16,29 @@ class Classroom extends Model
         'name',
     ];
 
-    public function students() : HasMany
+    public function students(): HasMany
     {
         return $this->hasMany(StudentProfile::class);
     }
 
-    public function major() : BelongsTo
+    public function major(): BelongsTo
     {
         return $this->belongsTo(Major::class);
     }
 
-    public function subjects() : BelongsToMany
+    public function teacher()
     {
-        return $this->belongsToMany(Subject::class, 'classroom_subjects', 'classroom_id', 'subject_id');
+        return $this->belongsTo(Teacher::class);
+    }
+
+    public function subjectTeachers(): BelongsToMany
+    {
+        return $this->belongsToMany(Teacher::class, 'classroom_subject_teachers', 'classroom_id', 'teacher_id');
+    }
+
+    public function subjects(): BelongsToMany
+    {
+        return $this->belongsToMany(Subject::class, 'classroom_subject_teachers', 'classroom_id', 'subject_id');
     }
 
 }
