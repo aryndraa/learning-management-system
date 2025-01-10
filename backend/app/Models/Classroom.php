@@ -41,4 +41,9 @@ class Classroom extends Model
         return $this->belongsToMany(Subject::class, 'classroom_subject_teachers', 'classroom_id', 'subject_id');
     }
 
+    public function materials(): BelongsToMany
+    {
+        return $this->belongsToMany(Material::class, 'classroom_materials', 'classroom_id', 'material_id');
+    }
+
 }
