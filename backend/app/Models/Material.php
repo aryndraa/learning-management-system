@@ -38,5 +38,10 @@ class Material extends Model
     {
         return $this->hasMany(MaterialVideo::class);
     }
+
+    public function files() : hasMany
+    {
+        return $this->hasMany(MaterialFile::class);
+    }
 }
 
