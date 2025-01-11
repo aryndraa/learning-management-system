@@ -27,4 +27,9 @@ class Assignment extends Model
     {
         return $this->belongsTo(Classroom::class);
     }
+
+    public function files()
+    {
+        return $this->hasMany(AssignmentFile::class);
+    }
 }
