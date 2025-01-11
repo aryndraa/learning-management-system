@@ -32,4 +32,9 @@ class Assignment extends Model
     {
         return $this->hasMany(AssignmentFile::class);
     }
+
+    public function links()
+    {
+        return $this->hasMany(AssignmentLink::class);
+    }
 }
