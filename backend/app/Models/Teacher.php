@@ -54,4 +54,9 @@ class Teacher extends Model
         return $this->hasOne(ClassroomGroup::class);
     }
 
+    public function SubjectGroups() : HasMany
+    {
+        return $this->hasMany(SubjectGroup::class);
+    }
 }
+

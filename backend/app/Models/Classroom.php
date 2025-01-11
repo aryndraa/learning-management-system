@@ -56,4 +56,9 @@ class Classroom extends Model
     {
         return $this->hasOne(ClassroomGroup::class);
     }
+
+    public function subjectGroups () : HasMany
+    {
+        return $this->hasMany(ClassroomGroup::class);
+    }
 }
