@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AssignmentLink extends Model
 {
@@ -11,12 +12,12 @@ class AssignmentLink extends Model
         'url'
     ];
 
-    public function assignment()
+    public function assignment() : BelongsTo
     {
         return $this->belongsTo(Assignment::class);
     }
 
-    public function user()
+    public function user() : BelongsTo
     {
         return $this->belongsTo(User::class);
     }

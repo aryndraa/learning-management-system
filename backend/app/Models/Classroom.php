@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Classroom extends Model
 {
@@ -51,4 +52,8 @@ class Classroom extends Model
         return $this->hasMany(Assignment::class);
     }
 
+    public function classroomGroup () : HasOne
+    {
+        return $this->hasOne(ClassroomGroup::class);
+    }
 }

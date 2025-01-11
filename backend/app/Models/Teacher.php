@@ -49,4 +49,9 @@ class Teacher extends Model
         return $this->hasMany(Assignment::class);
     }
 
+    public function classroomGroup() : HasOne
+    {
+        return $this->hasOne(ClassroomGroup::class);
+    }
+
 }

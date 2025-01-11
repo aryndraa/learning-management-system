@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AssignmentFile extends Model
 {
@@ -13,12 +14,12 @@ class AssignmentFile extends Model
         'description',
     ];
 
-    public function assignment()
+    public function assignment() : BelongsTo
     {
         return $this->belongsTo(Assignment::class);
     }
 
-    public function student()
+    public function student() : BelongsTo
     {
         return $this->belongsTo(Student::class);
     }
