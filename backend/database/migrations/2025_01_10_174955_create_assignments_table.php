@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("title");
             $table->text("description");
             $table->string("type");
-            $table->date("deadline");
+            $table->dateTime("deadline");
             $table->timestamps();
         });
     }

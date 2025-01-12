@@ -74,5 +74,10 @@ class Teacher extends Model
     {
         return $this->morphMany(Chat::class, 'receiver');
     }
+
+    public function announcements(): MorphMany
+    {
+        return $this->morphMany(Announcement::class, 'sender');
+    }
 }
 
