@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class StudyGroup extends Model
 {
@@ -25,6 +26,11 @@ class StudyGroup extends Model
     public function student() : BelongsTo
     {
         return $this->belongsTo(Student::class);
+    }
+
+    public function groupStudents() : MorphMany
+    {
+        return $this->morphMany(GroupStudents::class, 'group');
     }
 
 }

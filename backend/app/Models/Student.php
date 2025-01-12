@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
@@ -52,6 +54,11 @@ class Student extends Authenticatable implements JWTSubject
     public function leaderStudyGroup() : HasMany
     {
         return $this->hasMany(StudyGroup::class);
+    }
+
+    public function groups() : HasMany
+    {
+        return $this->HasMany(GroupStudents::class);
     }
 
     /**
