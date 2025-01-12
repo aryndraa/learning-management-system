@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
@@ -32,19 +34,24 @@ class Student extends Authenticatable implements JWTSubject
     ];
 
 
-    public function profile()
+    public function profile() : HasOne
     {
         return $this->hasOne(StudentProfile::class,);
     }
 
-    public function assignmentFiles()
+    public function assignmentFiles() : HasMany
     {
         return $this->hasMany(AssignmentFile::class);
     }
 
-    public function assignmentLinks()
+    public function assignmentLinks() : HasMany
     {
         return $this->hasMany(AssignmentLink::class);
+    }
+
+    public function leaderStudyGroup() : HasMany
+    {
+        return $this->hasMany(StudyGroup::class);
     }
 
     /**

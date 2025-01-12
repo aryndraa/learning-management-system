@@ -61,4 +61,9 @@ class Classroom extends Model
     {
         return $this->hasMany(ClassroomGroup::class);
     }
+
+    public function studyGroups () : HasMany
+    {
+        return $this->hasMany(StudyGroup::class);
+    }
 }

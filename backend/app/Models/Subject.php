@@ -43,4 +43,9 @@ class Subject extends Model
     {
         return  $this->hasMany(SubjectGroup::class);
     }
+
+    public function studyGroups() : HasMany
+    {
+        return  $this->hasMany(StudyGroup::class);
+    }
 }
