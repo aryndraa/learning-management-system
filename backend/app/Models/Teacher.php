@@ -11,16 +11,16 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 class Teacher extends Model
 {
     protected $fillable = [
-      "username",
-      "password"
+        "username",
+        "password"
     ];
 
-    public function profile() : HasOne
+    public function profile(): HasOne
     {
         return $this->hasOne(TeacherProfile::class);
     }
 
-    public function subjects() : BelongsToMany
+    public function subjects(): BelongsToMany
     {
         return $this->belongsToMany(Subject::class, "subject_teachers", "teacher_id", "subject_id");
     }
@@ -30,39 +30,49 @@ class Teacher extends Model
         return $this->hasOne(Classroom::class);
     }
 
-    public function classroomTeacher() : BelongsToMany
+    public function classroomTeacher(): BelongsToMany
     {
         return $this->belongsToMany(Classroom::class, "classroom_subject_teachers", "teacher_id", "classroom_id");
     }
 
-    public function subjectTeacher() : BelongsToMany
+    public function subjectTeacher(): BelongsToMany
     {
         return $this->belongsToMany(Subject::class, "classroom_subject_teachers", "teacher_id", "subject_id");
     }
 
-    public function materials() : HasMany
+    public function materials(): HasMany
     {
         return $this->hasMany(Material::class);
     }
 
-    public function assignments() : HasMany
+    public function assignments(): HasMany
     {
         return $this->hasMany(Assignment::class);
     }
 
-    public function classroomGroup() : HasOne
+    public function classroomGroup(): HasOne
     {
         return $this->hasOne(ClassroomGroup::class);
     }
 
-    public function SubjectGroups() : HasMany
+    public function SubjectGroups(): HasMany
     {
         return $this->hasMany(SubjectGroup::class);
     }
 
-    public function senderGroupChats() : MorphMany
+    public function senderGroupChats(): MorphMany
     {
         return $this->morphMany(GroupChat::class, 'sender');
+    }
+
+    public function senderChat(): MorphMany
+    {
+        return $this->morphMany(Chat::class, 'sender');
+    }
+
+    public function receiverChat(): MorphMany
+    {
+        return $this->morphMany(Chat::class, 'receiver');
     }
 }
 

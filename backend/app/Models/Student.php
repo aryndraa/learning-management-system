@@ -66,6 +66,16 @@ class Student extends Authenticatable implements JWTSubject
         return $this->morphMany(GroupChat::class, 'sender');
     }
 
+    public function senderChat(): MorphMany
+    {
+        return $this->morphMany(Chat::class, 'sender');
+    }
+
+    public function receiverChat(): MorphMany
+    {
+        return $this->morphMany(Chat::class, 'receiver');
+    }
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
