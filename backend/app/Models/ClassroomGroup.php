@@ -27,4 +27,9 @@ class ClassroomGroup extends Model
     {
         return $this->morphMany(GroupStudents::class, 'group');
     }
+
+    public function groupChats() : MorphMany
+    {
+        return $this->morphMany(GroupChat::class, 'group');
+    }
 }

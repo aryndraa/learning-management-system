@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Teacher extends Model
 {
@@ -57,6 +58,11 @@ class Teacher extends Model
     public function SubjectGroups() : HasMany
     {
         return $this->hasMany(SubjectGroup::class);
+    }
+
+    public function senderGroupChats() : MorphMany
+    {
+        return $this->morphMany(GroupChat::class, 'sender');
     }
 }
 
