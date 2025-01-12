@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('nis')->default("");
             $table->string('nisn')->default("");
             $table->string('address')->default("");
-            $table->string('sex')->default("");
+            $table->string('gender')->default("");
             $table->string('place_birth')->default("");
             $table->date('birthday');
             $table->string('phone')->default("");

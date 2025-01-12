@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('material_files', function (Blueprint $table) {
             $table->id();
             $table->foreignId('material_id')->constrained('materials');
-            $table->file('description');
+            $table->text('description');
             $table->string("file_name");
             $table->string("file_path");
             $table->string("file_type");
