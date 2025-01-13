@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\Student\Profile\ProfileController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Admin\StudentManagemnet\CreateStudentProfileRequest;
 use App\Http\Requests\Api\V1\Admin\StudentManagemnet\CreateStudentRequest;
+use App\Http\Resources\Api\V1\Admin\StudentManagement\IndexResource;
 use App\Models\File;
 use App\Models\Student;
 use App\Models\StudentProfile;
@@ -15,9 +16,9 @@ class StudentManagementController extends Controller
 {
     public function index()
     {
-        $students = Student::all();
+        $students = Student::query()->with('profile')->get();
 
-        return response()->json($students);
+        return IndexResource::collection($students);
     }
 
     public function show(Student $student)
