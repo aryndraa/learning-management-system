@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
             $table->string('full_name');
-            $table->string('name');
+            $table->string('name')->default("");
             $table->foreignId('major_id')->constrained('majors')->onDelete('cascade');
             $table->foreignId('classroom_id')->constrained('classrooms')->onDelete('cascade');
             $table->string('number');
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('address')->default("");
             $table->string('gender')->default("");
             $table->string('place_birth')->default("");
-            $table->date('birthday');
+            $table->date('birthday')->default(null);
             $table->string('phone')->default("");
             $table->string('email')->default("");
             $table->string('religion')->default("");
