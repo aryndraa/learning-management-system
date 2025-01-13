@@ -24,6 +24,13 @@ class AuthController extends BaseController
         return $this->sendResponse($success, 'Login successfully.');
     }
 
+    public function logout()
+    {
+        auth('admin')->logout();
+
+        return $this->sendResponse([], 'Logout successfully.');
+    }
+
     protected function respondWithToken($token)
     {
         return [
