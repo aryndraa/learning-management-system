@@ -79,5 +79,10 @@ class Teacher extends Model
     {
         return $this->morphMany(Announcement::class, 'sender');
     }
+
+    public function meetings() : HasMany
+    {
+        return $this->hasMany(Meeting::class);
+    }
 }
 

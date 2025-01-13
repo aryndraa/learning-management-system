@@ -48,4 +48,9 @@ class Subject extends Model
     {
         return  $this->hasMany(StudyGroup::class);
     }
+
+    public function meetings() : HasMany
+    {
+        return  $this->hasMany(Meeting::class);
+    }
 }

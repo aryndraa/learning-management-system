@@ -52,18 +52,23 @@ class Classroom extends Model
         return $this->hasMany(Assignment::class);
     }
 
-    public function classroomGroup () : HasOne
+    public function classroomGroup() : HasOne
     {
         return $this->hasOne(ClassroomGroup::class);
     }
 
-    public function subjectGroups () : HasMany
+    public function subjectGroups() : HasMany
     {
         return $this->hasMany(ClassroomGroup::class);
     }
 
-    public function studyGroups () : HasMany
+    public function studyGroups() : HasMany
     {
         return $this->hasMany(StudyGroup::class);
+    }
+
+    public function meetings(): HasMany
+    {
+        return $this->hasMany(Meeting::class);
     }
 }
