@@ -15,6 +15,15 @@ class Teacher extends Model
         "password"
     ];
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+    ];
+
     public function profile(): HasOne
     {
         return $this->hasOne(TeacherProfile::class);

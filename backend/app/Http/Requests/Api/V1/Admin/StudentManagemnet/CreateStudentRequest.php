@@ -22,7 +22,7 @@ class CreateStudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => ['required', 'string'],
+            'username' => ['required', 'string', 'unique:students,username'],
             'password' => ['required', 'string', 'min:8'],
         ];
     }
