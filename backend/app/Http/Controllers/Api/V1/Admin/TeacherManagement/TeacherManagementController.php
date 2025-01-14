@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Admin\TeacherManagement;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\Admin\TeacherManagement\CreateTeacherProfileRequest;
 use App\Http\Requests\Api\V1\Admin\TeacherManagement\CreateTeacherRequest;
 use App\Models\File;
 use App\Models\Teacher;
@@ -21,7 +22,7 @@ class TeacherManagementController extends Controller
 
     public function show(Teacher $teacher)
     {
-        $teacher->load(['profile', 'subjects', 'classroom']);
+        $teacher->load(['profile']);
 
         return response()->json($teacher);
     }
@@ -36,7 +37,7 @@ class TeacherManagementController extends Controller
         return response()->json($teacher);
     }
 
-    public function createTeacherProfile(Request $request, Teacher $teacher)
+    public function createTeacherProfile(CreateTeacherProfileRequest $request, Teacher $teacher)
     {
         if (TeacherProfile::query()->where('teacher_id', $teacher->id)->first()) {
             return response()->json([
@@ -44,7 +45,9 @@ class TeacherManagementController extends Controller
             ]);
         }
 
-        $teacherProfile = TeacherProfile::query()->create($request->validated());
+        $teacherProfile = TeacherProfile::query()->make($request->validated());
+        $teacherProfile->teacher()->associate($teacher);
+        $teacherProfile->save();
 
         if($request->hasFile('avatar')) {
             File::uploadFile($request->file('avatar'), $teacherProfile, 'avatar', 'teacher/avatars');

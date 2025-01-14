@@ -31,6 +31,7 @@ Route::prefix('admin')
                         Route::get('/', 'index')->name('index');
                         Route::get('/{teacher}', 'show')->name('show');
                         Route::post('', 'createTeacher')->name('createTeacher');
+                        Route::post('/{teacher}/profile', 'createTeacherProfile')->name('createTeacherProfile');
                     });
             });
     });
