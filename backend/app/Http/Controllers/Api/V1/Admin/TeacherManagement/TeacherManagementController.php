@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Admin\TeacherManagement;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\Admin\TeacherManagement\CreateTeacherRequest;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -23,11 +24,11 @@ class TeacherManagementController extends Controller
         return response()->json($teacher);
     }
 
-    public function createTeacher(Request $request)
+    public function createTeacher(CreateTeacherRequest $request)
     {
         $teacher = Teacher::query()->create([
             "username" => $request->input('username'),
-            "password" => Hash::make($request->input('password')),
+            "password" => $request->input('password'),
         ]);
 
         return response()->json($teacher);
