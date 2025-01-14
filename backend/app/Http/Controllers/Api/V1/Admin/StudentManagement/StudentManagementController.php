@@ -52,7 +52,7 @@ class StudentManagementController extends Controller
         $studentProfile->major()->associate($request['major_id']);
 
         if($request->hasFile('avatar')) {
-            File::uploadFile($request->file('avatar'), $studentProfile, 'avatar', 'avatars');
+            File::uploadFile($request->file('avatar'), $studentProfile, 'avatar', 'student/avatars');
         }
 
         $studentProfile->save();
