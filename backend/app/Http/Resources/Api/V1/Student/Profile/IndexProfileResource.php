@@ -28,8 +28,8 @@ class IndexProfileResource extends JsonResource
             "email"         => $this->email,
             "religion"      => $this->religion,
             "avatar"        => [
-                "id"        => $this->avatar->id,
-                "file_path" => $this->avatar->file_url
+                "id"        => $this->avatar->id ?? null,
+                "file_path" => $this->avatar->file_url ?? null,
             ],
             "major"         => [
                 "id"        => $this->major->id,
