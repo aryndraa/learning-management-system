@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Admin\StudentManagemnet\CreateStudentProfileRequest;
 use App\Http\Requests\Api\V1\Admin\StudentManagemnet\CreateStudentRequest;
 use App\Http\Resources\Api\V1\Admin\StudentManagement\IndexResource;
+use App\Http\Resources\Api\V1\Admin\StudentManagement\ShowStudentResource;
 use App\Models\File;
 use App\Models\Student;
 use App\Models\StudentProfile;
@@ -23,7 +24,9 @@ class StudentManagementController extends Controller
 
     public function show(Student $student)
     {
-        return response()->json($student);
+        $student->load(['profile', 'profile.avatar', 'profile.classroom', 'profile.major']);
+
+        return ShowStudentResource::make($student);
     }
 
     public function createStudent(CreateStudentRequest $request)
