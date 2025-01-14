@@ -15,4 +15,12 @@ class TeacherManagementController extends Controller
         return response()->json($teachers);
     }
 
+    public function show(Teacher $teacher)
+    {
+        $teacher->load(['profile', 'subjects', 'classroom']);
+
+        return response()->json($teacher);
+    }
+
+
 }
