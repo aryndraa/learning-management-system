@@ -52,7 +52,7 @@ export default function Login() {
           </div>
           <div>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col ">
-              <div className="flex flex-col gap-6 mb-12">
+              <div class  Name="flex flex-col gap-6 mb-12">
                 <AuthLabel
                   id="username"
                   type="text"

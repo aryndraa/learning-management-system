@@ -60,3 +60,4 @@ class StudentManagementController extends Controller
         return response()->json($studentProfile);
     }
 }
+
