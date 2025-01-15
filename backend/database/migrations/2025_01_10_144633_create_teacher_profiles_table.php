@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('teacher_id')->constrained('teachers')->onDelete('cascade');
             $table->string("full_name");
-            $table->string("name");
+            $table->string("name")->default("");
             $table->string("gender")->default("");
             $table->string("code")->unique();
             $table->string("phone")->default("");

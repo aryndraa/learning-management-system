@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Api\V1\Admin\StudentManagemnet;
+namespace App\Http\Requests\Api\V1\Admin\StudentManagement;
 
 use Illuminate\Foundation\Http\FormRequest;
 use function Symfony\Component\String\s;
 
-class CreateStudentProfileRequest extends FormRequest
+class UpSerProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
