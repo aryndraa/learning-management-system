@@ -34,7 +34,9 @@ class StudentManagementController extends Controller
     {
         $student = Student::query()->create($request->validated());
 
-        return response()->json($student);
+        return response()->json([
+            "message" => "Student created"
+        ]);
     }
 
     public function storeProfile(UpSerProfileRequest $request, Student $student)
@@ -58,7 +60,9 @@ class StudentManagementController extends Controller
 
         $studentProfile->save();
 
-        return response()->isSuccessful();
+        return response()->json([
+            'message' => 'Student profile has been created'
+        ]);
     }
 
     public function updateProfile(UpSerProfileRequest $request, Student $student, StudentProfile $studentProfile)
@@ -78,7 +82,9 @@ class StudentManagementController extends Controller
             File::uploadFile($request->file('avatar'), $studentProfile, 'avatar', 'student/avatars');
         }
 
-        return response()->isSuccessful();
+        return response()->json([
+            'message' => 'Student profile updated successfully'
+        ]);
     }
 }
 

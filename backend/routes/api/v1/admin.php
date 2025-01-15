@@ -20,8 +20,8 @@ Route::prefix('admin')
                     ->group(function () {
                         Route::get('/', 'index')->name('index');
                         Route::get('/{student}', 'show')->name('show');
-                        Route::post('', 'store')->name('createStudent');
-                        Route::post('/{student}/profile', 'storeProfile')->name('createStudentProfile');
+                        Route::post('', 'store')->name('store');
+                        Route::post('/{student}/profile', 'storeProfile')->name('storeProfile');
                     });
 
                 Route::controller(TeacherManagementController::class)

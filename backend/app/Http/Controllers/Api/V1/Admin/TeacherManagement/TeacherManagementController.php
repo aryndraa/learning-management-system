@@ -34,7 +34,9 @@ class TeacherManagementController extends Controller
             "password" => $request->input('password'),
         ]);
 
-        return response()->isSuccessful();
+        return response()->json([
+            "message" => "Teacher created"
+        ]);
     }
 
     public function createTeacherProfile(CreateTeacherProfileRequest $request, Teacher $teacher)
@@ -52,7 +54,9 @@ class TeacherManagementController extends Controller
         if($request->hasFile('avatar')) {
             File::uploadFile($request->file('avatar'), $teacherProfile, 'avatar', 'teacher/avatars');
         }
+
+        return response()->json([
+            "message" => "Teacher profile created"
+        ]);
     }
-
-
 }
