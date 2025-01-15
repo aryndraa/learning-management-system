@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Api\V1\Admin\TeacherManagement;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Admin\TeacherManagement\CreateTeacherProfileRequest;
 use App\Http\Requests\Api\V1\Admin\TeacherManagement\CreateTeacherRequest;
-use App\Http\Resources\Api\V1\Admin\TeacherManagement\ShowTeacherResource;
+use App\Http\Resources\Api\V1\Admin\TeacherManagement\IndexResource;
+use App\Http\Resources\Api\V1\Admin\TeacherManagement\ShowResource;
 use App\Models\File;
 use App\Models\Teacher;
 use App\Models\TeacherProfile;
@@ -14,16 +15,16 @@ class TeacherManagementController extends Controller
 {
     public function index()
     {
-        $teachers = Teacher::query()->with(['profile'])->get();
+        $teachers = Teacher::query()->with(['profile', 'profile.avatar'])->get();
 
-        return response()->json($teachers);
+        return IndexResource::collection($teachers);
     }
 
     public function show(Teacher $teacher)
     {
         $teacher->load(['profile', 'profile.avatar']);
 
-        return ShowTeacherResource::make($teacher);
+        return ShowResource::make($teacher);
     }
 
     public function createTeacher(CreateTeacherRequest $request)
