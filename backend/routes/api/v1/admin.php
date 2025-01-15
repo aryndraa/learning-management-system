@@ -22,6 +22,7 @@ Route::prefix('admin')
                         Route::get('/{student}', 'show')->name('show');
                         Route::post('', 'store')->name('store');
                         Route::post('/{student}/profile', 'storeProfile')->name('storeProfile');
+                        Route::post('/{student}/profile/{profile}', 'updateProfile')->name('updateProfile');
                     });
 
                 Route::controller(TeacherManagementController::class)
