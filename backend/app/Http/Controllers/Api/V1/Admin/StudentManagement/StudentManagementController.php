@@ -73,6 +73,8 @@ class StudentManagementController extends Controller
         $studentProfile->classroom()->associate($request['classroom_id']);
         $studentProfile->major()->associate($request['major_id']);
 
+        $studentProfile->save();
+
         if($request->hasFile('avatar')) {
             if ($studentProfile->avatar){
                 Storage::disk('public')->delete($studentProfile->avatar->file_path);

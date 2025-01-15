@@ -1066,7 +1066,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="312" parent="1" name="onclass">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-01-14.16:18:24</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-01-15.15:49:00</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="313" parent="1" name="mysql.infoschema">
@@ -1833,7 +1833,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="476" parent="328" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>2</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint unsigned|0s</StoredType>
@@ -2694,7 +2694,7 @@ tokenable_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="655" parent="345" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>3</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint unsigned|0s</StoredType>
@@ -2832,7 +2832,7 @@ tokenable_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="681" parent="346" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>2</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint unsigned|0s</StoredType>
@@ -3152,6 +3152,7 @@ tokenable_id</ColNames>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="747" parent="351" name="name">
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
@@ -3224,7 +3225,7 @@ tokenable_id</ColNames>
       <UnderlyingIndexName>teacher_profiles_email_unique</UnderlyingIndexName>
     </key>
     <column id="762" parent="352" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>2</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint unsigned|0s</StoredType>
