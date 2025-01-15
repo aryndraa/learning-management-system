@@ -65,15 +65,17 @@ class StudentManagementController extends Controller
         ]);
     }
 
-    public function updateProfile(UpSerProfileRequest $request, Student $student, StudentProfile $studentProfile)
+    public function updateProfile(UpSerProfileRequest $request, Student $student)
     {
-        $studentProfile->update($request->validated());
+        $studentProfile = StudentProfile::query()
+            ->where('student_id', $student->id)
+            ->first();
 
+        $studentProfile->update($request->validated());
         $studentProfile->student()->associate($student);
         $studentProfile->classroom()->associate($request['classroom_id']);
         $studentProfile->major()->associate($request['major_id']);
 
-        $studentProfile->save();
 
         if($request->hasFile('avatar')) {
             if ($studentProfile->avatar){
@@ -83,6 +85,8 @@ class StudentManagementController extends Controller
 
             File::uploadFile($request->file('avatar'), $studentProfile, 'avatar', 'student/avatars');
         }
+
+        $studentProfile->save();
 
         return response()->json([
             'message' => 'Student profile updated successfully'
