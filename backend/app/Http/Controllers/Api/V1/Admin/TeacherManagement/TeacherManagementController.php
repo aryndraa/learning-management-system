@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Api\V1\Admin\TeacherManagement;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Admin\TeacherManagement\CreateTeacherProfileRequest;
 use App\Http\Requests\Api\V1\Admin\TeacherManagement\CreateTeacherRequest;
+use App\Http\Resources\Api\V1\Admin\TeacherManagement\ShowTeacherResource;
 use App\Models\File;
 use App\Models\Teacher;
 use App\Models\TeacherProfile;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class TeacherManagementController extends Controller
 {
@@ -22,9 +21,9 @@ class TeacherManagementController extends Controller
 
     public function show(Teacher $teacher)
     {
-        $teacher->load(['profile']);
+        $teacher->load(['profile', 'profile.avatar']);
 
-        return response()->json($teacher);
+        return ShowTeacherResource::make($teacher);
     }
 
     public function createTeacher(CreateTeacherRequest $request)
@@ -34,7 +33,7 @@ class TeacherManagementController extends Controller
             "password" => $request->input('password'),
         ]);
 
-        return response()->json($teacher);
+        return response()->isSuccessful();
     }
 
     public function createTeacherProfile(CreateTeacherProfileRequest $request, Teacher $teacher)
