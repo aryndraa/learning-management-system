@@ -4,7 +4,7 @@ namespace App\Http\Requests\Api\V1\Admin\TeacherManagement;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateTeacherProfileRequest extends FormRequest
+class UpSerProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

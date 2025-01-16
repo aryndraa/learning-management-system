@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\V1\Admin\TeacherManagement;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\V1\Admin\TeacherManagement\CreateTeacherProfileRequest;
-use App\Http\Requests\Api\V1\Admin\TeacherManagement\CreateTeacherRequest;
+use App\Http\Requests\Api\V1\Admin\TeacherManagement\UpSerProfileRequest;
+use App\Http\Requests\Api\V1\Admin\TeacherManagement\StoreRequest;
 use App\Http\Resources\Api\V1\Admin\TeacherManagement\IndexResource;
 use App\Http\Resources\Api\V1\Admin\TeacherManagement\ShowResource;
 use App\Models\File;
@@ -29,7 +29,7 @@ class TeacherManagementController extends Controller
         return ShowResource::make($teacher);
     }
 
-    public function store(CreateTeacherRequest $request)
+    public function store(StoreRequest $request)
     {
         $teacher = Teacher::query()->create([
             "username" => $request->input('username'),
@@ -41,7 +41,7 @@ class TeacherManagementController extends Controller
         ]);
     }
 
-    public function storeProfile(CreateTeacherProfileRequest $request, Teacher $teacher)
+    public function storeProfile(UpSerProfileRequest $request, Teacher $teacher)
     {
         if (TeacherProfile::query()->where('teacher_id', $teacher->id)->first()) {
             return response()->json([
@@ -62,7 +62,7 @@ class TeacherManagementController extends Controller
         ]);
     }
 
-    public function updateProfile(Request $request, Teacher $teacher)
+    public function updateProfile(UpSerProfileRequest $request, Teacher $teacher)
     {
         $teacherProfile = TeacherProfile::query()
             ->where('teacher_id', $teacher->id)
