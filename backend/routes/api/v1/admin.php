@@ -31,9 +31,9 @@ Route::prefix('admin')
                     ->group(function () {
                         Route::get('/', 'index')->name('index');
                         Route::get('/{teacher}', 'show')->name('show');
-                        Route::post('', 'createTeacher')->name('createTeacher');
-                        Route::post('/{teacher}/profile', 'createTeacherProfile')->name('createTeacherProfile');
+                        Route::post('', 'store')->name('store');
+                        Route::post('/{teacher}/profile', 'storeProfile')->name('storeProfile');
+                        Route::patch('/{teacher}/profile', 'updateProfile')->name('updateProfile');
                     });
             });
     });
-

@@ -10,6 +10,8 @@ use App\Http\Resources\Api\V1\Admin\TeacherManagement\ShowResource;
 use App\Models\File;
 use App\Models\Teacher;
 use App\Models\TeacherProfile;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TeacherManagementController extends Controller
 {
@@ -27,7 +29,7 @@ class TeacherManagementController extends Controller
         return ShowResource::make($teacher);
     }
 
-    public function createTeacher(CreateTeacherRequest $request)
+    public function store(CreateTeacherRequest $request)
     {
         $teacher = Teacher::query()->create([
             "username" => $request->input('username'),
@@ -39,7 +41,7 @@ class TeacherManagementController extends Controller
         ]);
     }
 
-    public function createTeacherProfile(CreateTeacherProfileRequest $request, Teacher $teacher)
+    public function storeProfile(CreateTeacherProfileRequest $request, Teacher $teacher)
     {
         if (TeacherProfile::query()->where('teacher_id', $teacher->id)->first()) {
             return response()->json([
@@ -51,12 +53,37 @@ class TeacherManagementController extends Controller
         $teacherProfile->teacher()->associate($teacher);
         $teacherProfile->save();
 
-        if($request->hasFile('avatar')) {
+        if ($request->hasFile('avatar')) {
             File::uploadFile($request->file('avatar'), $teacherProfile, 'avatar', 'teacher/avatars');
         }
 
         return response()->json([
             "message" => "Teacher profile created"
+        ]);
+    }
+
+    public function updateProfile(Request $request, Teacher $teacher)
+    {
+        $teacherProfile = TeacherProfile::query()
+            ->where('teacher_id', $teacher->id)
+            ->first();
+
+        $teacherProfile->update($request->validated());
+        $teacherProfile->teacher()->associate($teacher);
+
+        if ($request->hasFile('avatar')) {
+            if ($teacherProfile->avatar) {
+                Storage::disk('public')->delete($teacherProfile->avatar->file_path);
+                $teacherProfile->avatar()->delete();
+            }
+
+            File::uploadFile($request->file('avatar'), $teacherProfile, 'avatar', 'teacher/avatars');
+        }
+
+        $teacherProfile->save();
+
+        return response()->json([
+            "message" => "Teacher profile updated"
         ]);
     }
 }

@@ -16,7 +16,7 @@ class IndexResource extends JsonResource
     {
         return [
             "username"  => $this->username,
-            "full_name" => $this->profile->full_name,
+            "full_name" => $this->profile->full_name ?? null,
             "avatar"    => [
                 "file_url" => $this->profile->avatar->file_url ?? null,
             ]

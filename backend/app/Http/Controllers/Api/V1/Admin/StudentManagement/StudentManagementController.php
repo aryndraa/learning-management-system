@@ -54,7 +54,7 @@ class StudentManagementController extends Controller
         $studentProfile->classroom()->associate($request['classroom_id']);
         $studentProfile->major()->associate($request['major_id']);
 
-        if($request->hasFile('avatar')) {
+        if ($request->hasFile('avatar')) {
             File::uploadFile($request->file('avatar'), $studentProfile, 'avatar', 'student/avatars');
         }
 
@@ -77,8 +77,8 @@ class StudentManagementController extends Controller
         $studentProfile->major()->associate($request['major_id']);
 
 
-        if($request->hasFile('avatar')) {
-            if ($studentProfile->avatar){
+        if ($request->hasFile('avatar')) {
+            if ($studentProfile->avatar) {
                 Storage::disk('public')->delete($studentProfile->avatar->file_path);
                 $studentProfile->avatar()->delete();
             }
@@ -93,4 +93,3 @@ class StudentManagementController extends Controller
         ]);
     }
 }
-
