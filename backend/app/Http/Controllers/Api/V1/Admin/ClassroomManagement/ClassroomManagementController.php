@@ -25,4 +25,10 @@ class ClassroomManagementController extends Controller
 
         return response()->json($classroom);
     }
+
+    public function show(Classroom $classroom) {
+        $classroom->load('teacher');
+
+        return response()->json($classroom);
+    }
 }
