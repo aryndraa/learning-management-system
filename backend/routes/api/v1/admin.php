@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\Admin\Auth\AuthController;
+use App\Http\Controllers\Api\V1\Admin\ClassroomManagement\ClassroomManagementController;
 use App\Http\Controllers\Api\V1\Admin\StudentManagement\StudentManagementController;
 use App\Http\Controllers\Api\V1\Admin\TeacherManagement\TeacherManagementController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,15 @@ Route::prefix('admin')
                         Route::post('', 'store')->name('store');
                         Route::post('/{teacher}/profile', 'storeProfile')->name('storeProfile');
                         Route::patch('/{teacher}/profile', 'updateProfile')->name('updateProfile');
+                    });
+
+                Route::controller(ClassroomManagementController::class)
+                    ->prefix('classroom-management')
+                    ->name('classroom-management.')
+                    ->group(function () {
+                        Route::get('/', 'index')->name('index');
+                        Route::get('/{classroom}', 'index')->name('show');
+                        Route::post('', 'index')->name('store');
                     });
             });
     });
