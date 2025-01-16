@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Admin\ClassroomManagement;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\Admin\ClassroomManagement\UpSerRequest;
 use App\Models\Classroom;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,12 @@ class ClassroomManagementController extends Controller
         return response()->json($classrooms);
     }
 
-    public function store(Request $request)
+    public function store(UpSerRequest $request)
     {
-        $classroom = Classroom::query()->create([$request->all()]);
+        $classroom = Classroom::query()->make($request->validated());
+        $classroom->teacher()->associate($request['teacher_id']);
+        $classroom->major()->associate($request['major_id']);
+        $classroom->save();
 
         return response()->json($classroom);
     }

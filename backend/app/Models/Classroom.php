@@ -27,7 +27,7 @@ class Classroom extends Model
         return $this->belongsTo(Major::class);
     }
 
-    public function teacher()
+    public function teacher() : BelongsTo
     {
         return $this->belongsTo(Teacher::class);
     }
