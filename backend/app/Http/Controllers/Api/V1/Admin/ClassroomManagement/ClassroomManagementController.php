@@ -27,7 +27,7 @@ class ClassroomManagementController extends Controller
     }
 
     public function show(Classroom $classroom) {
-        $classroom->load('teacher');
+        $classroom->load(['teacher.profile']);
 
         return response()->json($classroom);
     }
