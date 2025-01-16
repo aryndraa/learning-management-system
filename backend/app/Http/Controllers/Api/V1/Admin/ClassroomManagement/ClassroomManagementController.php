@@ -14,4 +14,11 @@ class ClassroomManagementController extends Controller
 
         return response()->json($classrooms);
     }
+
+    public function store(Request $request)
+    {
+        $classroom = Classroom::query()->create([$request->all()]);
+
+        return response()->json($classroom);
+    }
 }
