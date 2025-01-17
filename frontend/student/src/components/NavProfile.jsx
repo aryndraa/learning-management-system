@@ -35,7 +35,7 @@ export const NavProfile = () => {
       {loading ?
 
         <div className="ml-8 flex items-center gap-2 bg-neutral-100 py-2 px-2 rounded-full">
-          <span className="bg-neutral-200 rounded-full w-44 h-[46px]"></span>
+          <span className="bg-neutral-200 rounded-full w-36 h-[46px]"></span>
           <span className="bg-neutral-200 rounded-full w-[46px] h-[46px]"></span>
           <span className="bg-neutral-200 rounded-full w-[46px] h-[46px]"></span>
         </div>
@@ -43,7 +43,7 @@ export const NavProfile = () => {
         :
 
         <div className="ml-8 flex items-center gap-4 border border-border py-2 px-5 rounded-full relative">
-          <span className="text-base font-medium">{avatarProfile.name}</span>
+          <span className="text-base font-medium">{avatarProfile.name ?? "My Profile"}</span>
           {avatarProfile.avatar ?
             <img src={avatarProfile.avatar} alt=""
                  className="w-[42px] h-[42px] rounded-full object-center object-cover"/>

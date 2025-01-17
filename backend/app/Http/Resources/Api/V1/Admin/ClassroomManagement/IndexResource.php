@@ -16,10 +16,12 @@ class IndexResource extends JsonResource
     {
         return [
             "classroom" => $this->name,
-            "teacher" => [
-                "name" => $this->teacher->profile->name,
-                "code" => $this->teacher->profile->code,
-            ]
+            "major"     => $this->major->name,
+            "number" => $this->number != 0 ? $this->number : 0,
+            "teacher"   => [
+                "name"  => $this->teacher->profile->name,
+                "code"  => $this->teacher->profile->code,
+            ],
         ];
     }
 }

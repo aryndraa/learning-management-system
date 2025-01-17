@@ -16,7 +16,7 @@ class AvatarProfileResource extends JsonResource
     {
         return [
           "name"   => $this->full_name,
-          "avatar" => $this->avatar->file_url
+          "avatar" => $this->avatar->file_url ?? null
         ];
     }
 }

@@ -23,6 +23,7 @@ class UpSerRequest extends FormRequest
     {
         return [
             "name"       => ['required', 'string'],
+            "number"     => ['integer'],
             "major_id"   => ['required', 'integer', 'exists:majors,id'],
             "teacher_id" => ['required', 'integer', 'exists:teachers,id'],
         ];

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name')->default("");
             $table->foreignId('major_id')->constrained('majors')->onDelete('cascade');
             $table->foreignId('classroom_id')->constrained('classrooms')->onDelete('cascade');
-            $table->string('number');
+            $table->integer('number');
             $table->string('nis')->default("");
             $table->string('nisn')->default("");
             $table->string('address')->default("");

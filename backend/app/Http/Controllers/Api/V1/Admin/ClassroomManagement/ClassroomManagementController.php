@@ -14,7 +14,8 @@ class ClassroomManagementController extends Controller
     public function index()
     {
         $classrooms = Classroom::query()
-            ->with(['teacher.profile'])
+            ->with(['teacher.profile', 'major'])
+            ->orderBy('number')
             ->get();
 
         return IndexResource::collection($classrooms);
@@ -33,8 +34,10 @@ class ClassroomManagementController extends Controller
     }
 
     public function show(Classroom $classroom) {
-        $classroom->load(['teacher.profile']);
+        $classroom->load(['teacher.profile', 'major', 'students']);
 
-        return ShowResource::make($classroom);
+        return [
+            "classroom" => ShowResource::make($classroom),
+        ];
     }
 }

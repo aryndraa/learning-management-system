@@ -42,8 +42,8 @@ Route::prefix('admin')
                     ->name('classroom-management.')
                     ->group(function () {
                         Route::get('/', 'index')->name('index');
-                        Route::get('/{classroom}', 'index')->name('show');
-                        Route::post('', 'index')->name('store');
+                        Route::get('/{classroom}', 'show')->name('show');
+                        Route::post('', 'store')->name('store');
                     });
             });
     });

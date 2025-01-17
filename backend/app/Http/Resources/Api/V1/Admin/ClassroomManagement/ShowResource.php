@@ -4,6 +4,7 @@ namespace App\Http\Resources\Api\V1\Admin\ClassroomManagement;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use function PHPSTORM_META\map;
 
 class ShowResource extends JsonResource
 {
@@ -15,11 +16,22 @@ class ShowResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-          "classroom" => $this->name,
-          "teacher" => [
-              "name" => $this->teacher->profile->name,
-              "code" => $this->teacher->profile->code,
-          ]
+            "name" => $this->name,
+            "major" => $this->major->name,
+            "number" => $this->number != 0 ? $this->number : 0,
+            "teacher" => [
+                "name" => $this->teacher->profile->name,
+                "code" => $this->teacher->profile->code,
+            ],
+            "students" => $this->students->map(function($student) {
+                return [
+                    "name" => $student->full_name,
+                    "number" => $student->number,
+                    "avatar" => [
+                        "file_url" => $student->avatar->file_url ?? null,
+                    ]
+                ];
+            })
         ];
     }
 }
