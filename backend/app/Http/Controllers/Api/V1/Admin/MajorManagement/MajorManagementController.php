@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Admin\MajorManagement;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\Admin\MajorManagement\UpSerRequest;
 use App\Models\Major;
 use Illuminate\Http\Request;
 
@@ -18,16 +19,16 @@ class MajorManagementController extends Controller
         return response()->json([$majors]);
     }
 
-    public function store(Request $request)
+    public function store(UpSerRequest $request)
     {
-        $major = Major::query()->create([$request->all()]);
+        $major = Major::query()->create($request->validated());
 
         return response()->json([
             "message" => "major created"
         ]);
     }
 
-    public function update(Request $request, Major $major)
+    public function update(UpSerRequest $request, Major $major)
     {
         $major->update($request->all());
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\Admin\Auth\AuthController;
 use App\Http\Controllers\Api\V1\Admin\ClassroomManagement\ClassroomManagementController;
+use App\Http\Controllers\Api\V1\Admin\MajorManagement\MajorManagementController;
 use App\Http\Controllers\Api\V1\Admin\StudentManagement\StudentManagementController;
 use App\Http\Controllers\Api\V1\Admin\SubjectManagement\SubjectManagementController;
 use App\Http\Controllers\Api\V1\Admin\TeacherManagement\TeacherManagementController;
@@ -62,6 +63,16 @@ Route::prefix('admin')
                         Route::post('/{subject}/teacher', 'addTeacher')->name('addTeacher');
                         Route::delete('/{subject}/teacher', 'removeTeacher')->name('removeTeacher');
                         Route::delete('/{subject}', 'destroy')->name('destroy');
+                    });
+
+                Route::controller(MajorManagementController::class)
+                    ->prefix('major-management')
+                    ->name('major-management.')
+                    ->group(function () {
+                        Route::get('/', 'index')->name('index');
+                        Route::post('', 'store')->name('store');
+                        Route::patch('/{major}', 'update')->name('update');
+                        Route::delete('/{major}', 'destroy')->name('destroy');
                     });
             });
     });

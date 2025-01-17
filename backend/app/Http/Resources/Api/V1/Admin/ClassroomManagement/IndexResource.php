@@ -15,6 +15,7 @@ class IndexResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            "id" => $this->id,
             "classroom" => $this->name,
             "major"     => $this->major->name,
             "number" => $this->number != 0 ? $this->number : 0,

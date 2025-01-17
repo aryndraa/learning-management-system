@@ -28,14 +28,14 @@ class UpSerProfileRequest extends FormRequest
             'full_name' => ['required', 'string', 'max:255'],
             'name' => ['string', 'max:255'],
             'number' => ['required', 'string'],
-            'nis' => ['string', 'min:1', 'unique:students,nis'],
-            'nisn' => ['string', 'min:1', 'unique:students,nisn'],
+            'nis' => ['string', 'min:1', 'unique:student_profiles,nis'],
+            'nisn' => ['string', 'min:1', 'unique:student_profiles,nisn'],
             'address' => ['string', 'max:255'],
             'gender' => ['string', 'max:255'],
             'place_of_birth' => ['string', 'max:255'],
             'birthday' => ['date', 'max:255'],
-            'phone' => ['string', 'max:255', 'unique:students,phone'],
-            'email' => ['string', 'email', 'max:255', 'unique:students,email'],
+            'phone' => ['string', 'max:255', 'unique:student_profiles,phone'],
+            'email' => ['string', 'email', 'max:255', 'unique:student_profiles,email'],
             'religion' => ['string', 'max:255'],
         ];
     }

@@ -18,10 +18,10 @@ class IndexResource extends JsonResource
             'id' => $this->id,
             'username' => $this->username,
             'profile' => [
-                "full_name" => $this->profile->full_name,
-                "classroom" => $this->profile->classroom->name,
-                "major" => $this->profile->major->name,
-            ]
+                "full_name" => $this->profile->full_name ?? null,
+                "classroom" => $this->profile->classroom->name ?? null,
+                "major"     => $this->profile->major->name ?? null,
+            ] ?? null
         ];
     }
 }
