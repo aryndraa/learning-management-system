@@ -60,6 +60,7 @@ Route::prefix('admin')
                         Route::post('/', 'store')->name('store');
                         Route::patch('/{subject}', 'update')->name('update');
                         Route::post('/{subject}/teacher', 'addTeacher')->name('addTeacher');
+                        Route::delete('/{subject}/teacher', 'removeTeacher')->name('removeTeacher');
                         Route::delete('/{subject}', 'destroy')->name('destroy');
                     });
             });

@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Api\V1\Admin\SubjectManagement;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\V1\Admin\SubjectManagement\AddTeacherRequest;
+use App\Http\Requests\Api\V1\Admin\SubjectManagement\TeacherRequest;
 use App\Http\Requests\Api\V1\Admin\SubjectManagement\UpSerRequest;
 use App\Http\Resources\Api\V1\Admin\SubjectManagement\indexResource;
 use App\Http\Resources\Api\V1\Admin\SubjectManagement\ShowResource;
 use App\Models\Classroom;
 use App\Models\Subject;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class SubjectManagementController extends Controller
@@ -47,12 +48,29 @@ class SubjectManagementController extends Controller
         ]);
     }
 
-    public function addTeacher(AddTeacherRequest $request, Subject $subject)
+    public function addTeacher(TeacherRequest $request, Subject $subject)
     {
         $subject->teachers()->syncWithoutDetaching($request->teacher_id);
 
         return response()->json([
             "message" => "Teacher added"
+        ]);
+    }
+
+    public function removeTeacher(TeacherRequest $request, Subject $subject)
+    {
+        $teacherId = $request->teacher_id;
+
+        if (!$subject->teachers()->find($teacherId)) {
+            return response()->json([
+                "message" => "Teacher not found on Subject"
+            ]);
+        }
+
+        $subject->teachers()->detach($teacherId);
+
+        return response()->json([
+            "message" => "Teacher removed"
         ]);
     }
 
