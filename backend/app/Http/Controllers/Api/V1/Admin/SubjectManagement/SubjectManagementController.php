@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api\V1\Admin\SubjectManagement;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\Admin\SubjectManagement\AddTeacherRequest;
+use App\Http\Requests\Api\V1\Admin\SubjectManagement\UpSerRequest;
 use App\Http\Resources\Api\V1\Admin\SubjectManagement\indexResource;
 use App\Http\Resources\Api\V1\Admin\SubjectManagement\ShowResource;
 use App\Models\Classroom;
@@ -27,29 +29,27 @@ class SubjectManagementController extends Controller
         return ShowResource::make($subject);
     }
 
-    public function store(Request $request)
+    public function store(UpSerRequest $request)
     {
-        $subject = Subject::query()->create($request->all());
+        $subject = Subject::query()->create($request->validated());
 
         return response()->json([
             "message" => "Subject created"
         ]);
     }
 
-    public function update(Request $request, Subject $subject)
+    public function update(UpSerRequest $request, Subject $subject)
     {
-        $subject->update($request->all());
+        $subject->update($request->validated());
 
         return response()->json([
             "message" => "Subject updated"
         ]);
     }
 
-    public function addTeacher(Request $request, Subject $subject)
+    public function addTeacher(AddTeacherRequest $request, Subject $subject)
     {
-
         $subject->teachers()->syncWithoutDetaching($request->teacher_id);
-
 
         return response()->json([
             "message" => "Teacher added"
