@@ -44,6 +44,7 @@ Route::prefix('admin')
                         Route::get('/', 'index')->name('index');
                         Route::get('/{classroom}', 'show')->name('show');
                         Route::post('', 'store')->name('store');
+                        Route::patch('/{classroom}', 'update')->name('update');
                     });
             });
     });

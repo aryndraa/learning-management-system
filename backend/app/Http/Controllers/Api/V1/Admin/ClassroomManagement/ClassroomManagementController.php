@@ -21,6 +21,14 @@ class ClassroomManagementController extends Controller
         return IndexResource::collection($classrooms);
     }
 
+    public function show(Classroom $classroom) {
+        $classroom->load(['teacher.profile', 'major', 'students']);
+
+        return [
+            "classroom" => ShowResource::make($classroom),
+        ];
+    }
+
     public function store(UpSerRequest $request)
     {
         $classroom = Classroom::query()->make($request->validated());
@@ -33,11 +41,16 @@ class ClassroomManagementController extends Controller
         ]);
     }
 
-    public function show(Classroom $classroom) {
-        $classroom->load(['teacher.profile', 'major', 'students']);
+    public function update(UpSerRequest $request, Classroom $classroom)
+    {
+        $classroom->update($request->validated());
+        $classroom->teacher()->associate($request['teacher_id']);
+        $classroom->major()->associate($request['major_id']);
+        $classroom->save();
 
-        return [
-            "classroom" => ShowResource::make($classroom),
-        ];
+        return response()->json([
+            "message" => "classroom updated"
+        ]);
     }
+
 }
