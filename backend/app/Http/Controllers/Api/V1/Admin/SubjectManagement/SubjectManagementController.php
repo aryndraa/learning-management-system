@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1\Admin\SubjectManagement;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\V1\Admin\SubjectManagement\indexResource;
+use App\Http\Resources\Api\V1\Admin\SubjectManagement\ShowResource;
 use App\Models\Classroom;
 use App\Models\Subject;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class SubjectManagementController extends Controller
     {
         $subject->load('teachers.profile');
 
-        return response()->json($subject);
+        return ShowResource::make($subject);
     }
 
     public function store(Request $request)
