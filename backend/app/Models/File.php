@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class File extends Model
 {
@@ -46,5 +47,17 @@ class File extends Model
             'file_type'        => $fileType,
         ]);
     }
+
+    public static function updateFile(UploadedFile $file, Model $model, $relation, $directory)
+    {
+        if ($model->$relation) {
+            Storage::disk('public')->delete($model->$relation->file_path);
+            $model->$relation->delete();
+        }
+
+        return self::uploadFile($file, $model, $relation, $directory);
+    }
+
+
 
 }

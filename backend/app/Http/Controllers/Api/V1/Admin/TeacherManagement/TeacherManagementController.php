@@ -72,12 +72,7 @@ class TeacherManagementController extends Controller
         $teacherProfile->teacher()->associate($teacher);
 
         if ($request->hasFile('avatar')) {
-            if ($teacherProfile->avatar) {
-                Storage::disk('public')->delete($teacherProfile->avatar->file_path);
-                $teacherProfile->avatar()->delete();
-            }
-
-            File::uploadFile($request->file('avatar'), $teacherProfile, 'avatar', 'teacher/avatars');
+            File::updateFile($request->file('avatar'), $teacherProfile, 'avatar', 'teacher/avatars');
         }
 
         $teacherProfile->save();

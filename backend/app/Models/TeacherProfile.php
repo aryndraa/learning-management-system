@@ -28,4 +28,5 @@ class TeacherProfile extends Model
         return $this->morphOne(File::class, 'related');
     }
 
+
 }

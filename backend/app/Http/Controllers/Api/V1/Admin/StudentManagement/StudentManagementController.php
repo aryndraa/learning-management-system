@@ -78,12 +78,7 @@ class StudentManagementController extends Controller
 
 
         if ($request->hasFile('avatar')) {
-            if ($studentProfile->avatar) {
-                Storage::disk('public')->delete($studentProfile->avatar->file_path);
-                $studentProfile->avatar()->delete();
-            }
-
-            File::uploadFile($request->file('avatar'), $studentProfile, 'avatar', 'student/avatars');
+            File::updateFile($request->file('avatar'), $studentProfile, 'avatar', 'student/avatars');
         }
 
         $studentProfile->save();
