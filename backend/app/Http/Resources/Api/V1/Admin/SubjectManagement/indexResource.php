@@ -18,7 +18,7 @@ class indexResource extends JsonResource
             "id"             => $this->id,
             "name"           => $this->name,
             "code"           => $this->code,
-            "teachers_count" => $this->teachers_count
+            "total_teachers" => $this->teachers_count
         ];
     }
 }

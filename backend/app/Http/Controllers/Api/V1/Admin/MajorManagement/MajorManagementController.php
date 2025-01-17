@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1\Admin\MajorManagement;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Admin\MajorManagement\UpSerRequest;
+use App\Http\Resources\Api\V1\Admin\MajorManagement\IndexResource;
 use App\Models\Major;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class MajorManagementController extends Controller
             ->withCount('students')
             ->get();
 
-        return response()->json([$majors]);
+        return IndexResource::collection($majors);
     }
 
     public function store(UpSerRequest $request)
