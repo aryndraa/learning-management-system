@@ -25,9 +25,9 @@ class UpSerProfileRequest extends FormRequest
             "full_name" => ['required', 'string'],
             'name'      => ['string'],
             'gender'    => ['string'],
-            'code'      => ['required', 'string'],
+            'code'      => ['required', 'string', 'unique:teachers,code'],
             'phone'     => ['string'],
-            'email'     => ['string'],
+            'email'     => ['string', 'unique:teachers,email'],
         ];
     }
 }

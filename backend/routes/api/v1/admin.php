@@ -59,8 +59,8 @@ Route::prefix('admin')
                         Route::get('/{subject}', 'show')->name('show');
                         Route::post('/', 'store')->name('store');
                         Route::patch('/{subject}', 'update')->name('update');
+                        Route::post('/{subject}/teacher', 'addTeacher')->name('addTeacher');
                         Route::delete('/{subject}', 'destroy')->name('destroy');
                     });
-
             });
     });
