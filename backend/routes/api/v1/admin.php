@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\Admin\Auth\AuthController;
 use App\Http\Controllers\Api\V1\Admin\ClassroomManagement\ClassroomManagementController;
 use App\Http\Controllers\Api\V1\Admin\StudentManagement\StudentManagementController;
+use App\Http\Controllers\Api\V1\Admin\SubjectManagement\SubjectManagementController;
 use App\Http\Controllers\Api\V1\Admin\TeacherManagement\TeacherManagementController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,5 +47,15 @@ Route::prefix('admin')
                         Route::post('', 'store')->name('store');
                         Route::patch('/{classroom}', 'update')->name('update');
                     });
+
+                Route::controller(SubjectManagementController::class)
+                    ->prefix('subject-management')
+                    ->name('subject-management.')
+                    ->group(function () {
+                        Route::get('/', 'index')->name('index');
+                        Route::get('/{subject}', 'show')->name('show');
+                        Route::post('/', 'store')->name('store');
+                    });
+
             });
     });
