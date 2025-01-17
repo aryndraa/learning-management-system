@@ -12,6 +12,7 @@ class SubjectManagementController extends Controller
     public function index()
     {
         $subjects = Subject::query()
+            ->withCount('teachers')
             ->get();
 
         return response()->json($subjects);
@@ -31,5 +32,21 @@ class SubjectManagementController extends Controller
         ]);
     }
 
+    public function update(Request $request, Subject $subject)
+    {
+        $subject->update($request->all());
 
+        return response()->json([
+            "message" => "Subject updated"
+        ]);
+    }
+
+    public function destroy(Subject $subject)
+    {
+        $subject->delete();
+
+        return response()->json([
+            "message" => "Subject deleted"
+        ]);
+    }
 }

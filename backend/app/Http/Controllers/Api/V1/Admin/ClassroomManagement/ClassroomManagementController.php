@@ -53,4 +53,11 @@ class ClassroomManagementController extends Controller
         ]);
     }
 
+    public function destroy(Classroom $classroom)
+    {
+        $classroom->delete();
+
+        return response()->json(['message' => 'classroom deleted']);
+    }
+
 }

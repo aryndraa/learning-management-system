@@ -86,4 +86,18 @@ class TeacherManagementController extends Controller
             "message" => "Teacher profile updated"
         ]);
     }
+
+    public function destroy(Teacher $teacher)
+    {
+        $teacherProfile = TeacherProfile::query()
+            ->where('teacher_id', $teacher->id)
+            ->first();
+
+        $teacherProfile->delete();
+        $teacher->delete();
+
+        return response()->json([
+            "message" => "Teacher profile deleted"
+        ]);
+    }
 }

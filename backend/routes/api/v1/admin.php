@@ -25,6 +25,7 @@ Route::prefix('admin')
                         Route::post('', 'store')->name('store');
                         Route::post('/{student}/profile', 'storeProfile')->name('storeProfile');
                         Route::patch('/{student}/profile', 'updateProfile')->name('updateProfile');
+                        Route::delete('/{student}', 'destroy')->name('destroy');
                     });
 
                 Route::controller(TeacherManagementController::class)
@@ -36,6 +37,7 @@ Route::prefix('admin')
                         Route::post('', 'store')->name('store');
                         Route::post('/{teacher}/profile', 'storeProfile')->name('storeProfile');
                         Route::patch('/{teacher}/profile', 'updateProfile')->name('updateProfile');
+                        Route::delete('/{teacher}', 'destroy')->name('destroy');
                     });
 
                 Route::controller(ClassroomManagementController::class)
@@ -46,6 +48,7 @@ Route::prefix('admin')
                         Route::get('/{classroom}', 'show')->name('show');
                         Route::post('', 'store')->name('store');
                         Route::patch('/{classroom}', 'update')->name('update');
+                        Route::delete('/{classroom}', 'destroy')->name('destroy');
                     });
 
                 Route::controller(SubjectManagementController::class)
@@ -55,6 +58,8 @@ Route::prefix('admin')
                         Route::get('/', 'index')->name('index');
                         Route::get('/{subject}', 'show')->name('show');
                         Route::post('/', 'store')->name('store');
+                        Route::patch('/{subject}', 'update')->name('update');
+                        Route::delete('/{subject}', 'destroy')->name('destroy');
                     });
 
             });

@@ -92,4 +92,18 @@ class StudentManagementController extends Controller
             'message' => 'Student profile updated successfully'
         ]);
     }
+
+    public function destroy(Student $student)
+    {
+        $studentProfile = StudentProfile::query()
+            ->where('student_id', $student->id)
+            ->first();
+
+        $studentProfile->delete();
+        $student->delete();
+
+        return response()->json([
+            'message' => 'Student has been deleted'
+        ]);
+    }
 }
