@@ -2,7 +2,7 @@ import {Helmet} from "react-helmet";
 import {useTranslation} from "react-i18next";
 import {useForm} from "react-hook-form";
 import AuthLabel from "../../components/form/AuthLabel.jsx";
-import loginSVG from "../../assets/login.svg";
+import loginSVG from "../../assets/studentLogin.svg";
 import auth from '../../api/auth.js'
 import {useState} from "react";
 import { toast, ToastContainer } from "react-toastify";
