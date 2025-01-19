@@ -43,8 +43,8 @@ export function Login() {
 
         <ToastContainer position="top-center" autoClose={3000}/>
 
-        <div className="flex  md:items-center md:mt-0 min-h-[80vh] lg:gap-24 justify-between ">
-          <div className="w-full lg:w-[40%]">
+        <div className="flex md:items-center md:mt-0 min-h-[80vh] lg:gap-24 justify-center  ">
+          <div className="w-full lg:w-[42%] bg-white px-8 py-10 rounded-lg">
             <div className="mb-6 md:mb-8">
               <h1
                 className="text-3xl md:text-4xl font-medium tracking-wider mb-1 md:mb-2 leading-[1.4]">{t('loginPage.greeting')}</h1>
@@ -102,7 +102,6 @@ export function Login() {
             </div>
 
           </div>
-
         </div>
       </div>
     </>

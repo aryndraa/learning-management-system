@@ -26,7 +26,7 @@ export default {
         success : "#0FD45B",
         warning : "#FFBF00",
         danger  : "#D9333D",
-        background : "#F9F9F9"
+        background : "#F8F8FA"
       }
     },
   },

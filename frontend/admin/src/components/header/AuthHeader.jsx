@@ -9,7 +9,7 @@ export const AuthHeader = () => {
 
   return (
     <>
-      <div className="flex px-4 md:px-12 xl:px-24 py-6 md:py-8 justify-between items-center bg-white ">
+      <div className="flex px-4 md:px-12 xl:px-24 py-6 md:py-8 justify-between items-center bg-background ">
         <Logo/>
         <div className="flex items-center">
           <div className="pr-2 md:pr-6">
