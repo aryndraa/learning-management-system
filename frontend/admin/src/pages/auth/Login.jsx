@@ -43,7 +43,7 @@ export function Login() {
 
         <ToastContainer position="top-center" autoClose={3000}/>
 
-        <div className="flex items-center md:mt-0 min-h-[95vh] md:min-h-screen md:pt-12  justify-center    ">
+        <div className="flex  md:mt-0 min-h-[95vh] pt-28 md:items-center  md:min-h-screen md:pt-12  justify-center    ">
           <div className="w-full lg:w-[42%] bg-white px-4 md:px-8 py-8 md:py-10 rounded-lg h-fit">
             <div className="mb-6 md:mb-8">
               <h1
