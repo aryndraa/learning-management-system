@@ -43,12 +43,12 @@ export function Login() {
 
         <ToastContainer position="top-center" autoClose={3000}/>
 
-        <div className="flex md:items-center md:mt-0 min-h-[80vh] lg:gap-24 justify-center  ">
-          <div className="w-full lg:w-[42%] bg-white px-8 py-10 rounded-lg">
+        <div className="flex items-center md:mt-0 min-h-[95vh] md:min-h-screen md:pt-12  justify-center    ">
+          <div className="w-full lg:w-[42%] bg-white px-4 md:px-8 py-8 md:py-10 rounded-lg h-fit">
             <div className="mb-6 md:mb-8">
               <h1
-                className="text-3xl md:text-4xl font-medium tracking-wider mb-1 md:mb-2 leading-[1.4]">{t('loginPage.greeting')}</h1>
-              <p className='text-base md:text-lg'>{t('loginPage.subtitle')}</p>
+                className="text-2xl md:text-4xl font-medium tracking-wider mb-1 md:mb-2 leading-[1.4]">{t('loginPage.greeting')}</h1>
+              <p className='text-sm md:text-lg'>{t('loginPage.subtitle')}</p>
             </div>
             <div>
               <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col ">

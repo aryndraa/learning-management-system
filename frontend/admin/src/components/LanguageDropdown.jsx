@@ -26,18 +26,18 @@ const LanguageDropdown = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center gap-1 md:gap-2 text-font-300 cursor-pointer"
         >
-          <FiGlobe className="text-lg md:text-2xl"/>
-          <p className="text-sm md:text-lg font-medium uppercase">{i18n.language}</p>
+          <FiGlobe className="text-xl md:text-2xl"/>
+          <p className="text-base md:text-lg font-medium uppercase">{i18n.language}</p>
           <FaChevronDown  className="hidden md:block"/>
         </div>
 
         {isOpen && (
-          <div className="absolute mt-4 rounded-md bg-white p-4 z-10 w-56 shadow-md">
+          <div className="absolute mt-4 rounded-md bg-white py-2 px-4 z-10 w-44 -left-4 shadow-md">
             {languages.map((lang) => (
               <button
                 key={lang.code}
                 onClick={() => changeLanguage(lang.code)}
-                className={`block w-full text-left py-1 px-2 ${
+                className={`block w-full text-left py-1  text-sm md:text-base ${
                   i18n.language === lang.code ? 'text-primary font-medium' : ''
                 } `}
               >

@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 const AuthLabel = (props) => {
   return (
     <div className="flex flex-col gap-2 w-full">
-      <label htmlFor={props.id} className="text-lg text-font-100 capitalize">{props.name}</label>
+      <label htmlFor={props.id} className="text-sm md:text-lg text-font-100 capitalize">{props.name}</label>
       <input
         type={props.type}
         id={props.id}
         placeholder={`${props.placeholder} ${props.name}!`}
-        className="bg-white border border-font-100 p-3 rounded-lg placeholder:text-font-100 focus:outline-none"
+        className="bg-white border border-font-100 p-3 rounded-lg placeholder:text-font-100 focus:outline-none placeholder:text-sm md:placeholder:text-base text-sm md:text-base"
         {...props.register(props.id, props.validation)}
       />
       {props.error && <p className="text-red-500 text-sm mt-1">{props.error.message}</p>}
