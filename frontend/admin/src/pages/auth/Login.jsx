@@ -4,6 +4,7 @@ import {useState} from "react";
 import {useForm} from "react-hook-form";
 import {toast, ToastContainer} from "react-toastify";
 import {Helmet} from "react-helmet";
+import auth from "../../api/auth.js";
 
 export function Login() {
   const  { t } = useTranslation();
@@ -19,19 +20,19 @@ export function Login() {
   const onSubmit = async (data) => {
     setLoading(true);
 
-    // try {
-    //   const userData = await auth.login(data.username, data.password);
-    //   toast.info("Login successfully");
-    //   console.log("login successfully : ", userData);
-    //   setLoading(false);
-    //
-    //   window.location.replace(import.meta.env.VITE_APP_URL);
-    // } catch (error) {
-    //   toast.error("username atau password salah");
-    //   setLoading(false);
-    //
-    //   setError(error);
-    // }
+    try {
+      const userData = await auth.login(data.username, data.password);
+      toast.info("Login successfully");
+      console.log("login successfully : ", userData);
+      setLoading(false);
+    
+      window.location.replace(import.meta.env.VITE_APP_URL);
+    } catch (error) {
+      toast.error("username atau password salah");
+      setLoading(false);
+    
+      setError(error);
+    }
   };
 
   return (
@@ -47,7 +48,10 @@ export function Login() {
           <div className="w-full lg:w-[42%] bg-white px-4 md:px-8 py-8 md:py-10 rounded-lg h-fit">
             <div className="mb-6 md:mb-8">
               <h1
-                className="text-2xl md:text-4xl font-medium tracking-wider mb-1 md:mb-2 leading-[1.4]">{t('loginPage.greeting')}</h1>
+                className="text-2xl md:text-3xl font-medium tracking-wider mb-1 md:mb-2 leading-[1.4]"
+                >
+                {t('loginPage.greeting')}
+              </h1>
               <p className='text-sm md:text-lg'>{t('loginPage.subtitle')}</p>
             </div>
             <div>
