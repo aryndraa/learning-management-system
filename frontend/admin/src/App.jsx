@@ -3,7 +3,8 @@ import AuthMiddleware from "./middlewares/AuthMiddleware.jsx";
 import {Login} from "./pages/auth/Login.jsx";
 import AuthLayout from "./layouts/AuthLayout.jsx";
 import auth from './api/auth.js';
-import { Home } from '../../student/src/pages/Home.jsx';
+import Home from './pages/Home.jsx';
+import DefaultLayout from './layouts/DefaultLayout.jsx';
 
 function App() {
 
@@ -26,7 +27,17 @@ function App() {
               }
             />
 
-            <Route path='/' element={Home}/>
+            <Route
+              path="*"
+              element={
+                <DefaultLayout>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                  </Routes>
+                </DefaultLayout>
+              }
+            />
+
           </Routes>
 
         </AuthMiddleware>
