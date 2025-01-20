@@ -5,6 +5,11 @@ import AuthLayout from "./layouts/AuthLayout.jsx";
 import auth from './api/auth.js';
 import Home from './pages/Home.jsx';
 import DefaultLayout from './layouts/DefaultLayout.jsx';
+import Classroom from './pages/classroom/Classroom.jsx';
+import Student from './pages/student/Student.jsx';
+import Teacher from './pages/teacher/teacher.jsx';
+import Major from './pages/Major/MAjor.jsx';
+import Subject from './pages/subject/Subject.jsx';
 
 function App() {
 
@@ -33,6 +38,11 @@ function App() {
                 <DefaultLayout>
                   <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/classroom" element={<Classroom />} />
+                    <Route path="/student" element={<Student />} />
+                    <Route path="/major" element={<Major />} />
+                    <Route path="/teacher" element={<Teacher />} />
+                    <Route path="/subject" element={<Subject />} />
                   </Routes>
                 </DefaultLayout>
               }
