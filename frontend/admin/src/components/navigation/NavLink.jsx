@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom"
 
-const NavLink = ({ link }) => {
+const NavLink = ({ link, isClose = false }) => {
 
     const location = useLocation()
 
@@ -9,7 +9,9 @@ const NavLink = ({ link }) => {
         location.pathname == link.path ? "bg-primary text-white" : "bg-transparent text-font-100"
       }`}>
           <span className="text-2xl">{link.icon}</span>
-          {link.name}
+          <span className={`${isClose ? "hidden" : "block"}`}>
+            {link.name}
+          </span>
       </Link>
     )
 }

@@ -7,13 +7,14 @@ import Sidebar from "./Sidebar";
 import { useState } from "react";
 import Navigation from "./Navigation";
 
-const Navbar = () => {
+const Navbar = ({sideClose = false}) => {
 
   const [sideActive, setSideActive] = useState(false)
-
   return (
     <>
-      <div className="bg-white flex lg:flex-col justify-between lg:justify-normal items-center lg:items-center px-5  py-5 md:py-6 relative lg:w-64 lg:fixed top-0 left-0 bottom-0 lg:m-4 lg:rounded-lg lg:shadow  ">
+      <div className={`bg-white flex lg:flex-col justify-between lg:justify-normal items-center lg:items-center px-5  py-5 md:py-6 relative lg:fixed top-0 left-0 bottom-0 lg:m-4 lg:rounded-lg lg:shadow ${
+        sideClose ? "lg:w-fit" : "lg:w-64 "
+      } `}>
           <button 
             className="text-2xl absolute top-1/2 transform -translate-y-1/2 lg:hidden"
             onClick={() => {setSideActive(!sideActive)}}
@@ -21,10 +22,10 @@ const Navbar = () => {
             <TfiMenu/>
           </button>
           <div className="m-auto lg:m-0 lg:mb-8">
-              <Logo/>
+              <Logo isClose={sideClose}/>
           </div>
           <div className="hidden lg:block lg:w-full">
-            <Navigation/>
+            <Navigation isClose={sideClose}/>
           </div>
       </div>
 

@@ -4,7 +4,7 @@ import { MdClass } from "react-icons/md";
 import { IoPeople } from "react-icons/io5";
 import { FaChalkboardTeacher, FaGlobe, FaSwatchbook } from "react-icons/fa";
 
-const Navigation = () => {
+const Navigation = ({isClose = false}) => {
 
     const links = [
       {
@@ -43,7 +43,7 @@ const Navigation = () => {
       <ul className="px-5 lg:px-0">
           {links.map((link, index) => (
             <li key={index}>
-              <NavLink link={link}/>
+              <NavLink link={link} isClose={isClose}/>
             </li>
           ))}
       </ul>
