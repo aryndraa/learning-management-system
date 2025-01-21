@@ -20,7 +20,7 @@ const Navbar = () => {
             >
             <TfiMenu/>
           </button>
-          <div className="m-auto lg:m-0 lg:mb-6">
+          <div className="m-auto lg:m-0 lg:mb-8">
               <Logo/>
           </div>
           <div className="hidden lg:block lg:w-full">
