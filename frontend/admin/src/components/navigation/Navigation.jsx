@@ -40,7 +40,7 @@ const Navigation = () => {
     ]
 
     return (
-      <ul className="px-5">
+      <ul className="px-5 lg:px-0">
           {links.map((link, index) => (
             <li key={index}>
               <NavLink link={link}/>

@@ -5,8 +5,8 @@ const NavLink = ({ link }) => {
     const location = useLocation()
 
     return (
-      <Link to={link.path} className={`px-3 py-4 my-2 flex items-center gap-3 text-base rounded-lg font-medium transition  ${
-        location.pathname == link.path ? "bg-primary text-white" : ""
+      <Link to={link.path} className={`px-3 py-4 my-2 flex items-center gap-3 text-base lg:text-lg rounded-lg font-medium transition ease-in-out duration-300  ${
+        location.pathname == link.path ? "bg-primary text-white" : "bg-transparent text-font-100"
       }`}>
           <span className="text-2xl">{link.icon}</span>
           {link.name}
