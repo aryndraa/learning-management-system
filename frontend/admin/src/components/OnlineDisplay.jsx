@@ -1,4 +1,4 @@
-import summaryData from "./../dummy/summaryData.json"
+import summaryData from "../dummy/onlineData.json"
 import OnlineCard from "./OnlineCard.jsx";
 
 export  const OnlineDisplay = () => {
