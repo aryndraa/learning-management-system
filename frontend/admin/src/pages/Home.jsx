@@ -1,7 +1,7 @@
 import {OnlineDisplay} from "../components/OnlineDisplay.jsx";
 import {PageTitle} from "../components/PageTitle.jsx";
 import {ListActivities} from "../components/ListActivities.jsx";
-import {CountItem} from "../components/CountItem.jsx";
+import {ListCountItems} from "../components/ListCountItems.jsx";
 
 export default function Home () {
   return (
@@ -11,10 +11,8 @@ export default function Home () {
         <div className="mb-4">
           <OnlineDisplay />
         </div>
-        <div className="flex overflow-x-scroll gap-4 mb-4 ">
-          <CountItem/>
-          <CountItem/>
-          <CountItem/>
+        <div className="mb-4">
+          <ListCountItems />
         </div>
         <div>
           <ListActivities/>
