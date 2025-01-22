@@ -4,7 +4,7 @@ namespace App\Http\Requests\Api\V1\Admin\TeacherManagement;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpSerProfileRequest extends FormRequest
+class UpdateProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +25,9 @@ class UpSerProfileRequest extends FormRequest
             "full_name" => ['required', 'string'],
             'name'      => ['string'],
             'gender'    => ['string'],
-            'code'      => ['required', 'string', 'unique:teacher_profiles,code'],
+            'code'      => ['required', 'string'],
             'phone'     => ['string'],
-            'email'     => ['string', 'unique:teacher_profiles,email'],
+            'email'     => ['string'],
         ];
     }
 }

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api\V1\Admin\TeacherManagement;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\V1\Admin\TeacherManagement\UpSerProfileRequest;
+use App\Http\Requests\Api\V1\Admin\TeacherManagement\StoreProfileRequest;
 use App\Http\Requests\Api\V1\Admin\TeacherManagement\StoreRequest;
+use App\Http\Requests\Api\V1\Admin\TeacherManagement\UpdateProfileRequest;
+use App\Http\Requests\Api\V1\Admin\TeacherManagement\UploadAvatarRequest;
 use App\Http\Resources\Api\V1\Admin\TeacherManagement\IndexResource;
 use App\Http\Resources\Api\V1\Admin\TeacherManagement\ShowResource;
 use App\Models\File;
@@ -41,7 +43,7 @@ class TeacherManagementController extends Controller
         ]);
     }
 
-    public function storeProfile(UpSerProfileRequest $request, Teacher $teacher)
+    public function storeProfile(StoreProfileRequest $request, Teacher $teacher)
     {
         if (TeacherProfile::query()->where('teacher_id', $teacher->id)->first()) {
             return response()->json([
@@ -62,7 +64,7 @@ class TeacherManagementController extends Controller
         ]);
     }
 
-    public function updateProfile(UpSerProfileRequest $request, Teacher $teacher)
+    public function updateProfile(UpdateProfileRequest $request, Teacher $teacher)
     {
         $teacherProfile = TeacherProfile::query()
             ->where('teacher_id', $teacher->id)
@@ -70,12 +72,22 @@ class TeacherManagementController extends Controller
 
         $teacherProfile->update($request->validated());
         $teacherProfile->teacher()->associate($teacher);
+        $teacherProfile->save();
+
+        return response()->json([
+            "message" => "Teacher profile updated"
+        ]);
+    }
+
+    public function uploadAvatar(UploadAvatarRequest $request, Teacher $teacher)
+    {
+        $teacherProfile = TeacherProfile::query()
+            ->where('teacher_id', $teacher->id)
+            ->first();
 
         if ($request->hasFile('avatar')) {
             File::updateFile($request->file('avatar'), $teacherProfile, 'avatar', 'teacher/avatars');
         }
-
-        $teacherProfile->save();
 
         return response()->json([
             "message" => "Teacher profile updated"

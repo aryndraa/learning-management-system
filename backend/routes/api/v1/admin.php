@@ -37,6 +37,7 @@ Route::prefix('admin')
                         Route::get('/{teacher}', 'show')->name('show');
                         Route::post('', 'store')->name('store');
                         Route::post('/{teacher}/profile', 'storeProfile')->name('storeProfile');
+                        Route::post('/{teacher}/avatar', 'uploadAvatar')->name('uploadAvatar');
                         Route::patch('/{teacher}/profile', 'updateProfile')->name('updateProfile');
                         Route::delete('/{teacher}', 'destroy')->name('destroy');
                     });
