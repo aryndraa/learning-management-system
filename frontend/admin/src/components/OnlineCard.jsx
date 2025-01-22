@@ -11,13 +11,13 @@ const OnlineCard = ({color = "primary", index, items}) => {
   console.log(index);
 
   return (
-    <div className={`flex flex-col bg-gradient-to-r ${colors[color]} py-3 px-4 rounded-lg w-full ${ index === 2 ? 'col-span-2' : ''}`}>
+    <div className={`flex flex-col bg-gradient-to-r ${colors[color]} p-3 rounded-lg w-full ${ index === 2 ? 'col-span-2' : ''}`}>
         <div className="text-2xl bg-white/40 p-3 rounded-full text-white w-fit self-end">
           <MdClass/>
         </div>
         <div>
-          <h3 className="text-3xl mb-1 font-medium text-white">{items.total}</h3>
-          <p className="text-sm text-white font-medium">Online {items.name}</p>
+          <h3 className="text-3xl  font-medium text-white">{items.total}</h3>
+          <p className="text-sm text-white/80 font-medium capitalize">Online {items.name}</p>
         </div>
     </div>
   )

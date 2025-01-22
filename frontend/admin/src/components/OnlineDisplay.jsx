@@ -8,7 +8,7 @@ export  const OnlineDisplay = () => {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-2 p-4 bg-white rounded-lg">
         {
           data.map((item, index) => (
             <OnlineCard

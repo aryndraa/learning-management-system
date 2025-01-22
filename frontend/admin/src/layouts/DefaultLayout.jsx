@@ -1,6 +1,7 @@
 import Navbar from "../components/navigation/Navbar";
 import { useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
+import PropTypes from "prop-types";
 
 export default function DefaultLayout ({ children }) {
   const [sideClose, setSideClose] = useState(false)
@@ -19,11 +20,15 @@ export default function DefaultLayout ({ children }) {
           </button>
         </Navbar>
       </div>
-      <main className={`px-5 md:px-12 lg:px-8 lg:py-6 text-black min-h-[100vh]  transition-all duration-300 ease-out  ${
+      <main className={`px-3 md:px-12 lg:px-8 py-4 lg:py-6 text-black min-h-[100vh]  transition-all duration-300 ease-out  ${
         sideClose ? "lg:ml-[6rem]" : "lg:ml-[17rem]"
       }`}>
           {children}
       </main>
     </div>
   )
+}
+
+DefaultLayout.propTypes = {
+  children: PropTypes.node.isRequired,
 }

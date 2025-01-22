@@ -41,7 +41,7 @@ const Navigation = ({isClose = false}) => {
     ]
 
     return (
-      <ul className="px-5 lg:px-0">
+      <ul className="px-3 lg:px-0">
           {links.map((link, index) => (
             <li key={index}>
               <NavLink link={link} isClose={isClose}/>

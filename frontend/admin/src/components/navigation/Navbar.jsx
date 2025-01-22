@@ -12,7 +12,7 @@ const Navbar = ({sideClose = false, children}) => {
   const [sideActive, setSideActive] = useState(false)
   return (
     <>
-      <div className={`group bg-white flex lg:flex-col justify-between lg:justify-normal items-center lg:items-center px-5  py-5 md:py-6 relative lg:fixed top-0 left-0 bottom-0 lg:m-4 lg:rounded-lg lg:shadow  ${
+      <div className={`group bg-white flex lg:flex-col justify-between lg:justify-normal items-center lg:items-center px-3  py-5 md:py-6 relative lg:fixed top-0 left-0 bottom-0 lg:m-4 lg:rounded-lg lg:shadow  ${
         sideClose ? "lg:w-fit" : "lg:w-64 "
       } `}>
           <button 
