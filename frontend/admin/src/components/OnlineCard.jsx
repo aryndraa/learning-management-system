@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { MdClass } from "react-icons/md";
 
-const OnlineCard = ({color = "primary", index}) => {
+const OnlineCard = ({color = "primary", index, items}) => {
   const colors = {
     primary: "from-primary/90 to-primary/60",
     secondary: "from-violet-500 to-violet-400 ",
@@ -16,8 +16,8 @@ const OnlineCard = ({color = "primary", index}) => {
           <MdClass/>
         </div>
         <div>
-          <h3 className="text-2xl mb-1 font-medium text-white">5.120</h3>
-          <p className="text-sm text-white font-medium">Online Classrooms</p>
+          <h3 className="text-3xl mb-1 font-medium text-white">{items.total}</h3>
+          <p className="text-sm text-white font-medium">Online {items.name}</p>
         </div>
     </div>
   )
@@ -25,7 +25,8 @@ const OnlineCard = ({color = "primary", index}) => {
 
 OnlineCard.propTypes = {
   color : PropTypes.string,
-  index : PropTypes.number
+  index : PropTypes.number,
+  items : PropTypes.array,
 }
 
 export default OnlineCard

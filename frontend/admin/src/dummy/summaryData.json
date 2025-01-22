@@ -1,14 +1,14 @@
 [
     {
         "name" : "classrooms",
-        "total_active" : 90
+        "total" : 90
     },
     {
         "name" : "teachers",
-        "total_active" : 50
+        "total" : 50
     },
     {
         "name" : "students",
-        "total_active" : 230
+        "total" : 230
     }
 ]

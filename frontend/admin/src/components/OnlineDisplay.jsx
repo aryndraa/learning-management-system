@@ -3,9 +3,7 @@ import OnlineCard from "./OnlineCard.jsx";
 
 export  const OnlineDisplay = () => {
 
-  const data = summaryData;
-  console.log(data)
-
+  const data   = summaryData;
   const colors = ['primary', 'secondary', 'trinary']
 
   return (
@@ -13,7 +11,12 @@ export  const OnlineDisplay = () => {
       <div className="grid grid-cols-2 gap-4">
         {
           data.map((item, index) => (
-            <OnlineCard key={index} color={colors[index]} index={index} />
+            <OnlineCard
+              key={index}
+              color={colors[index]}
+              index={index}
+              items={item}
+            />
           ))
         }
       </div>
