@@ -1,6 +1,6 @@
 import {OnlineDisplay} from "../components/OnlineDisplay.jsx";
 import {PageTitle} from "../components/PageTitle.jsx";
-import {ActivityItem} from "../components/ActivityItem.jsx";
+import {ListActivities} from "../components/ListActivities.jsx";
 
 export default function Home () {
   return (
@@ -10,13 +10,10 @@ export default function Home () {
         <div className="mb-4">
           <OnlineDisplay />
         </div>
-        <div className="bg-white px-4 py-4 rounded-lg">
-          <h2 className="text-font-100 font-medium text-lg mb-2 ">Today Activity</h2>
-          <ActivityItem/>
-          <ActivityItem/>
-          <ActivityItem/>
-          <ActivityItem/>
+        <div>
+          <ListActivities/>
         </div>
+
       </section>
     </>
   )

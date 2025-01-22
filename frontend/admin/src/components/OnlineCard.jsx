@@ -8,8 +8,6 @@ const OnlineCard = ({color = "primary", index, items}) => {
     trinary: "from-blue-400 to-blue-300",
   };
 
-  console.log(index);
-
   return (
     <div className={`flex flex-col bg-gradient-to-r ${colors[color]} p-3 rounded-lg w-full ${ index === 2 ? 'col-span-2' : ''}`}>
         <div className="text-2xl bg-white/40 p-3 rounded-full text-white w-fit self-end">
@@ -26,7 +24,7 @@ const OnlineCard = ({color = "primary", index, items}) => {
 OnlineCard.propTypes = {
   color : PropTypes.string,
   index : PropTypes.number,
-  items : PropTypes.array,
+  items : PropTypes.object,
 }
 
 export default OnlineCard
