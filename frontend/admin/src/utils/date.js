@@ -12,19 +12,24 @@ export const formatDate = (date) => {
 
 /**
  * Dapatkan perbedaan waktu dari sekarang dalam format yang dapat dibaca
- * @param {Date} date - The date to compare with now
  * @returns {string} - Time difference (e.g., '2 hours ago')
+ * @param timestamp
  */
-export const timeAgo = (date) => {
+export const timeAgo = (timestamp) => {
   const now = new Date();
-  const past = new Date(date);
-  const diffInMs = now - past;
-  const diffInMinutes = Math.floor(diffInMs / 1000 / 60);
+  const createdAt = new Date(timestamp);
+  const diff = Math.floor((now - createdAt) / 1000);
 
-  if (diffInMinutes < 1) return 'just now';
-  if (diffInMinutes < 60) return `${diffInMinutes} minutes ago`;
-  const diffInHours = Math.floor(diffInMinutes / 60);
-  if (diffInHours < 24) return `${diffInHours} hours ago`;
-  const diffInDays = Math.floor(diffInHours / 24);
-  return `${diffInDays} days ago`;
+  if (diff < 60) {
+    return `${diff} seconds ago`;
+  } else if (diff < 3600) {
+    const minutes = Math.floor(diff / 60);
+    return `${minutes} minutes ago`;
+  } else if (diff < 86400) {
+    const hours = Math.floor(diff / 3600);
+    return `${hours} hours ago`;
+  } else {
+    const days = Math.floor(diff / 86400);
+    return `${days} days ago`;
+  }
 };

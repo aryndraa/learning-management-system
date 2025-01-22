@@ -1,5 +1,6 @@
 import {ActivityItem} from "./ActivityItem";
 import activityData from "./../dummy/activityData.json"
+import {timeAgo} from './../utils/date.js'
 
 export const ListActivities = () => {
 
@@ -16,7 +17,7 @@ export const ListActivities = () => {
               name={activity.name}
               avatar={activity.avatar}
               activity={activity.activity}
-              created_at={activity.created_at}
+              created_at={timeAgo(activity.created_at)}
             />
           ))}
 
