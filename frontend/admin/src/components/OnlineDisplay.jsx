@@ -4,7 +4,7 @@ import OnlineCard from "./OnlineCard.jsx";
 export  const OnlineDisplay = () => {
 
   const data   = summaryData;
-  const colors = ['primary', 'secondary', 'trinary']
+  const types = ['primary', 'secondary', 'trinary']
 
   return (
     <>
@@ -13,7 +13,7 @@ export  const OnlineDisplay = () => {
           data.map((item, index) => (
             <OnlineCard
               key={index}
-              color={colors[index]}
+              type={types[index]}
               index={index}
               items={item}
             />
