@@ -1,11 +1,11 @@
 import Logo from "./../Logo"
-import { Link } from "react-router-dom"
 
 import { TfiMenu } from "react-icons/tfi";
 
 import Sidebar from "./Sidebar";
-import { Children, useState } from "react";
+import { useState } from "react";
 import Navigation from "./Navigation";
+import PropTypes from "prop-types";
 
 const Navbar = ({sideClose = false, children}) => {
 
@@ -33,6 +33,11 @@ const Navbar = ({sideClose = false, children}) => {
       <Sidebar isActive={sideActive} setSideActive={setSideActive}/>
     </>
   )
+}
+
+Navbar.propTypes = {
+  sideClose: PropTypes.bool,
+  children: PropTypes.node.isRequired,
 }
 
 export default Navbar

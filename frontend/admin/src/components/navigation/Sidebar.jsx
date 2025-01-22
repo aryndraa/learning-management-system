@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { IoClose } from "react-icons/io5";
 import Navigation from "./Navigation";
+import PropTypes from "prop-types";
 
 const Sidebar = ({ isActive = false, setSideActive }) => {
 
@@ -32,6 +33,11 @@ const Sidebar = ({ isActive = false, setSideActive }) => {
             </div>
         </div>
     )
+}
+
+Sidebar.propTypes = {
+  isActive: PropTypes.bool,
+  setSideActive: PropTypes.func,
 }
 
 export default Sidebar

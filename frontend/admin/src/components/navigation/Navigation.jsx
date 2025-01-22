@@ -2,7 +2,8 @@ import NavLink from "./NavLink"
 import { RiDashboardFill } from "react-icons/ri";
 import { MdClass } from "react-icons/md";
 import { IoPeople } from "react-icons/io5";
-import { FaChalkboardTeacher, FaGlobe, FaSwatchbook } from "react-icons/fa";
+import { FaChalkboardTeacher, FaGlobe} from "react-icons/fa";
+import PropTypes from "prop-types";
 
 const Navigation = ({isClose = false}) => {
 
@@ -48,6 +49,10 @@ const Navigation = ({isClose = false}) => {
           ))}
       </ul>
     )
+}
+
+Navigation.propTypes = {
+  isClose: PropTypes.bool,
 }
 
 export default Navigation

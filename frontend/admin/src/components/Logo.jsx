@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Logo = ({isClose = false}) => {
   return (
     <>
@@ -13,6 +15,10 @@ const Logo = ({isClose = false}) => {
       </div>
     </>
   )
+}
+
+Logo.propTypes = {
+  isClose: PropTypes.bool,
 }
 
 export default Logo;
