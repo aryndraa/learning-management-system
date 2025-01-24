@@ -18,13 +18,13 @@ const OnlineCard = ({type = "primary", index, items}) => {
 
 
   return (
-    <div className={`flex flex-col bg-gradient-to-r ${colors[type]} p-3 rounded-lg w-full ${ index === 2 ? 'col-span-2 lg:col-span-1' : ''}`}>
-        <div className="text-2xl bg-white/40 p-3 rounded-full text-white w-fit self-end">
+    <div className={`flex flex-col bg-gradient-to-r ${colors[type]} p-3 rounded-lg w-full ${ index === 2 ? 'col-span-2 md:col-span-1' : ''}`}>
+        <div className="text-2xl  bg-white/40 p-3 rounded-full text-white w-fit self-end">
           {icons[type]}
         </div>
         <div>
-          <h3 className="text-3xl  font-medium text-white">{items.total}</h3>
-          <p className="text-sm text-white/80 font-medium capitalize">Online {items.name}</p>
+          <h3 className="text-3xl md:text-4xl  font-medium text-white mb-2">{items.total}</h3>
+          <p className="text-sm md:text-lg text-white/80 font-medium capitalize">Online {items.name}</p>
         </div>
     </div>
   )

@@ -18,13 +18,13 @@ export const CountItem = ({name, count, type = "primary"}) => {
   }
 
   return (
-    <div className="py-3 px-5 bg-white min-w-56 rounded-lg flex items-center gap-4">
+    <div className="py-3 md:py-4 px-5 bg-white min-w-56 md:min-w-full rounded-lg flex items-center gap-4">
       <span className={`p-3 rounded-full text-white text-2xl ${colors[type]}`}>
         {icons[type]}
       </span>
       <div>
         <p className="text-2xl font-medium text-font-300 ">{count}</p>
-        <h2 className="text-sm text-font-100 capitalize">{name}</h2>
+        <h2 className="text-sm md:text-base text-font-100 capitalize">{name}</h2>
       </div>
     </div>
   )

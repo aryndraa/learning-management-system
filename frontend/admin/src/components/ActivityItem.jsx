@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 export const ActivityItem = ({avatar, name, activity, created_at}) => {
   return (
     <>
-      <div className="bg-white py-5 first:pt-0 px-2  flex flex-col-reverse justify-between  border-b border-border last:border-none">
-        <div className="flex flex-col gap-3">
+      <div className="bg-white py-5 first:pt-0 md:first:pt-6 md:py-6 px-2  flex flex-col-reverse md:flex-row justify-between  border-b border-border last:border-none">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-5">
           {
             avatar ?
               <img
@@ -17,12 +17,12 @@ export const ActivityItem = ({avatar, name, activity, created_at}) => {
           }
 
           <div>
-            <h2 className="text-lg font-medium text-font-300 ">{name}</h2>
-            <p className="text-font-100  ">{activity}</p>
+            <h2 className="text-lg md:text-xl md:mb-2 font-medium text-font-300 ">{name}</h2>
+            <p className="text-font-100 ">{activity}</p>
           </div>
         </div>
         <div className="h-fit">
-          <p className="text-sm h-fit place-self-end font-medium text-font-100 text-nowrap">
+          <p className="text-sm md:text-base h-fit place-self-end font-medium text-font-100 text-nowrap">
             {created_at}
           </p>
         </div>

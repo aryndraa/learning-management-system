@@ -9,15 +9,15 @@ export const ProfileCard = () => {
   return (
     <>
       <div className="flex justify-between items-center p-4 bg-white rounded-lg relative">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 md:gap-5">
           <img
             src="http://127.0.0.1:8000/storage/teacher/avatars/1MNtbj4qcgARkmKWpQh0cAgFJAwJRqPQGDfGT5O4.jpg"
             alt=""
-            className="w-12 h-12 object-cover rounded-full"
+            className="w-12 md:w-14 h-12 md:h-14 object-cover rounded-full"
           />
           <div>
-            <p className="text-sm text-font-100">Welcome,</p>
-            <h2 className="text-font-200">Admin Slebew</h2>
+            <p className="text-sm md:text-lg text-font-100">Welcome,</p>
+            <h2 className="text-font-200 md:text-xl md:font-medium">Admin Slebew</h2>
           </div>
         </div>
 

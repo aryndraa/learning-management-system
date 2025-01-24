@@ -19,7 +19,7 @@ export const ListActivities = () => {
 
   return (
     <>
-      <div className="bg-white p-4 rounded-lg">
+      <div className="bg-white p-4 md:p-5 rounded-lg">
         <h2 className="text-font-100 font-medium text-lg mb-2 ">Today Activity</h2>
         <div>
           {data.slice(0, listCount).map((activity, index) => (
@@ -31,7 +31,7 @@ export const ListActivities = () => {
               created_at={timeAgo(activity.created_at)}
             />
           ))}
-          <div className="pt-4 font-medium text-sm text-font-100 text-center">
+          <div className="pt-4 md:pt-6 font-medium text-sm text-font-100 text-center">
             {
               listCount < data.length ?
                 <button onClick={handleShowAll}>
