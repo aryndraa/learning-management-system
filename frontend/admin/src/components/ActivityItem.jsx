@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 export const ActivityItem = ({avatar, name, activity, created_at}) => {
   return (
     <>
-      <div className="bg-white py-5 first:pt-0 md:first:pt-6 md:py-6 px-2  flex flex-col-reverse md:flex-row justify-between  border-b border-border last:border-none">
+      <div className="bg-white py-5 first:pt-0 md:first:pt-6 md:py-6 lg:py-5 px-2  flex flex-col-reverse md:flex-row justify-between  border-b border-border last:border-none">
         <div className="flex flex-col md:flex-row gap-3 md:gap-5">
           {
             avatar ?

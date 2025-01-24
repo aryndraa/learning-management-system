@@ -20,7 +20,7 @@ export const ListActivities = () => {
   return (
     <>
       <div className="bg-white p-4 md:p-5 rounded-lg">
-        <h2 className="text-font-100 font-medium text-lg mb-2 ">Today Activity</h2>
+        <h2 className="text-font-100 font-medium text-lg mb-2 lg:mb-1 ">Today Activity</h2>
         <div>
           {data.slice(0, listCount).map((activity, index) => (
             <ActivityItem

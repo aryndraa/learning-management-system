@@ -11,8 +11,8 @@ export default function DefaultLayout ({ children }) {
       <div className="relative  ">
         <Navbar sideClose={sideClose}>
           <button 
-            className={`hidden lg:block absolute -right-[8%] -z-10 bg-white p-4 rounded-full transform transition ease-in-out duration-300 opacity-0 group-hover:opacity-100 ${
-              sideClose ? "rotate-0" : "rotate-180"
+            className={`hidden lg:block absolute  -z-10 bg-white p-4 rounded-full transform transition ease-in-out duration-300 opacity-0 group-hover:opacity-100 ${
+              sideClose ? "rotate-0 -right-[20%]" : "rotate-180 -right-[8%]"
             }`}
             onClick={() => setSideClose(!sideClose)}
           >

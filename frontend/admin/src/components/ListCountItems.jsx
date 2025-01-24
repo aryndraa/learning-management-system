@@ -7,7 +7,7 @@ export const ListCountItems = () => {
   const types = ['primary', 'secondary', 'trinary']
 
   return (
-    <div className="flex md:grid md:grid-cols-3 overflow-x-scroll md:overflow-x-hidden gap-4 scrollbar-hide">
+    <div className="flex md:grid md:grid-cols-3 overflow-x-scroll md:overflow-x-hidden gap-4  scrollbar-hide">
       {
         data.map((item, index) => (
           <CountItem
