@@ -18,7 +18,7 @@ const OnlineCard = ({type = "primary", index, items}) => {
 
 
   return (
-    <div className={`flex flex-col bg-gradient-to-r ${colors[type]} p-3 rounded-lg w-full ${ index === 2 ? 'col-span-2' : ''}`}>
+    <div className={`flex flex-col bg-gradient-to-r ${colors[type]} p-3 rounded-lg w-full ${ index === 2 ? 'col-span-2 lg:col-span-1' : ''}`}>
         <div className="text-2xl bg-white/40 p-3 rounded-full text-white w-fit self-end">
           {icons[type]}
         </div>

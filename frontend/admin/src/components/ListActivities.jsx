@@ -2,8 +2,6 @@ import {ActivityItem} from "./ActivityItem";
 import activityData from "./../dummy/activityData.json"
 import {timeAgo} from './../utils/date.js'
 import {useState} from "react";
-import { list } from "postcss";
-import { IoMdMore } from "react-icons/io";
 
 export const ListActivities = () => {
 
