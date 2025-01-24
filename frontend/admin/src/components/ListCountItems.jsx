@@ -7,7 +7,7 @@ export const ListCountItems = () => {
   const types = ['primary', 'secondary', 'trinary']
 
   return (
-    <div className="flex overflow-x-scroll gap-4 mb-4 ">
+    <div className="flex overflow-x-scroll gap-4 scrollbar-hide">
       {
         data.map((item, index) => (
           <CountItem

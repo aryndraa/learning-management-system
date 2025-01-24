@@ -7,15 +7,15 @@ import {ProfileCard} from "../components/ProfileCard.jsx";
 export default function Home () {
   return (
     <>
-      <section>
+      <section className="grid  grid-cols-1 gap-4 w-full ">
         <PageTitle title="Dashboard" />
-        <div className="mb-4">
+        <div>
           <ProfileCard/>
         </div>
-        <div className="mb-4">
+        <div>
           <OnlineDisplay />
         </div>
-        <div className="mb-4">
+        <div>
           <ListCountItems />
         </div>
         <div>

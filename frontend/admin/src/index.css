@@ -16,3 +16,12 @@ body {
 .Toastify__toast-theme--colored.Toastify__toast--info {
   background: #4f4f4f !important;
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
