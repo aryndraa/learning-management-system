@@ -1,4 +1,4 @@
-import { IoMdMore } from "react-icons/io";
+import { FiUser, FiLogOut  } from "react-icons/fi";
 
 export const ProfileCard = () => {
   return (
@@ -12,16 +12,18 @@ export const ProfileCard = () => {
           />
           <div>
             <p className="text-sm text-font-100">Welcome,</p>
-            <h2 className="font-medium text-font-200">Admin Slebew</h2>
+            <h2 className="text-font-200">Admin Slebew</h2>
           </div>
         </div>
-        <div>
-          <button className="text-2xl p-2 border-font-200 border rounded-full text-font-200">
-            <IoMdMore/>
+        <div className="flex items-center gap-2">
+          <button className="text-xl p-2 border-font-200 border rounded-full text-font-200 ">
+            <FiUser />
+          </button>
+          <button className="text-xl p-2 border-danger border rounded-full text-danger">
+            <FiLogOut />
           </button>
         </div>
       </div>
-
     </>
   )
 }
