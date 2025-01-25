@@ -11,7 +11,7 @@ const apiClient = axios.create({
 
 apiClient.interceptors.request.use(
   (config) => {
-    const token = getFromStorage('studentToken', true);
+    const token = getFromStorage('adminToken', true);
 
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
@@ -27,7 +27,7 @@ apiClient.interceptors.response.use(
   (error) => {
 
     if(error.response.status === 401) {
-      removeFromStorage('studentToken', true);
+      removeFromStorage('adminToken', true);
     }
 
     return Promise.reject(error);

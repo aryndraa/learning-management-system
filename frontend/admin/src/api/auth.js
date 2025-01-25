@@ -1,5 +1,5 @@
 import apiClient from "../utils/apiClient";
-import {hasInStorage, saveToStorage} from "../utils/storage";
+import {hasInStorage, saveToStorage, removeFromStorage} from "../utils/storage";
 
 const login = async (username, password) => {
     try {
@@ -19,9 +19,23 @@ const login = async (username, password) => {
     }
 }
 
+const logout = async () => {
+    try {
+        const response = await apiClient.delete("auth/logout");
+
+        if(response) {
+            removeFromStorage('adminToken', true);
+        }
+    } catch(error) {
+        console.log(error);
+        throw error;
+    }
+}
+
 const checkLoginStatus = () => {
   return hasInStorage('adminToken', true);
 }
 
-export default { login, checkLoginStatus }
+
+export default { login, checkLoginStatus, logout }
 

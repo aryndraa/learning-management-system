@@ -1,11 +1,25 @@
 import PropTypes from "prop-types";
-import { IoIosClose } from "react-icons/io";
+import auth from "../api/auth";
+import { useNavigate } from "react-router";
 
 export const LogoutModal = ({modalActive = true, setModalActive}) => {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await auth.logout();
+      console.log('logout succefully');
+      navigate('auth/login');
+    } catch(error) {
+      console.log('logout failed');
+      throw error
+    }
+  }
+
   return (
     <>
       <div
-        className={`min-h-screen w-full z-40 fixed top-0 left-0 bottom-0 right-0 bg-font-100/40 ${
+        className={`min-h-screen w-full z-50 fixed top-0 left-0 bottom-0 right-0 bg-font-100/40 ${
           modalActive ? "block" : "hidden"
         }`}
         onClick={() => {
@@ -20,7 +34,12 @@ export const LogoutModal = ({modalActive = true, setModalActive}) => {
           <div>
             <p className="text-font-100 mb-6 ">Are you sure you want to log out of your account? All active sessions will be terminated, and you will need to log back in to access the app.</p>
             <div className='flex gap-3'>
-              <button className="py-2 px-4 border text-danger border-transparent bg-danger/5 font-medium rounded-lg">Log Out</button>
+              <button 
+                className="py-2 px-4 border text-danger border-transparent bg-danger/5 font-medium rounded-lg"
+                onClick={handleLogout}
+              >
+                Log Out
+              </button>
               <button
                 className="py-2 px-4 border  rounded-lg border-transparent bg-font-100/10 text-font-200 font-medium"
                 onClick={() => {
