@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\V1\Admin\ClassroomManagement\ClassroomManagementCon
 use App\Http\Controllers\Api\V1\Admin\MajorManagement\MajorManagementController;
 use App\Http\Controllers\Api\V1\Admin\StudentManagement\StudentManagementController;
 use App\Http\Controllers\Api\V1\Admin\SubjectManagement\SubjectManagementController;
+use App\Http\Controllers\Api\V1\Admin\Summary\SummaryController;
 use App\Http\Controllers\Api\V1\Admin\TeacherManagement\TeacherManagementController;
 use Illuminate\Support\Facades\Route;
 
@@ -74,6 +75,13 @@ Route::prefix('admin')
                         Route::post('', 'store')->name('store');
                         Route::patch('/{major}', 'update')->name('update');
                         Route::delete('/{major}', 'destroy')->name('destroy');
+                    });
+
+                Route::controller(SummaryController::class)
+                    ->prefix('summary')
+                    ->name('summary.')
+                    ->group(function () {
+                        Route::get('/', 'todaySummary')->name('todaySummary');
                     });
             });
     });
