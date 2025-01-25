@@ -32,7 +32,7 @@ export const ProfileCard = () => {
           >
             <IoMdMore />
           </button>
-         <ProfileCardOption modalActive={modalActive} />
+         <ProfileCardOption modalActive={modalActive} setModalLogout={setModalLogout}/>
         </div>
       </div>
 

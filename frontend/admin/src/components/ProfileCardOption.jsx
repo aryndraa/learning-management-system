@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {FiInfo, FiLogOut, FiUser} from "react-icons/fi";
 
-export const ProfileCardOption = ({modalActive}) => {
+export const ProfileCardOption = ({modalActive, setModalLogout}) => {
   return (
     <>
       <div className={`bg-white md:w-64 lg:w-full  flex-col absolute lg:static right-0 left-0 md:left-[60%] lg:left-[100%] transform translate-y-32 md:translate-y-[8.2rem] lg:translate-y-0 shadow-md lg:shadow-none rounded-lg ${
@@ -16,7 +16,9 @@ export const ProfileCardOption = ({modalActive}) => {
           <span className="text-xl md:text-2xl "><FiInfo/></span>
           Options
         </Link>
-        <button className="text-left py-4 px-4 hover:bg-danger/5 md:text-lg flex items-center gap-4 rounded-b-lg lg:rounded-lg text-danger">
+        <button
+          onClick={() => setModalLogout(true)}
+          className="text-left py-4 px-4 hover:bg-danger/5 md:text-lg flex items-center gap-4 rounded-b-lg lg:rounded-lg text-danger">
           <span className="text-xl md:text-2xl "><FiLogOut/></span>
           Log Out
         </button>
@@ -27,4 +29,5 @@ export const ProfileCardOption = ({modalActive}) => {
 
 ProfileCardOption.propTypes = {
   modalActive: PropTypes.bool.isRequired,
+  setModalLogout: PropTypes.func,
 }
