@@ -23,8 +23,8 @@ const OnlineCard = ({type = "primary", index, items}) => {
           {icons[type]}
         </div>
         <div>
-          <h3 className="text-3xl md:text-4xl  font-medium text-white mb-2">{items.total}</h3>
-          <p className="text-sm md:text-lg text-white/80 font-medium capitalize">Online {items.name}</p>
+          <h3 className="text-3xl md:text-4xl  font-medium text-white mb-2 lg:mb-0">{items.total}</h3>
+          <p className="text-sm md:text-base text-white/80 font-medium capitalize">Online {items.name}</p>
         </div>
     </div>
   )

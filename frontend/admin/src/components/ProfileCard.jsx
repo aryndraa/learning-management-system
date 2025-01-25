@@ -1,10 +1,13 @@
 import { IoMdMore } from "react-icons/io";
 import {useState} from "react";
 import {ProfileCardOption} from "./ProfileCardOption.jsx";
+import {LogoutModal} from "./LogoutModal.jsx";
 
 export const ProfileCard = () => {
 
   const [modalActive, setModalActive] = useState(false);
+
+  const [modalLogout, setModalLogout] = useState(false);
 
   return (
     <>
@@ -32,6 +35,8 @@ export const ProfileCard = () => {
          <ProfileCardOption modalActive={modalActive} />
         </div>
       </div>
+
+      <LogoutModal setModalActive={setModalLogout} />
     </>
   )
 }
