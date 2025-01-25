@@ -36,7 +36,7 @@ export const ProfileCard = () => {
         </div>
       </div>
 
-      <LogoutModal setModalActive={setModalLogout} />
+      <LogoutModal setModalActive={setModalLogout} modalActive={modalLogout}/>
     </>
   )
 }

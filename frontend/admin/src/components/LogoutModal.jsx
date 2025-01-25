@@ -12,7 +12,9 @@ export const LogoutModal = ({modalActive = true, setModalActive}) => {
           setModalActive(!modalActive)
         }}
       ></div>
-      <div className="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 bg-white z-50 p-5 rounded-lg w-[35%]">
+      <div className={`absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 bg-white z-50 p-5 rounded-lg w-[35%] ${
+        modalActive ? "block" : "hidden"
+      }`}>
         <div>
           <h2 className="text-2xl font-medium text-font-200 pb-3 border-b-border border-b mb-3">Are You Sure?</h2>
           <div>
