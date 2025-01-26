@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             MajorSeeder::class,
             ClassroomSeeder::class,
             StudentProfileSeeder::class,
+            AttendanceSeeder::class
         ]);
     }
 }
