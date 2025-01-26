@@ -23,8 +23,8 @@ class Student extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-      'username',
-      'password',
+        'username',
+        'password',
     ];
 
     /**
@@ -37,32 +37,32 @@ class Student extends Authenticatable implements JWTSubject
     ];
 
 
-    public function profile() : HasOne
+    public function profile(): HasOne
     {
         return $this->hasOne(StudentProfile::class,);
     }
 
-    public function assignmentFiles() : HasMany
+    public function assignmentFiles(): HasMany
     {
         return $this->hasMany(AssignmentFile::class);
     }
 
-    public function assignmentLinks() : HasMany
+    public function assignmentLinks(): HasMany
     {
         return $this->hasMany(AssignmentLink::class);
     }
 
-    public function leaderStudyGroup() : HasMany
+    public function leaderStudyGroup(): HasMany
     {
         return $this->hasMany(StudyGroup::class);
     }
 
-    public function groups() : HasMany
+    public function groups(): HasMany
     {
         return $this->HasMany(GroupStudents::class);
     }
 
-    public function senderGroupChats() : MorphMany
+    public function senderGroupChats(): MorphMany
     {
         return $this->morphMany(GroupChat::class, 'sender');
     }
@@ -75,6 +75,11 @@ class Student extends Authenticatable implements JWTSubject
     public function receiverChat(): MorphMany
     {
         return $this->morphMany(Chat::class, 'receiver');
+    }
+
+    public function attendances(): MorphMany
+    {
+        return $this->morphMany(Attendance::class, 'user');
     }
 
     /**
@@ -101,5 +106,4 @@ class Student extends Authenticatable implements JWTSubject
     {
         $this->attributes['password'] = Hash::make($value);
     }
-
 }

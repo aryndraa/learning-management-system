@@ -90,9 +90,14 @@ class Teacher extends Model
         return $this->morphMany(Announcement::class, 'sender');
     }
 
-    public function meetings() : HasMany
+    public function meetings(): HasMany
     {
         return $this->hasMany(Meeting::class);
+    }
+
+    public function attendances(): MorphMany
+    {
+        return $this->morphMany(Attendance::class, 'user');
     }
 
     public function setPasswordAttribute($value)
@@ -100,4 +105,3 @@ class Teacher extends Model
         $this->attributes['password'] = Hash::make($value);
     }
 }
-
