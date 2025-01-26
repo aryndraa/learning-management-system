@@ -18,9 +18,9 @@ class SummaryController extends Controller
 {
     public function todaySummary()
     {
-        $today = Carbon::now('Asia/Jakarta');
+        $today = Carbon::now();
 
-        $totalClass = Meeting::query()
+        $totalMeetings = Meeting::query()
             ->where('created_at', $today)
             ->count();
 
@@ -44,15 +44,21 @@ class SummaryController extends Controller
             })
             ->count();
 
+        $activeClassroom = Classroom::query()
+            ->whereHas('journals', function (Builder $query) use ($today) {
+                $query->whereDate('created_at', $today);
+            })
+            ->count();
 
 
         return response()->json([
             "data" => [
-                "total_classrooms" => $totalClass,
+                "total_meetings" => $totalMeetings,
                 "total_materials" => $totalMaterials,
                 "total_assigments" => $totalAssigemnts,
                 "total_teacher" => $teacherAttendance,
                 "total_student" => $studentAttendance,
+                "total_classrooms" => $activeClassroom
             ]
         ]);
     }
