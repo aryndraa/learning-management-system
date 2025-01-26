@@ -14,43 +14,48 @@ class Subject extends Model
         'code'
     ];
 
-    public function teachers() : BelongsToMany
+    public function teachers(): BelongsToMany
     {
         return $this->belongsToMany(Teacher::class, 'subject_teachers', 'subject_id', 'teacher_id');
     }
 
-    public function classroomTeachers() : BelongsToMany
+    public function classroomTeachers(): BelongsToMany
     {
         return $this->belongsToMany(Teacher::class, 'classroom_subject_teachers', 'subject_id', 'teacher_id');
     }
 
-    public function classrooms() : BelongsToMany
+    public function classrooms(): BelongsToMany
     {
         return $this->belongsToMany(Classroom::class, 'classroom_subject_teachers', 'subject_id', 'classroom_id');
     }
 
-    public function materials() : BelongsTo
+    public function materials(): BelongsTo
     {
         return $this->belongsTo(Material::class);
     }
 
-    public function assignments() : HasMany
+    public function assignments(): HasMany
     {
         return $this->hasMany(Assignment::class);
     }
 
-    public function groups() : HasMany
+    public function groups(): HasMany
     {
         return  $this->hasMany(SubjectGroup::class);
     }
 
-    public function studyGroups() : HasMany
+    public function studyGroups(): HasMany
     {
         return  $this->hasMany(StudyGroup::class);
     }
 
-    public function meetings() : HasMany
+    public function meetings(): HasMany
     {
         return  $this->hasMany(Meeting::class);
+    }
+
+    public function journals(): HasMany
+    {
+        return $this->hasMany(JournalClassroom::class);
     }
 }

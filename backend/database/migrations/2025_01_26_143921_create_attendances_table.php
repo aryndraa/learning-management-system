@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('user_type');
             $table->integer('user_id');
             $table->boolean('present');
-            $table->text('reason')->default("-");
+            $table->text('reason');
             $table->timestamps();
         });
     }

@@ -100,6 +100,11 @@ class Teacher extends Model
         return $this->morphMany(Attendance::class, 'user');
     }
 
+    public function journals(): HasMany
+    {
+        return $this->hasMany(JournalClassroom::class);
+    }
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);

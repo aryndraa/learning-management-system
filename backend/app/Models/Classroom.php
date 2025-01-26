@@ -27,7 +27,7 @@ class Classroom extends Model
         return $this->belongsTo(Major::class);
     }
 
-    public function teacher() : BelongsTo
+    public function teacher(): BelongsTo
     {
         return $this->belongsTo(Teacher::class);
     }
@@ -52,17 +52,17 @@ class Classroom extends Model
         return $this->hasMany(Assignment::class);
     }
 
-    public function classroomGroup() : HasOne
+    public function classroomGroup(): HasOne
     {
         return $this->hasOne(ClassroomGroup::class);
     }
 
-    public function subjectGroups() : HasMany
+    public function subjectGroups(): HasMany
     {
         return $this->hasMany(ClassroomGroup::class);
     }
 
-    public function studyGroups() : HasMany
+    public function studyGroups(): HasMany
     {
         return $this->hasMany(StudyGroup::class);
     }
@@ -70,5 +70,10 @@ class Classroom extends Model
     public function meetings(): HasMany
     {
         return $this->hasMany(Meeting::class);
+    }
+
+    public function journals(): HasMany
+    {
+        return $this->hasMany(JournalClassroom::class);
     }
 }
