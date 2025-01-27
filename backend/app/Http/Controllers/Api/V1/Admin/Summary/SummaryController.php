@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1\Admin\Summary;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\V1\Admin\Summary\TodaySummaryResource;
+use App\Models\ActivityRecord;
 use App\Models\Assignment;
 use App\Models\Classroom;
 use App\Models\Material;
@@ -35,16 +36,10 @@ class SummaryController extends Controller
     public  function todayActivities()
     {
         $today = Carbon::now();
+        $todayActivities = ActivityRecord::query()
+            ->whereDate('created_at', $today)
+            ->get();
 
-        $data = [
-            "total_meetings"   => Meeting::DataOnDate($today)->get(),
-            "total_materials"  => Material::DataOnDate($today)->get(),
-            "total_assigments" => Assignment::DataOnDate($today)->get(),
-            "total_teachers"   => Teacher::AttendanceOnDate($today)->get(),
-            "total_students"   => Student::AttendanceOnDate($today)->get(),
-            "total_classrooms" => Classroom::JournalsOnDate($today)->get()
-        ];
-
-        return response()->json($data);
+        return response()->json($todayActivities);
     }
 }
