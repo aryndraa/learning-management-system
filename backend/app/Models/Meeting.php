@@ -30,8 +30,8 @@ class Meeting extends Model
         return $this->belongsTo(Teacher::class);
     }
 
-    public function scopeCountData(Builder $query, $date)
+    public function scopeDataOnDate(Builder $query, $date)
     {
-        $query->where('created_at', $date);
+        return $query->whereDate('created_at', $date);
     }
 }

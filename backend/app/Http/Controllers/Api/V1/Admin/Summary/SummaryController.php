@@ -21,9 +21,9 @@ class SummaryController extends Controller
         $today = Carbon::now();
 
         $data = [
-            "total_meetings"   => Meeting::countData($today)->count(),
-            "total_materials"  => Material::countData($today)->count(),
-            "total_assigments" => Assignment::countData($today)->count(),
+            "total_meetings"   => Meeting::DataOnDate($today)->count(),
+            "total_materials"  => Material::DataOnDate($today)->count(),
+            "total_assigments" => Assignment::DataOnDate($today)->count(),
             "total_teachers"   => Teacher::AttendanceOnDate($today)->count(),
             "total_students"   => Student::AttendanceOnDate($today)->count(),
             "total_classrooms" => Classroom::JournalsOnDate($today)->count()
