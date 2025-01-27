@@ -19,7 +19,7 @@ class ActivityRecordFactory extends Factory
     public function definition(): array
     {
         $userType = $this->faker->randomElement([Student::class, Teacher::class]);
-        $userId = $userType->id;
+        $userId = $userType::inRandomOrder()->first()?->id;
 
         return [
             "user_type" => $userType,
