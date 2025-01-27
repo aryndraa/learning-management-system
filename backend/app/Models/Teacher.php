@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class Teacher extends Model
 {
@@ -108,5 +110,16 @@ class Teacher extends Model
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
+    }
+
+    public static function countAttendance($date)
+    {
+        $countData = self::query()
+            ->whereHas('attendances', function (Builder $query) use ($date) {
+                $query->whereDate('created_at', $date);
+            })
+            ->count();
+
+        return $countData;
     }
 }

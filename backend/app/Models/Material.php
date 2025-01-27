@@ -14,34 +14,42 @@ class Material extends Model
         'type'
     ];
 
-    public function teacher() : BelongsTo
+    public function teacher(): BelongsTo
     {
         return $this->belongsTo(Teacher::class);
     }
 
-    public function subject() : BelongsTo
+    public function subject(): BelongsTo
     {
         return $this->belongsTo(Subject::class);
     }
 
-    public function classrooms() : BelongsToMany
+    public function classrooms(): BelongsToMany
     {
         return $this->belongsToMany(Classroom::class, 'classroom_materials', 'material_id', 'classroom_id');
     }
 
-    public function articles() : hasMany
+    public function articles(): hasMany
     {
         return $this->hasMany(MaterialArticle::class);
     }
 
-    public function videos() : hasMany
+    public function videos(): hasMany
     {
         return $this->hasMany(MaterialVideo::class);
     }
 
-    public function files() : hasMany
+    public function files(): hasMany
     {
         return $this->hasMany(MaterialFile::class);
     }
-}
 
+    public static function countData($date)
+    {
+        $countData = self::query()
+            ->where('created_at', $date)
+            ->count();
+
+        return $countData;
+    }
+}

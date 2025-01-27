@@ -12,6 +12,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class Student extends Authenticatable implements JWTSubject
 {
@@ -105,5 +107,16 @@ class Student extends Authenticatable implements JWTSubject
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
+    }
+
+    public static function countAttendance($date)
+    {
+        $countData = self::query()
+            ->whereHas('attendances', function (Builder $query) use ($date) {
+                $query->whereDate('created_at', $date);
+            })
+            ->count();
+
+        return $countData;
     }
 }

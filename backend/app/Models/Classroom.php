@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Builder;
 
 class Classroom extends Model
 {
@@ -75,5 +76,16 @@ class Classroom extends Model
     public function journals(): HasMany
     {
         return $this->hasMany(JournalClassroom::class);
+    }
+
+    public static function countJournals($date)
+    {
+        $countData = self::query()
+            ->whereHas('journals', function (Builder $query) use ($date) {
+                $query->whereDate('created_at', $date);
+            })
+            ->count();
+
+        return $countData;
     }
 }

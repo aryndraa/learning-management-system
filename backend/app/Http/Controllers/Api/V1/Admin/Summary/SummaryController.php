@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api\V1\Admin\Summary;
 
 use App\Http\Controllers\Controller;
 use App\Models\Assignment;
-use App\Models\Attendance;
 use App\Models\Classroom;
 use App\Models\Material;
 use App\Models\Meeting;
@@ -12,7 +11,7 @@ use App\Models\Student;
 use App\Models\Teacher;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
+
 
 class SummaryController extends Controller
 {
@@ -20,46 +19,18 @@ class SummaryController extends Controller
     {
         $today = Carbon::now();
 
-        $totalMeetings = Meeting::query()
-            ->where('created_at', $today)
-            ->count();
-
-        $totalMaterials = Material::query()
-            ->where('created_at', $today)
-            ->count();
-
-        $totalAssigemnts = Assignment::query()
-            ->where('created_at', $today)
-            ->count();
-
-        $teacherAttendance = Teacher::query()
-            ->whereHas('attendances', function (Builder $query) use ($today) {
-                $query->whereDate('created_at', $today);
-            })
-            ->count();
-
-        $studentAttendance = Student::query()
-            ->whereHas('attendances', function (Builder $query) use ($today) {
-                $query->whereDate('created_at', $today);
-            })
-            ->count();
-
-        $activeClassroom = Classroom::query()
-            ->whereHas('journals', function (Builder $query) use ($today) {
-                $query->whereDate('created_at', $today);
-            })
-            ->count();
+        $data = [
+            "total_meetings" => Meeting::countData($today),
+            "total_materials" => Material::countData($today),
+            "total_assigments" => Assignment::countData($today),
+            "total_teachers"  => Teacher::countAttendance($today),
+            "total_students"  => Student::countAttendance($today),
+            "total_classrooms" => Classroom::countJournals($today)
+        ];
 
 
         return response()->json([
-            "data" => [
-                "total_meetings" => $totalMeetings,
-                "total_materials" => $totalMaterials,
-                "total_assigments" => $totalAssigemnts,
-                "total_teacher" => $teacherAttendance,
-                "total_student" => $studentAttendance,
-                "total_classrooms" => $activeClassroom
-            ]
+            "data" => $data
         ]);
     }
 }

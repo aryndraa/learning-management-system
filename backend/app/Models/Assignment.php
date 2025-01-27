@@ -37,4 +37,13 @@ class Assignment extends Model
     {
         return $this->hasMany(AssignmentLink::class);
     }
+
+    public static function countData($date)
+    {
+        $countData = self::query()
+            ->where('created_at', $date)
+            ->count();
+
+        return $countData;
+    }
 }
