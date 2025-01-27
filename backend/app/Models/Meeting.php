@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Builder;
 
 class Meeting extends Model
 {
@@ -29,12 +30,8 @@ class Meeting extends Model
         return $this->belongsTo(Teacher::class);
     }
 
-    public static function countData($date)
+    public function scopeCountData(Builder $query, $date)
     {
-        $countData = self::query()
-            ->where('created_at', $date)
-            ->count();
-
-        return $countData;
+        $query->where('created_at', $date);
     }
 }

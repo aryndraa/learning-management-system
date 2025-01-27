@@ -109,14 +109,10 @@ class Student extends Authenticatable implements JWTSubject
         $this->attributes['password'] = Hash::make($value);
     }
 
-    public static function countAttendance($date)
+    public function scopeAttendanceOnDate(Builder $query, $date): Builder
     {
-        $countData = self::query()
-            ->whereHas('attendances', function (Builder $query) use ($date) {
-                $query->whereDate('created_at', $date);
-            })
-            ->count();
-
-        return $countData;
+        return $query->whereHas('attendances', function (Builder $query) use ($date) {
+            $query->whereDate('created_at', $date);
+        });
     }
 }

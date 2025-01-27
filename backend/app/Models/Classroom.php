@@ -78,14 +78,10 @@ class Classroom extends Model
         return $this->hasMany(JournalClassroom::class);
     }
 
-    public static function countJournals($date)
+    public static function scopeJournalsOnDate(Builder $query, $date): Builder
     {
-        $countData = self::query()
-            ->whereHas('journals', function (Builder $query) use ($date) {
-                $query->whereDate('created_at', $date);
-            })
-            ->count();
-
-        return $countData;
+        return $query->whereHas('journals', function (Builder $query) use ($date) {
+            $query->whereDate('created_at', $date);
+        });
     }
 }

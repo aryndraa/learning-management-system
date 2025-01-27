@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Builder;
 
 class Material extends Model
 {
@@ -44,12 +45,8 @@ class Material extends Model
         return $this->hasMany(MaterialFile::class);
     }
 
-    public static function countData($date)
+    public function scopeCountData(Builder $query, $date)
     {
-        $countData = self::query()
-            ->where('created_at', $date)
-            ->count();
-
-        return $countData;
+        $query->where('created_at', $date);
     }
 }

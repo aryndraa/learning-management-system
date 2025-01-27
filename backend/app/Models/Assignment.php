@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Assignment extends Model
 {
@@ -38,12 +39,8 @@ class Assignment extends Model
         return $this->hasMany(AssignmentLink::class);
     }
 
-    public static function countData($date)
+    public function scopeCountData(Builder $query, $date)
     {
-        $countData = self::query()
-            ->where('created_at', $date)
-            ->count();
-
-        return $countData;
+        $query->where('created_at', $date);
     }
 }
