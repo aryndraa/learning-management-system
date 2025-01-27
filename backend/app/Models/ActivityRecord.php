@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class ActivityRecord extends Model
 {
@@ -56,5 +58,11 @@ class ActivityRecord extends Model
             'user_id'     => $user->id,
             'user_type'   => get_class($user),
         ]);
+    }
+
+
+    public function scopeDataOnDate(Builder $query, $date)
+    {
+        return $query->whereDate('created_at', $date);
     }
 }

@@ -17,17 +17,24 @@ use Illuminate\Database\Eloquent\Builder;
 
 class SummaryController extends Controller
 {
+
+    private $today;
+
+    public function __construct()
+    {
+        $this->today = Carbon::now();
+    }
+
     public function todaySummary()
     {
-        $today = Carbon::now();
 
         $data = [
-            "total_meetings"   => Meeting::DataOnDate($today)->count(),
-            "total_materials"  => Material::DataOnDate($today)->count(),
-            "total_assigments" => Assignment::DataOnDate($today)->count(),
-            "total_teachers"   => Teacher::AttendanceOnDate($today)->count(),
-            "total_students"   => Student::AttendanceOnDate($today)->count(),
-            "total_classrooms" => Classroom::JournalsOnDate($today)->count()
+            "total_meetings"   => Meeting::DataOnDate($this->today)->count(),
+            "total_materials"  => Material::DataOnDate($this->today)->count(),
+            "total_assigments" => Assignment::DataOnDate($this->today)->count(),
+            "total_teachers"   => Teacher::AttendanceOnDate($this->today)->count(),
+            "total_students"   => Student::AttendanceOnDate($this->today)->count(),
+            "total_classrooms" => Classroom::JournalsOnDate($this->today)->count()
         ];
 
         return TodaySummaryResource::make($data);
@@ -35,10 +42,7 @@ class SummaryController extends Controller
 
     public  function todayActivities()
     {
-        $today = Carbon::now();
-        $todayActivities = ActivityRecord::query()
-            ->whereDate('created_at', $today)
-            ->get();
+        $todayActivities = ActivityRecord::DataOnDate($this->today)->get();
 
         return response()->json($todayActivities);
     }
