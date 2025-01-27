@@ -15,7 +15,14 @@ class TodayActivityResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "id" => $this->id,
+            "id"            => $this->id,
+            "description"   => $this->description,
+            "type"          => $this->type,
+            "user"          => [
+                "id"        => $this->user->id,
+                "full_name" => $this->user->profile->full_name ?? null,
+                "avatar"    => $this->user->profile->avatar->file_url ?? null
+            ],
         ];
     }
 }

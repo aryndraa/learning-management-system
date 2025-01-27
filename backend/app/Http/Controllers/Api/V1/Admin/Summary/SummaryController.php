@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Admin\Summary;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\V1\Admin\Summary\TodayActivityResource;
 use App\Http\Resources\Api\V1\Admin\Summary\TodaySummaryResource;
 use App\Models\ActivityRecord;
 use App\Models\Assignment;
@@ -43,7 +44,8 @@ class SummaryController extends Controller
     public  function todayActivities()
     {
         $todayActivities = ActivityRecord::DataOnDate($this->today)->get();
+        $todayActivities->load(['user.profile', 'user.profile.avatar']);
 
-        return response()->json($todayActivities);
+        return TodayActivityResource::collection($todayActivities);
     }
 }
