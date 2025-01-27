@@ -17,10 +17,37 @@ class ActivityRecord extends Model
         return $this->morphTo('user');
     }
 
-    public static function makeRecord($user, $description, $type)
+    public static function makeRecord($user, $type, $supported = null)
     {
         if (!$user instanceof Model) {
             throw new \InvalidArgumentException('User must be an instance of model');
+        }
+
+        $description = "";
+
+        switch ($type) {
+            case 'present':
+                $description = "{$user->name} was marked as present.";
+                break;
+
+            case 'make assignment':
+                $description = "{$user->name} created a new assignment" . ($supported ? " for {$supported}" : '') . ".";
+                break;
+
+            case 'make material':
+                $description = "{$user->name} created new material," . ($supported ? " for {$supported}" : '') . ".";
+                break;
+
+            case 'make meeting room':
+                $description = "{$user->name} created a new meeting room" . ($supported ? " for {$supported}" : '') . ".";
+                break;
+
+            case 'adding material to class':
+                $description = "{$user->name} added material to sclass" . ($supported ? " {$supported}" : '') . ".";
+                break;
+
+            default:
+                throw new \InvalidArgumentException("Invalid type: {$type}. Allowed types: present, make assignment, make material, make meeting room, adding material to class.");
         }
 
         return self::create([
