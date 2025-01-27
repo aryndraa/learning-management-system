@@ -31,4 +31,20 @@ class SummaryController extends Controller
 
         return TodaySummaryResource::make($data);
     }
+
+    public  function todayActivities()
+    {
+        $today = Carbon::now();
+
+        $data = [
+            "total_meetings"   => Meeting::DataOnDate($today)->get(),
+            "total_materials"  => Material::DataOnDate($today)->get(),
+            "total_assigments" => Assignment::DataOnDate($today)->get(),
+            "total_teachers"   => Teacher::AttendanceOnDate($today)->get(),
+            "total_students"   => Student::AttendanceOnDate($today)->get(),
+            "total_classrooms" => Classroom::JournalsOnDate($today)->get()
+        ];
+
+        return response()->json($data);
+    }
 }
