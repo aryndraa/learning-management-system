@@ -15,12 +15,30 @@ class TodaySummaryResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'total_meetings'   => $this['total_meetings'],
-            'total_materials'  => $this['total_materials'],
-            'total_assignments' => $this['total_assigments'],
-            'total_teachers'   => $this['total_teachers'],
-            'total_students'   => $this['total_students'],
-            'total_classrooms' => $this['total_classrooms'],
+            [
+                "name" => "meetings",
+                "total" => $this['total_meetings'],
+            ],
+            [
+                "name" => "materials",
+                "total" => $this['total_materials'],
+            ],
+            [
+                "name" => "assigments",
+                "total" => $this['total_assigments'],
+            ],
+            [
+                "name" => "teachers",
+                "total" => $this['total_teachers'],
+            ],
+            [
+                "name" => "students",
+                "total" => $this['total_students'],
+            ],
+            [
+                "name" => "classrooms",
+                "total" => $this['total_classrooms'],
+            ],
         ];
     }
 }

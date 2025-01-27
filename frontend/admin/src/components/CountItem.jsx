@@ -3,7 +3,7 @@ import { FaTasks } from "react-icons/fa";
 import { MdOutlineOndemandVideo } from "react-icons/md";
 import PropTypes from "prop-types";
 
-export const CountItem = ({name, count, type = "primary"}) => {
+export const CountItem = ({name, total, type = "primary"}) => {
 
   const icons = {
     primary: <MdOutlineOndemandVideo/>,
@@ -23,7 +23,7 @@ export const CountItem = ({name, count, type = "primary"}) => {
         {icons[type]}
       </span>
       <div>
-        <p className="text-2xl font-medium text-font-300 ">{count}</p>
+        <p className="text-2xl font-medium text-font-300 ">{total}</p>
         <h2 className="text-sm md:text-base lg:text-sm text-font-100 capitalize">{name}</h2>
       </div>
     </div>
@@ -32,6 +32,6 @@ export const CountItem = ({name, count, type = "primary"}) => {
 
 CountItem.propTypes = {
   name: PropTypes.string,
-  count: PropTypes.string,
+  total: PropTypes.number,
   type: PropTypes.string,
 }
