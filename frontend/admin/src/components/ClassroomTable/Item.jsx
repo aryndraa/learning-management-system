@@ -2,7 +2,7 @@ export const Item = () => {
   return (
     <>
       <div className="border-b last:border-b-transparent pb-4 mb-4 border-border">
-        <div className=" rounded-lg  flex gap-4 p-2">
+        <div className="flex gap-4 p-2">
           <div className="flex gap-4 ">
             <div className="flex flex-col gap-2">
               <h4 className="font-medium text-font-200">Class</h4>

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Major;
+use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,8 +19,10 @@ class ClassroomFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'     => $this->faker->numberBetween(1, 10),
-            'major_id' => Major::query()->inRandomOrder()->first()->id,
+            'name'       => $this->faker->numberBetween(1, 10),
+            'number'     => $this->faker->randomNumber(2),
+            'major_id'   => Major::query()->inRandomOrder()->first()->id,
+            'teacher_id' => Teacher::query()->inRandomOrder()->first()->id,
         ];
     }
 }

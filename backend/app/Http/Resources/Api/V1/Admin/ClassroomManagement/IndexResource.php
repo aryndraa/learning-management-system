@@ -20,7 +20,7 @@ class IndexResource extends JsonResource
             "major"     => $this->major->name,
             "number" => $this->number != 0 ? $this->number : 0,
             "teacher"   => [
-                "name"  => $this->teacher->profile->name,
+                "name"  => $this->teacher->profile->full_name,
                 "code"  => $this->teacher->profile->code,
             ],
         ];

@@ -36,12 +36,12 @@ class SummaryController extends Controller
         }
 
         $data = [
-            "total_meetings"   => Meeting::DataOnDate($date)->count(),
-            "total_materials"  => Material::DataOnDate($date)->count(),
-            "total_assigments" => Assignment::DataOnDate($date)->count(),
-            "total_teachers"   => Teacher::AttendanceOnDate($date)->count(),
-            "total_students"   => Student::AttendanceOnDate($date)->count(),
-            "total_classrooms" => Classroom::JournalsOnDate($date)->count()
+            "total_meetings"    => Meeting::DataOnDate($date)->count(),
+            "total_materials"   => Material::DataOnDate($date)->count(),
+            "total_assignments" => Assignment::DataOnDate($date)->count(),
+            "total_teachers"    => Teacher::AttendanceOnDate($date)->count(),
+            "total_students"    => Student::AttendanceOnDate($date)->count(),
+            "total_classrooms"  => Classroom::JournalsOnDate($date)->count()
         ];
 
         return TodaySummaryResource::make($data);
