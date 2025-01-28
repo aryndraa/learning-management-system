@@ -47,9 +47,10 @@ class SummaryController extends Controller
         return TodaySummaryResource::make($data);
     }
 
-    public  function todayActivities()
+    public  function getDailyActivities(Request $request)
     {
-        $todayActivities = ActivityRecord::DataOnDate($this->today)->get();
+        $todayActivities = ActivityRecord::DataOnDate($request['date'] ? $request['date'] : $this->today)->get();
+
         $todayActivities->load(['user.profile', 'user.profile.avatar']);
 
         return TodayActivityResource::collection($todayActivities);

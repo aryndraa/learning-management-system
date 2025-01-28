@@ -82,7 +82,7 @@ Route::prefix('admin')
                     ->name('summary.')
                     ->group(function () {
                         Route::get('/daily-summary', 'getDailySummary')->name('getDailySummary');
-                        Route::get('/today-activities', 'todayActivities')->name('todayActivities');
+                        Route::get('/daily-activities', 'getDailyActivities')->name('getDailyActivities');
                     });
             });
     });
