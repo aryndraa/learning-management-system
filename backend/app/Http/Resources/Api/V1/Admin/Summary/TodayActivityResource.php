@@ -23,6 +23,7 @@ class TodayActivityResource extends JsonResource
                 "full_name" => $this->user->profile->full_name ?? null,
                 "avatar"    => $this->user->profile->avatar->file_url ?? null
             ],
+            "created_at"     => $this->created_at->toDateTimeString()
         ];
     }
 }
