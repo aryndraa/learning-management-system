@@ -1,7 +1,7 @@
 import apiClient from "../utils/apiClient";
 
 const todaySummary = async (date) => {
-    return await apiClient.get('summary/today-summary' {
+    return await apiClient.get('summary/today-summary', {
         date
     });
 }
