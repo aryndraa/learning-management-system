@@ -5,10 +5,6 @@ import {ListCountItems} from "../components/ListCountItems.jsx";
 import {ProfileCard} from "../components/ProfileCard.jsx";
 
 export default function Home () {
-
- 
-
-
   return (
     <>
       <section className="grid grid-cols-1 gap-4 w-full ">

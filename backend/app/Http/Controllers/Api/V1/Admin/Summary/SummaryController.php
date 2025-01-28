@@ -14,7 +14,7 @@ use App\Models\Student;
 use App\Models\Teacher;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
-
+use Illuminate\Http\Request;
 
 class SummaryController extends Controller
 {
@@ -26,16 +26,22 @@ class SummaryController extends Controller
         $this->today = Carbon::now();
     }
 
-    public function todaySummary()
+    public function getDailySummary(Request $request)
     {
 
+        if ($request['date']) {
+            $date = $request['date'];
+        } else {
+            $date = $this->today;
+        }
+
         $data = [
-            "total_meetings"   => Meeting::DataOnDate($this->today)->count(),
-            "total_materials"  => Material::DataOnDate($this->today)->count(),
-            "total_assigments" => Assignment::DataOnDate($this->today)->count(),
-            "total_teachers"   => Teacher::AttendanceOnDate($this->today)->count(),
-            "total_students"   => Student::AttendanceOnDate($this->today)->count(),
-            "total_classrooms" => Classroom::JournalsOnDate($this->today)->count()
+            "total_meetings"   => Meeting::DataOnDate($date)->count(),
+            "total_materials"  => Material::DataOnDate($date)->count(),
+            "total_assigments" => Assignment::DataOnDate($date)->count(),
+            "total_teachers"   => Teacher::AttendanceOnDate($date)->count(),
+            "total_students"   => Student::AttendanceOnDate($date)->count(),
+            "total_classrooms" => Classroom::JournalsOnDate($date)->count()
         ];
 
         return TodaySummaryResource::make($data);

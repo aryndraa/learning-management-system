@@ -81,7 +81,7 @@ Route::prefix('admin')
                     ->prefix('summary')
                     ->name('summary.')
                     ->group(function () {
-                        Route::get('/today-summary', 'todaySummary')->name('todaySummary');
+                        Route::get('/daily-summary', 'getDailySummary')->name('getDailySummary');
                         Route::get('/today-activities', 'todayActivities')->name('todayActivities');
                     });
             });

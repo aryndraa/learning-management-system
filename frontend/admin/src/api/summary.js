@@ -4,4 +4,10 @@ const todaySummary = async () => {
     return await apiClient.get('summary/today-summary');
 }
 
-export default {todaySummary}
+
+const todayActivities = async () => {
+    return await apiClient.get('today-activities');
+}
+
+
+export default { todaySummary, todayActivities }
