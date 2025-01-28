@@ -24,8 +24,8 @@ class TodaySummaryResource extends JsonResource
                 "total" => $this['total_materials'],
             ],
             [
-                "name" => "assigments",
-                "total" => $this['total_assigments'],
+                "name" => "assignments",
+                "total" => $this['total_assignments'],
             ],
             [
                 "name" => "teachers",
