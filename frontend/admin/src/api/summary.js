@@ -1,12 +1,16 @@
 import apiClient from "../utils/apiClient";
 
-const todaySummary = async () => {
-    return await apiClient.get('summary/today-summary');
+const todaySummary = async (date) => {
+    return await apiClient.get('summary/today-summary' {
+        date
+    });
 }
 
 
-const todayActivities = async () => {
-    return await apiClient.get('today-activities');
+const todayActivities = async (date) => {
+    return await apiClient.get('today-activities', {
+        date
+    });
 }
 
 
