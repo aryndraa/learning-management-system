@@ -1,9 +1,9 @@
 import {CountItem} from "./CountItem.jsx";
-import { useTodaySummary } from "../hooks/useTodaySummary.jsx";
+import { useDailySummary } from "../hooks/useDailySummary.jsx";
 
 export const ListCountItems = () => {
 
-  const { data, isLoading, error } = useTodaySummary();
+  const { data, isLoading, error } = useDailySummary();
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;

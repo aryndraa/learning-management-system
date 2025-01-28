@@ -1,17 +1,17 @@
 import apiClient from "../utils/apiClient";
 
-const todaySummary = async (date) => {
-    return await apiClient.get('summary/today-summary', {
+const getDailySummary = async (date) => {
+    return await apiClient.get('summary/daily-summary', {
         date
     });
 }
 
 
-const todayActivities = async (date) => {
-    return await apiClient.get('today-activities', {
+const getDailyActivities = async (date) => {
+    return await apiClient.get('daily-activities', {
         date
     });
 }
 
 
-export default { todaySummary, todayActivities }
+export default { getDailySummary, getDailyActivities }

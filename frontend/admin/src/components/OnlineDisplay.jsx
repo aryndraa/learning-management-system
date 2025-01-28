@@ -1,9 +1,9 @@
 import OnlineCard from "./OnlineCard.jsx";
-import { useTodaySummary } from "../hooks/useTodaySummary.jsx";
+import { useDailySummary } from "../hooks/useDailySummary.jsx";
 
 export  const OnlineDisplay = () => {
 
-  const { data, isLoading, error } = useTodaySummary();
+  const { data, isLoading, error } = useDailySummary();
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
