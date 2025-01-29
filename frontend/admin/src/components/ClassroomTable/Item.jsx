@@ -12,8 +12,10 @@ export const Item = () => {
               <h4 className="font-medium text-font-200">Major</h4>
               <h4 className="font-medium text-font-200">Number</h4>
               <h4 className="font-medium text-font-200">Teacher</h4>
+              <h4 className="font-medium text-font-200">Students</h4>
             </div>
             <div className="flex flex-col gap-2">
+              <p>:</p>
               <p>:</p>
               <p>:</p>
               <p>:</p>
@@ -25,6 +27,7 @@ export const Item = () => {
             <p className="text-font-100">Web Development</p>
             <p className="text-font-100">12</p>
             <p className="text-font-100">Pak Slebew</p>
+            <p className="text-font-100">21</p>
           </div>
         </div>
         <div>
