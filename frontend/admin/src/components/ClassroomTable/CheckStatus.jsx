@@ -1,10 +1,10 @@
-import {useEffect, useState} from "react";
-import {useStatus} from "../../contexts/StatusClassroomContext.jsx";
+import {useState} from "react";
+import {useClassroom} from "../../contexts/ClassroomContext.jsx";
 
 export const CheckStatus = () => {
 
   const [openModal, setOpenModal] = useState(false);
-  const { status, setStatus } = useStatus();
+  const { status, setStatus } = useClassroom();
 
   const handeSetStatus = (status) => {
     setStatus(status);

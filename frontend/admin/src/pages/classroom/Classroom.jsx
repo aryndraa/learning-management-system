@@ -3,7 +3,7 @@ import {Item} from "../../components/ClassroomTable/Item.jsx";
 import {Search} from "../../components/ClassroomTable/Search.jsx";
 import {Filter} from "../../components/ClassroomTable/Filter.jsx";
 import {CheckStatus } from "../../components/ClassroomTable/CheckStatus.jsx";
-import {StatusClassroomProvider} from "../../contexts/StatusClassroomContext.jsx";
+import {ClassroomProvider} from "../../contexts/ClassroomContext.jsx";
 
 export default function Classroom () {
 
@@ -12,7 +12,7 @@ export default function Classroom () {
       <section className="grid grid-cols-1 gap-4 w-full ">
         <PageTitle title="Classroom Management" />
         <div>
-          <StatusClassroomProvider>
+          <ClassroomProvider>
             <div className="mb-4 bg-white rounded-lg p-4 flex flex-col gap-4">
               <Search/>
               <div className="flex justify-between items-center" >
@@ -27,7 +27,7 @@ export default function Classroom () {
               <Item/>
               <Item/>
             </div>
-          </StatusClassroomProvider>
+          </ClassroomProvider>
         </div>
       </section>
     </>
