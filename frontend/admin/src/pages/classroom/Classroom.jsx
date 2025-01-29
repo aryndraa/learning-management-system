@@ -16,10 +16,10 @@ export default function Classroom () {
             <div className="mb-4 bg-white rounded-lg p-4 flex flex-col gap-4">
               <Search/>
               <div className="flex justify-between items-center" >
-                <div>
+                <div className="flex gap-2">
                   <CheckStatus/>
+                  <Filter/>
                 </div>
-                <Filter/>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-4 w-full bg-white p-4">

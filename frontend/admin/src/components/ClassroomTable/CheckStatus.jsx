@@ -14,7 +14,7 @@ export const CheckStatus = () => {
   return (
     <div className="relative">
       <button
-        className="px-4 py-3 bg-background font-medium rounded-lg text-font-100"
+        className="px-4 py-3 bg-background font-medium rounded-lg text-font-100 text-sm"
         onClick={() => setOpenModal(!openModal)}
       >
         Status : <span className="capitalize">{status} Class</span>
