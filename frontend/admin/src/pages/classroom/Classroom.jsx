@@ -13,9 +13,6 @@ export default function Classroom () {
 
   return (
     <>
-      <Helmet>
-        <title>Orbits | Classroom</title>
-      </Helmet>
       <section className="grid grid-cols-1 gap-4 w-full ">
         <PageTitle title="Classroom Management" />
         <div>

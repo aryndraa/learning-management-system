@@ -7,20 +7,25 @@ export const Direction = () => {
   const handleToggle = () => {
     if (direction === "asc") {
       return (
-        <button className="p-3 text-xl bg-neutral-100 rounded-lg text-font-100 flex gap-2 items-center font-medium">
+        <button
+          className="p-3 text-xl bg-neutral-100 rounded-lg text-font-100 flex gap-2 items-center font-medium"
+          onClick={() => setDirection("desc")}
+        >
           <PiSortAscendingBold/>
         </button>
       )
     } else if (direction === "desc") {
       return (
-        <button className="p-3 text-xl bg-neutral-100 rounded-lg text-font-100 flex gap-2 items-center font-medium">
+        <button
+          className="p-3 text-xl bg-neutral-100 rounded-lg text-font-100 flex gap-2 items-center font-medium"
+          onClick={() => setDirection("asc")}
+        >
           <PiSortDescendingBold/>
         </button>
       )
     }
   }
 
-  console.log(direction);
   return (
     <>
       {handleToggle()}
