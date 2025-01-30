@@ -6,10 +6,20 @@ const ClassroomContext = createContext();
 export const ClassroomProvider = ({children}) => {
   const [status, setStatus] = useState("all");
   const [search, setSearch] = useState("");
+  const [orderBy, setOrderBy] = useState("class");
   const [direction, setDirection] = useState("asc");
 
   return (
-    <ClassroomContext.Provider value={{ status, setStatus, search, setSearch, direction, setDirection }}>
+    <ClassroomContext.Provider value={{
+      status,
+      setStatus,
+      search,
+      setSearch,
+      direction,
+      setDirection,
+      orderBy,
+      setOrderBy
+    }}>
       {children}
     </ClassroomContext.Provider>
   );
