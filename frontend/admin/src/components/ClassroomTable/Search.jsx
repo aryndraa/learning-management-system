@@ -9,19 +9,10 @@ const {search, setSearch} = useClassroom()
         <input
           type="text"
           placeholder="Search Classrooms"
-          className=" py-3 px-4 rounded-lg w-full bg-background focus:outline-none"
+          className=" py-3 px-4 rounded-lg w-full bg-neutral-100 focus:outline-none"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button
-          type="submit"
-          className="text-2xl flex items-center justify-center px-3 rounded-lg bg-primary text-white"
-          onClick={(e) => {
-            e.preventDefault()
-          }}
-        >
-          <IoSearchSharp/>
-        </button>
       </form>
     </>
   )

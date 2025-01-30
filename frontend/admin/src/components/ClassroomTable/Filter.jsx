@@ -1,5 +1,5 @@
-import { FaFilter } from "react-icons/fa";
 import {useState} from "react";
+import { FiFilter } from "react-icons/fi";
 
 export const Filter = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -7,10 +7,13 @@ export const Filter = () => {
   return (
     <div className="relative">
       <button
-        className="p-3 bg-background rounded-lg text-font-100"
+        className="p-3 bg-neutral-100 rounded-lg text-font-100 flex text-sm gap-2 items-center font-medium "
         onClick={() => setOpenModal(!openModal)}
       >
-        <FaFilter />
+        <span className="text-lg">
+          <FiFilter />
+        </span>
+        Filter
       </button>
       <div className={`absolute  flex-col bg-white w-32 items-start rounded-lg shadow-md right-0 top-14 ${
         openModal ? "flex" : "hidden"

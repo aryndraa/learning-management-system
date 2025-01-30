@@ -14,10 +14,10 @@ export const CheckStatus = () => {
   return (
     <div className="relative">
       <button
-        className="px-4 py-3 bg-background font-medium rounded-lg text-font-100 text-sm"
+        className="px-4 py-3 bg-neutral-100 font-medium rounded-lg text-font-100 text-sm capitalize"
         onClick={() => setOpenModal(!openModal)}
       >
-        Status : <span className="capitalize">{status} Class</span>
+        Status : {status} Class
       </button>
       <div className={`absolute  flex-col bg-white w-64 items-start rounded-lg shadow-md left-0 top-14 ${
         openModal ? "flex" : "hidden"

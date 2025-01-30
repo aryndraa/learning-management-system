@@ -27,7 +27,7 @@ export const ListCountItems = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   const countItems = data.data.filter((item) =>
-    ["meetings", "materials", "assigments"].includes(item.name)
+    ["meetings", "materials", "assignments"].includes(item.name)
   );
 
   const types = ['primary', 'secondary', 'trinary']
