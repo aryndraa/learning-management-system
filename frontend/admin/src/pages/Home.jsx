@@ -3,11 +3,15 @@ import {PageTitle} from "../components/PageTitle.jsx";
 import {ListActivities} from "../components/ListActivities.jsx";
 import {ListCountItems} from "../components/ListCountItems.jsx";
 import {ProfileCard} from "../components/ProfileCard.jsx";
+import {Helmet} from "react-helmet";
 
 export default function Home () {
 
   return (
     <>
+      <Helmet>
+        <title>Orbits | Dashboard</title>
+      </Helmet>
       <section className="grid grid-cols-1 gap-4 w-full ">
         <PageTitle title="Dashboard" />
         <div className="lg:flex flex-row-reverse gap-4">

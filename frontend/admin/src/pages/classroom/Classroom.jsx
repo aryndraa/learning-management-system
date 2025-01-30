@@ -6,11 +6,16 @@ import {CheckStatus } from "../../components/ClassroomTable/CheckStatus.jsx";
 import {ClassroomProvider} from "../../contexts/ClassroomContext.jsx";
 import {Link} from "react-router";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
+import {Helmet} from "react-helmet";
+import {Direction} from "../../components/ClassroomTable/Direction.jsx";
 
 export default function Classroom () {
 
   return (
     <>
+      <Helmet>
+        <title>Orbits | Classroom</title>
+      </Helmet>
       <section className="grid grid-cols-1 gap-4 w-full ">
         <PageTitle title="Classroom Management" />
         <div>
@@ -21,8 +26,9 @@ export default function Classroom () {
               </div>
               <div className="flex  items-stretch justify-between gap-4" >
                 <CheckStatus/>
-                <div className="flex gap-4">
+                <div className="flex gap-2">
                   <Filter/>
+                  <Direction/>
                 </div>
               </div>
             </div>
