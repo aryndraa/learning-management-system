@@ -19,11 +19,11 @@ export const CheckStatus = () => {
       >
         Status : {status} Class
       </button>
-      <div className={`absolute  flex-col bg-white w-64 items-start rounded-lg shadow-md left-0 top-14 ${
+      <div className={`absolute  flex-col bg-white w-32 z-10 items-start rounded-lg shadow-md left-0 top-14 ${
         openModal ? "flex" : "hidden"
       }`}>
         <button
-          className="px-4 py-3 text-font-100 font-medium hover:bg-background w-full text-left text-sm"
+          className="px-4 py-3 text-font-100 font-medium hover:bg-background rounded-t-lg w-full text-left text-sm"
           onClick={() => handeSetStatus("all")}
         >
           All
@@ -35,7 +35,7 @@ export const CheckStatus = () => {
           Online
         </button>
         <button
-          className="px-4 py-3 text-font-100 font-medium hover:bg-background w-full text-left text-sm"
+          className="px-4 py-3 text-font-100 font-medium hover:bg-background rounded-b-lg w-full text-left text-sm"
           onClick={() => handeSetStatus("offline")}
         >
           Offline

@@ -17,27 +17,31 @@ export default function Classroom () {
         <PageTitle title="Classroom Management" />
         <div>
           <ClassroomProvider>
-            <div className="mb-4 bg-white rounded-lg p-4 flex flex-col gap-4">
-              <div>
-                <Search/>
-              </div>
-              <div className="flex  items-stretch justify-between gap-4" >
-                <CheckStatus/>
-                <div className="flex gap-2">
-                  <Filter/>
-                  <Direction/>
+
+            <div className="lg:flex">
+
+              <div className="mb-4 bg-white rounded-lg p-4 flex flex-col lg:flex-row lg:items-center gap-4 lg:flex-1">
+                <div className="lg:flex-1">
+                  <Search/>
+                </div>
+                <div className="flex  items-stretch justify-between gap-4" >
+                  <CheckStatus/>
+                  <div className="flex gap-2 lg:hidden">
+                    <Filter/>
+                    <Direction/>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="mb-4 flex justify-between items-center bg-white p-4 rounded-lg">
-              <span className="text-lg font-medium text-font-200">200 Items</span>
-              <Link className="py-2 px-3 w-fit bg-primary font-medium text-white rounded-lg flex gap-1 items-center " to={'classroom/create'}>
-                    <span className=" text-2xl ">
-                      <MdOutlineAddCircleOutline/>
-                    </span>
-                Classroom
-              </Link>
+              <div className="mb-4 flex justify-between lg:justify-end bg-white lg:gap-6 items-center  p-4  rounded-lg lg:flex-1">
+                <span className="text-lg font-medium text-font-200">200 Items</span>
+                <Link className="py-2 px-3 w-fit bg-primary font-medium text-white rounded-lg flex gap-1 items-center " to={'classroom/create'}>
+                      <span className=" text-2xl ">
+                        <MdOutlineAddCircleOutline/>
+                      </span>
+                  Classroom
+                </Link>
+            </div>
             </div>
 
             <div className="grid grid-cols-1 gap-4 w-full bg-white p-4 lg:hidden">
