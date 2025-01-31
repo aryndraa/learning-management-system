@@ -7,7 +7,7 @@ export default function DefaultLayout ({ children }) {
   const [sideClose, setSideClose] = useState(false)
 
   return (
-    <div className="bg-background ">
+    <div className="bg-background overflow-hidden">
       <div className="relative  ">
         <Navbar sideClose={sideClose}>
           <button 
