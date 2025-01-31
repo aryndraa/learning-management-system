@@ -25,3 +25,7 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+td, th {
+  padding: 12px 32px !important;
+}

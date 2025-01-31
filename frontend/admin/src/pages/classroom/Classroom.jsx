@@ -6,8 +6,8 @@ import {CheckStatus } from "../../components/ClassroomTable/CheckStatus.jsx";
 import {ClassroomProvider} from "../../contexts/ClassroomContext.jsx";
 import {Link} from "react-router";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
-import {Helmet} from "react-helmet";
 import {Direction} from "../../components/ClassroomTable/Direction.jsx";
+import Table from "../../components/ClassroomTable/Table.jsx";
 
 export default function Classroom () {
 
@@ -40,10 +40,13 @@ export default function Classroom () {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 w-full bg-white p-4">
+            <div className="grid grid-cols-1 gap-4 w-full bg-white p-4 lg:hidden">
               <Item/>
               <Item/>
               <Item/>
+            </div>
+            <div className="hidden lg:block">
+              <Table/>
             </div>
           </ClassroomProvider>
         </div>
