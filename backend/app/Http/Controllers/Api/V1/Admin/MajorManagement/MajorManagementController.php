@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1\Admin\MajorManagement;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Admin\MajorManagement\UpSerRequest;
+use App\Http\Resources\Api\V1\Admin\Major\ShowResource;
 use App\Http\Resources\Api\V1\Admin\MajorManagement\IndexResource;
 use App\Models\Major;
 use Illuminate\Http\Request;
@@ -30,9 +31,17 @@ class MajorManagementController extends Controller
 
     public function show(Major $major)
     {
-        $major->load('classrooms');
+        $majorDetail = $major->newQuery()
+            ->withCount('students')
+            ->with([
+                'classrooms'  => function ($query) {
+                    $query->withCount('students');
+                },
+                'classrooms.teacher.profile'
+            ])
+            ->first();
 
-        return response()->json($major);
+        return ShowResource::make($majorDetail);
     }
 
     public function store(UpSerRequest $request)
