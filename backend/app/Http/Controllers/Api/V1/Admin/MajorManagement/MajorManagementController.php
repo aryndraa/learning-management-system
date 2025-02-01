@@ -10,9 +10,14 @@ use Illuminate\Http\Request;
 
 class MajorManagementController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $keywords  = $request->input('keywords');
+
         $majors = Major::query()
+            ->when($keywords, function ($query) use ($keywords) {
+                $query->where('name', 'like', '%' . $keywords . '%');
+            })
             ->withCount('classrooms')
             ->withCount('students')
             ->get();
