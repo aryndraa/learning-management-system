@@ -13,6 +13,8 @@ class MajorManagementController extends Controller
     public function index(Request $request)
     {
         $keywords  = $request->input('keywords');
+        $order     = $request->input('order_by', 'number');
+        $direction = $request->input('order_direction', 'asc');
 
         $majors = Major::query()
             ->when($keywords, function ($query) use ($keywords) {
@@ -20,6 +22,7 @@ class MajorManagementController extends Controller
             })
             ->withCount('classrooms')
             ->withCount('students')
+            ->orderBy($order, $direction)
             ->get();
 
         return IndexResource::collection($majors);
