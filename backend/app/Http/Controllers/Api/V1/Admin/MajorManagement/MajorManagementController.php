@@ -28,6 +28,13 @@ class MajorManagementController extends Controller
         return IndexResource::collection($majors);
     }
 
+    public function show(Major $major)
+    {
+        $major->load('classrooms');
+
+        return response()->json($major);
+    }
+
     public function store(UpSerRequest $request)
     {
         $major = Major::query()->create($request->validated());

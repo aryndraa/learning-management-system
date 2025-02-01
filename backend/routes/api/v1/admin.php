@@ -72,6 +72,7 @@ Route::prefix('admin')
                     ->name('major-management.')
                     ->group(function () {
                         Route::get('/', 'index')->name('index');
+                        Route::get('/{major}', 'show')->name('show');
                         Route::post('', 'store')->name('store');
                         Route::patch('/{major}', 'update')->name('update');
                         Route::delete('/{major}', 'destroy')->name('destroy');
