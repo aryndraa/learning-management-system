@@ -1,7 +1,7 @@
 import { useClassroom } from "../../contexts/ClassroomContext.jsx";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
-export const ListItemsPaginate = () => {
+export const Pagination = () => {
   const { page, setPage, totalPages } = useClassroom();
 
   return (

@@ -1,6 +1,6 @@
 import {Item} from "./Item.jsx";
 import PropTypes from "prop-types";
-import {ListItemsPaginate} from "./ListItemsPaginate.jsx";
+import {Pagination} from "./Pagination.jsx";
 
 export const ListItems = ({data, loading}) => {
   console.log(data[0])

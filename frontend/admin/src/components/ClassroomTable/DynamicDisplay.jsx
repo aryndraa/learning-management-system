@@ -3,7 +3,7 @@ import classroom from "../../api/classroom.js";
 import { useState, useEffect } from "react";
 import { useClassroom } from "../../contexts/ClassroomContext.jsx";
 import { ListItems } from "./ListItems.jsx";
-import {ListItemsPaginate} from "./ListItemsPaginate.jsx";
+import {Pagination} from "./Pagination.jsx";
 
 export const DynamicDisplay = () => {
   const [classrooms, setClassrooms] = useState([]);
@@ -38,7 +38,7 @@ export const DynamicDisplay = () => {
 
   return (
     <>
-      <ListItemsPaginate/>
+      <Pagination/>
       <div className="mt-4">
         <div className="block lg:hidden">
             <ListItems data={classrooms} loading={loading}/>
