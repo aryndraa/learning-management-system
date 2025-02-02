@@ -31,10 +31,13 @@ export const Item = ({id, classroom, major, number, teacher, students_count}) =>
             <p className="text-font-100 capitalize">{students_count}</p>
           </div>
         </div>
-        <div>
-          <Link to={`/classroom/${id}`} className="flex items-center gap-2 font-medium bg-primary/50 rounded-lg justify-center py-3 px-4 text-white">
+        <div className="flex gap-2">
+          <Link to={`/classroom/${id}`} className="flex w-[80%] items-center gap-2 font-medium border border-primary bg-primary rounded-lg justify-center py-3 px-4 text-white">
             Overview
             <span><FaChevronRight/></span>
+          </Link>
+          <Link to={`/teacher/${id}`} className="flex items-center gap-2 font-medium border-primary border rounded-lg justify-center py-3 px-3 text-primary">
+            Teacher
           </Link>
         </div>
       </div>

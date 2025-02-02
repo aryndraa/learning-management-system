@@ -8,6 +8,8 @@ use App\Http\Resources\Api\V1\Admin\ClassroomManagement\IndexResource;
 use App\Http\Resources\Api\V1\Admin\ClassroomManagement\ShowResource;
 use App\Models\Classroom;
 use App\Models\JournalClassroom;
+use App\Models\Major;
+use App\Models\Teacher;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -39,7 +41,20 @@ class ClassroomManagementController extends Controller
                     $query->whereDate('created_at', '!=', $today);
                 }) ;
             })
-            ->orderBy($order, $direction)
+            ->when($order == "major", function (Builder $query) use ($direction) {
+                $query->orderBy(
+                    Major::select('name')->whereColumn('majors.id', 'classrooms.major_id'),
+                    $direction
+                );
+            })
+            ->when($order == "teacher", function (Builder $query) use ($direction) {
+                $query->orderBy(
+                    Teacher::select('name')->whereColumn('teachers.id', 'classrooms.teacher_id'),
+                );
+            })
+            ->when($order !== "major" && $order !== "teacher", function (Builder $query) use ($order, $direction) {
+                $query->orderBy($order, $direction);
+            })
             ->withCount('students')
             ->paginate(10);
 

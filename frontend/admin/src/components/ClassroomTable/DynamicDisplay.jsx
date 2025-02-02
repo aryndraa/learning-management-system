@@ -9,7 +9,7 @@ export const DynamicDisplay = () => {
   const [classrooms, setClassrooms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const {status, search, direction, orderBy, page, setTotalPages} = useClassroom();
+  const {status, search, direction, orderBy, page, setTotalPages, setMeta} = useClassroom();
 
   useEffect(() => {
     const fetchClassrooms = async () => {
@@ -24,6 +24,7 @@ export const DynamicDisplay = () => {
 
         setClassrooms(response.data);
         setTotalPages(response.meta.last_page);
+        setMeta(response.meta);
       } catch (err) {
         setError(err.message);
         throw err
@@ -41,13 +42,13 @@ export const DynamicDisplay = () => {
       <Pagination/>
       <div className="mt-4">
         <div className="block lg:hidden">
-            <ListItems data={classrooms} loading={loading}/>
+          <ListItems data={classrooms} loading={loading}/>
         </div>
         <div className="hidden lg:block">
           <Table data={classrooms} loading={loading}/>
         </div>
       </div>
     </>
-)
+  )
 }
 

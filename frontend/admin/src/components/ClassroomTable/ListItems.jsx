@@ -1,6 +1,5 @@
 import {Item} from "./Item.jsx";
 import PropTypes from "prop-types";
-import {Pagination} from "./Pagination.jsx";
 
 export const ListItems = ({data, loading}) => {
   console.log(data[0])
@@ -10,13 +9,22 @@ export const ListItems = ({data, loading}) => {
         loading && data ?
           <div className="flex flex-col gap-4">
             <div className="w-full h-[236px] bg-neutral-100 flex flex-col justify-end p-4 rounded-lg">
-              <div className="w-full bg-neutral-200 h-14 rounded-lg"></div>
+              <div className="flex gap-2">
+                <div className="w-[70%] bg-neutral-200 h-14 rounded-lg"></div>
+                <div className="w-[30%] bg-neutral-200 h-14 rounded-lg"></div>
+              </div>
             </div>
             <div className="w-full h-[236px] bg-neutral-100 flex flex-col justify-end p-4 rounded-lg">
-              <div className="w-full bg-neutral-200 h-14 rounded-lg"></div>
+              <div className="flex gap-2">
+                <div className="w-[70%] bg-neutral-200 h-14 rounded-lg"></div>
+                <div className="w-[30%] bg-neutral-200 h-14 rounded-lg"></div>
+              </div>
             </div>
             <div className="w-full h-[236px] bg-neutral-100 flex flex-col justify-end p-4 rounded-lg">
-              <div className="w-full bg-neutral-200 h-14 rounded-lg"></div>
+              <div className="flex gap-2">
+                <div className="w-[70%] bg-neutral-200 h-14 rounded-lg"></div>
+                <div className="w-[30%] bg-neutral-200 h-14 rounded-lg"></div>
+              </div>
             </div>
           </div>
           :

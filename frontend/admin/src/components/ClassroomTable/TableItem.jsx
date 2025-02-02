@@ -1,43 +1,57 @@
 import { Link } from "react-router-dom"
+import PropTypes from "prop-types";
 
-const TableItem = () => {
+const TableItem = ({id, numberItem, classroom, major, number, teacherName, teacherFullName, teacherAvatar, teacherCode, students_count}) => {
   return (
     <tr className="border-transparent border-y border-y-border/40 hover:bg-primary/5 transition text-font-300 text-base ">
-      <td>1</td>
-      <td>A15</td>
-      <td>Web Development</td>
-      <td>11</td>
+      <td>{numberItem}</td>
+      <td>{classroom}</td>
+      <td>{major}</td>
+      <td>{number}</td>
       <td className="group">
         <Link 
           to={"classroom/:classroom"}
           className="bg-primary/10 hover:bg-primary/20 text-sm transition ease-in-out duration-300 rounded-lg text-primary font-medium px-3 py-2 "
         >
-          Mr Budhi
+          {teacherName}
         </Link>
         <div className="absolute bg-white px-3 py-3 rounded-lg w-64 hidden mt-3 group-hover:flex items-center gap-2 shadow">
           <div className="w-10 max-h-10 ">
             <img 
-              src="http://127.0.0.1:8000/storage/teacher/avatars/1MNtbj4qcgARkmKWpQh0cAgFJAwJRqPQGDfGT5O4.jpg" 
+              src={teacherAvatar}
               alt=""
               className="w-full h-10 object-cover rounded-full" 
             />
           </div>
           <div>
-            <h3 className="text-sm font-medium text-font-300 mb-1">Wayan Slebew</h3>
-            <p className="text-xs font-medium text-font-100">Code : 001</p>
+            <h3 className="text-sm font-medium text-font-300 mb-1">{teacherFullName}</h3>
+            <p className="text-xs font-medium text-font-100">Code : {teacherCode}</p>
           </div>
         </div>
       </td>
-      <td>3</td>
+      <td>{students_count}</td>
       <td>
         <div>
-          <Link to={`/classroom/1}`} className="flex items-center gap-2 font-medium border border-primary transition ease-in-out duration-300 rounded-lg justify-center py-2 px-3 text-sm w-fit text-primary hover:text-white hover:bg-primary ">
+          <Link to={`/classroom/${id}`} className="flex items-center gap-2 font-medium border border-primary transition ease-in-out duration-300 rounded-lg justify-center py-2 px-3 text-sm w-fit text-primary hover:text-white hover:bg-primary ">
             Overview
           </Link>
         </div>
       </td>
     </tr>
   )
+}
+
+TableItem.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  numberItem: PropTypes.number,
+  classroom: PropTypes.string,
+  major: PropTypes.string,
+  number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  teacherName: PropTypes.string,
+  teacherFullName: PropTypes.string,
+  teacherAvatar: PropTypes.string,
+  teacherCode: PropTypes.string,
+  students_count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export default TableItem

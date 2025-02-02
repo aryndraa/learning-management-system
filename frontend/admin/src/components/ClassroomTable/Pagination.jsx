@@ -5,7 +5,7 @@ export const Pagination = () => {
   const { page, setPage, totalPages } = useClassroom();
 
   return (
-    <div className="flex justify-between gap-4 items-center mt-4 bg-white p-4 rounded-lg">
+    <div className="flex justify-between gap-4 items-center mt-4 lg:mt-0 bg-white p-4 rounded-lg">
       <span className="text-base font-medium text-font-100">
         Page {totalPages < page ? totalPages : page} of {totalPages}
       </span>

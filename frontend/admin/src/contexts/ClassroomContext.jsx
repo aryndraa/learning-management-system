@@ -10,6 +10,7 @@ export const ClassroomProvider = ({children}) => {
   const [direction, setDirection] = useState("asc");
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [meta, setMeta] = useState({});
 
   return (
     <ClassroomContext.Provider value={{
@@ -24,7 +25,9 @@ export const ClassroomProvider = ({children}) => {
       page,
       setPage,
       totalPages,
-      setTotalPages
+      setTotalPages,
+      meta,
+      setMeta,
     }}>
       {children}
     </ClassroomContext.Provider>

@@ -58,15 +58,40 @@ export const Table = ({data, loading}) => {
                       <th className="font-medium text-sm">
                         <div className="flex gap-2 items-center">
                           Student
-                          {orderDirectionButton("student")}
+                          {orderDirectionButton("students_count")}
                         </div>
                       </th>
                       <th className="font-medium text-sm  rounded-tr-lg"></th>
                   </tr>
               </thead>
               <tbody>
-                <TableItem/>
-                <TableItem/>
+              {loading && data ?
+                (
+                  <tr>
+                    <td>
+                      hai
+                    </td>
+                  </tr>
+                )
+                :
+                <>
+                {data.map((item, index) => (
+
+                  <TableItem
+                    key={index}
+                    id={item.id}
+                    classroom={item.classroom}
+                    major={item.major}
+                    number={item.number}
+                    teacherName={item.teacher.name}
+                    teacherCode={item.teacher.code}
+                    teacherFullName={item.teacher.full_name}
+                    teacherAvatar={item.teacher.avatar.file_url}
+                    students_count={item.students_count}
+                  />
+                ))}
+                </>
+              }
               </tbody>
           </table>
       </div>
