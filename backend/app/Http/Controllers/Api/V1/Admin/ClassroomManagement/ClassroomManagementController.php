@@ -20,15 +20,15 @@ class ClassroomManagementController extends Controller
         $order     = $request->input('order_by', 'number');
         $direction = $request->input('order_direction', 'asc');
         $status    = $request->input('status', 'default');
-        $today = Carbon::now()->format('Y-m-d') ;
+        $today = Carbon::now()->format('Y-m-d');
 
         $classrooms = Classroom::query()
             ->when($keywords, function (Builder $query) use ($keywords) {
                 $query->where('name', 'like', '%' . $keywords . '%');
             })
-            ->with(['teacher.profile', 'major'])
+            ->with(['teacher.profile', 'teacher.profile.avatar', 'major'])
             ->when($status == "online", function (Builder $query) use ($today) {
-                $query->whereHas('journals',function (Builder $query) use ($today) {
+                $query->whereHas('journals', function (Builder $query) use ($today) {
                     $query->whereDate('created_at', $today);
                 });
             })
@@ -43,7 +43,8 @@ class ClassroomManagementController extends Controller
         return indexResource::collection($classrooms);
     }
 
-    public function show(Classroom $classroom) {
+    public function show(Classroom $classroom)
+    {
         $classroom->load(['teacher.profile', 'major', 'students']);
 
         return [
@@ -81,5 +82,4 @@ class ClassroomManagementController extends Controller
 
         return response()->json(['message' => 'classroom deleted']);
     }
-
 }

@@ -46,7 +46,7 @@ class MajorManagementController extends Controller
 
     public function store(UpSerRequest $request)
     {
-        $major = Major::query()->create($request->validated());
+        Major::query()->create($request->validated());
 
         return response()->json([
             "message" => "major created"
