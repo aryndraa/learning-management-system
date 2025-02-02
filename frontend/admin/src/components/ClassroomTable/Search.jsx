@@ -1,4 +1,3 @@
-import { IoSearchSharp } from "react-icons/io5";
 import {useClassroom} from "../../contexts/ClassroomContext.jsx";
 
 export const Search = () => {
