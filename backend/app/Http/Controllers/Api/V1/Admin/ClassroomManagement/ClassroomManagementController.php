@@ -35,7 +35,9 @@ class ClassroomManagementController extends Controller
             ->when($status == "offline", function (Builder $query) use ($today) {
                 $query->whereHas('journals', function (Builder $query) use ($today) {
                     $query->whereDate('created_at', '!=', $today);
-                });
+                })->orWhereDoesntHave('journals', function (Builder $query) use ($today) {
+                    $query->whereDate('created_at', '!=', $today);
+                }) ;
             })
             ->orderBy($order, $direction)
             ->withCount('students')

@@ -7,7 +7,7 @@ export const Pagination = () => {
   return (
     <div className="flex justify-between gap-4 items-center mt-4 bg-white p-4 rounded-lg">
       <span className="text-base font-medium text-font-100">
-        Page {page} of {totalPages}
+        Page {totalPages < page ? totalPages : page} of {totalPages}
       </span>
       <div className="flex gap-3">
         <button
