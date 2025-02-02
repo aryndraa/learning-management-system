@@ -2,7 +2,7 @@ import {useClassroom} from "../../contexts/ClassroomContext.jsx";
 import {PiSortAscendingBold, PiSortDescendingBold} from "react-icons/pi";
 import TableItem from "./TableItem.jsx";
 
-const Table = () => {
+export const Table = () => {
 
   const {orderBy, setOrderBy, direction, setDirection} = useClassroom();
 
@@ -65,6 +65,7 @@ const Table = () => {
               </thead>
               <tbody>
                 <TableItem/>
+                <TableItem/>
               </tbody>
           </table>
       </div>
@@ -72,5 +73,3 @@ const Table = () => {
     </>
   )
 }
-
-export default Table
