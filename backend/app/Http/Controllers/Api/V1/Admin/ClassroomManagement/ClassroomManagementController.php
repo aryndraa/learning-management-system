@@ -38,6 +38,7 @@ class ClassroomManagementController extends Controller
                 });
             })
             ->orderBy($order, $direction)
+            ->withCount('students')
             ->paginate(10);
 
         return indexResource::collection($classrooms);

@@ -6,7 +6,6 @@ const getDailySummary = async (date) => {
     });
 }
 
-
 const getDailyActivities = async (date) => {
     return await apiClient.get('summary/daily-activities', {
         date

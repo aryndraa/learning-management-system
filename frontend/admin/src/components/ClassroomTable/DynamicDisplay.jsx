@@ -35,7 +35,7 @@ export const DynamicDisplay = () => {
   return (
     <>
       <div className="block lg:hidden">
-        <ListItems data={classrooms}/>
+        <ListItems data={classrooms} loading={loading}/>
       </div>
       <div className="hidden lg:block">
         <Table/>
