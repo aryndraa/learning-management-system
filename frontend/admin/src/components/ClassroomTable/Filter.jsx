@@ -28,7 +28,7 @@ export const Filter = () => {
       }`}>
         <div>
           <button
-            onClick={() => handleOrderBy('class')}
+            onClick={() => handleOrderBy('name')}
             className="px-4 py-3 text-font-100 font-medium hover:bg-background w-full text-left text-sm "
           >
             Class

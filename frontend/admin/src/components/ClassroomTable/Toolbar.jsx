@@ -1,9 +1,9 @@
 import { MdOutlineAddCircleOutline } from "react-icons/md";
-import {Direction} from "../../components/ClassroomTable/Direction.jsx";
+import {Direction} from "./Direction.jsx";
 import {Link} from "react-router";
-import {Search} from "../../components/ClassroomTable/Search.jsx";
-import {Filter} from "../../components/ClassroomTable/Filter.jsx";
-import {CheckStatus } from "../../components/ClassroomTable/CheckStatus.jsx";
+import {Search} from "./Search.jsx";
+import {Filter} from "./Filter.jsx";
+import {CheckStatus } from "./CheckStatus.jsx";
 
 export const Toolbar = () => {
   return (

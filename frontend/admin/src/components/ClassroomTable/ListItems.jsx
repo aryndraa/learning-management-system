@@ -1,10 +1,11 @@
 import {Item} from "./Item.jsx";
 import PropTypes from "prop-types";
+import {ListItemsPaginate} from "./ListItemsPaginate.jsx";
 
 export const ListItems = ({data, loading}) => {
   console.log(data[0])
   return (
-    <div className="flex flex-col bg-white rounded-lg w-full  p-4">
+    <div className="flex flex-col bg-white rounded-lg w-full  p-4 ">
       {
         loading && data ?
           <div className="flex flex-col gap-4">
@@ -19,17 +20,19 @@ export const ListItems = ({data, loading}) => {
             </div>
           </div>
           :
-          data.map((item, index) => (
-            <Item
-              key={index}
-              classroom={item.classroom}
-              major={item.major}
-              number={item.number}
-              teacher={item.teacher.name}
-              students_count={item.students_count}
-              id={item.id}
-            />
-          ))
+          <>
+            {data.map((item, index) => (
+              <Item
+                key={index}
+                classroom={item.classroom}
+                major={item.major}
+                number={item.number}
+                teacher={item.teacher.name}
+                students_count={item.students_count}
+                id={item.id}
+              />
+            ))}
+          </>
       }
     </div>
   )

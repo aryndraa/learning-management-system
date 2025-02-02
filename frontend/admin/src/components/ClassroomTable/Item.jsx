@@ -43,10 +43,10 @@ export const Item = ({id, classroom, major, number, teacher, students_count}) =>
 }
 
 Item.propTypes = {
-  classroom: PropTypes.string.isRequired,
-  major: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-  teacher: PropTypes.string.isRequired,
-  students_count: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  classroom: PropTypes.string,
+  major: PropTypes.string,
+  number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  teacher: PropTypes.string,
+  students_count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }

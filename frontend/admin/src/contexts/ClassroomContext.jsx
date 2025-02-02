@@ -8,6 +8,8 @@ export const ClassroomProvider = ({children}) => {
   const [search, setSearch] = useState("");
   const [orderBy, setOrderBy] = useState("id");
   const [direction, setDirection] = useState("asc");
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   return (
     <ClassroomContext.Provider value={{
@@ -18,7 +20,11 @@ export const ClassroomProvider = ({children}) => {
       direction,
       setDirection,
       orderBy,
-      setOrderBy
+      setOrderBy,
+      page,
+      setPage,
+      totalPages,
+      setTotalPages
     }}>
       {children}
     </ClassroomContext.Provider>

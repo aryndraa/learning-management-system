@@ -1,8 +1,9 @@
 import {useClassroom} from "../../contexts/ClassroomContext.jsx";
 import {PiSortAscendingBold, PiSortDescendingBold} from "react-icons/pi";
 import TableItem from "./TableItem.jsx";
+import PropTypes from "prop-types";
 
-export const Table = () => {
+export const Table = ({data, loading}) => {
 
   const {orderBy, setOrderBy, direction, setDirection} = useClassroom();
 
@@ -33,7 +34,7 @@ export const Table = () => {
                       <th className="font-medium text-sm">
                         <div className=" flex gap-2 items-center">
                           Class
-                          {orderDirectionButton("classroom")}
+                          {orderDirectionButton("name")}
                         </div>
                       </th>
                       <th className="font-medium text-sm">
@@ -72,4 +73,9 @@ export const Table = () => {
 
     </>
   )
+}
+
+Table.propTypes = {
+  data: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
 }
