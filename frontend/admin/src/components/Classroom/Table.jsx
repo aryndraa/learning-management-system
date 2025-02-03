@@ -2,6 +2,7 @@ import {useClassroom} from "../../contexts/ClassroomContext.jsx";
 import {PiSortAscendingBold, PiSortDescendingBold} from "react-icons/pi";
 import TableItem from "./TableItem.jsx";
 import PropTypes from "prop-types";
+import {SkeletonBox} from "../SkeletonBox.jsx";
 
 export const Table = ({data, loading}) => {
 
@@ -29,21 +30,22 @@ export const Table = ({data, loading}) => {
   return (
     <>
       <div className="">
-
         {
           loading ?
             <div className="bg-white rounded-lg w-full min-h-screen">
               <div className="bg-primary w-full h-12 rounded-t-lg"></div>
-              <div className="bg-neutral-100 max-w-full h-16  m-5 rounded-lg"></div>
-              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
-              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
-              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
-              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
-              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
-              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
-              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
-              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
-              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
+              <div className="m-5 flex flex-col gap-4">
+                <SkeletonBox width={"100%"} height={"4rem"}/>
+                <SkeletonBox width={"100%"} height={"4rem"}/>
+                <SkeletonBox width={"100%"} height={"4rem"}/>
+                <SkeletonBox width={"100%"} height={"4rem"}/>
+                <SkeletonBox width={"100%"} height={"4rem"}/>
+                <SkeletonBox width={"100%"} height={"4rem"}/>
+                <SkeletonBox width={"100%"} height={"4rem"}/>
+                <SkeletonBox width={"100%"} height={"4rem"}/>
+                <SkeletonBox width={"100%"} height={"4rem"}/>
+                <SkeletonBox width={"100%"} height={"4rem"}/>
+              </div>
             </div>
             :
             <table className="table rounded-lg bg-white  ">
