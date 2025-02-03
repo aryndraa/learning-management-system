@@ -24,76 +24,86 @@ export const Table = ({data, loading}) => {
     );
   };
 
+  var numberItem = 1
+
   return (
     <>
       <div className="">
-          <table className="table rounded-lg bg-white  ">
+
+        {
+          loading ?
+            <div className="bg-white rounded-lg w-full min-h-screen">
+              <div className="bg-primary w-full h-12 rounded-t-lg"></div>
+              <div className="bg-neutral-100 max-w-full h-16  m-5 rounded-lg"></div>
+              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
+              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
+              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
+              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
+              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
+              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
+              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
+              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
+              <div className="bg-neutral-100 max-w-full h-14  m-5 rounded-lg"></div>
+            </div>
+            :
+            <table className="table rounded-lg bg-white  ">
               <thead>
-                  <tr className="text-white bg-primary rounded-lg  border-transparent ">
-                      <th className="font-medium text-sm rounded-tl-lg">#</th>
-                      <th className="font-medium text-sm">
-                        <div className=" flex gap-2 items-center">
-                          Class
-                          {orderDirectionButton("name")}
-                        </div>
-                      </th>
-                      <th className="font-medium text-sm">
-                        <div className=" flex gap-2 items-center">
-                          Major
-                          {orderDirectionButton("major")}
-                        </div>
-                      </th>
-                      <th className="font-medium text-sm ">
-                        <div className="flex gap-2 items-center">
-                          Number
-                          {orderDirectionButton("number")}
-                        </div>
-                      </th>
-                      <th className="font-medium text-sm">
-                        <div className="flex gap-2 items-center">
-                          Teacher
-                          {orderDirectionButton("teacher")}
-                        </div>
-                      </th>
-                      <th className="font-medium text-sm">
-                        <div className="flex gap-2 items-center">
-                          Student
-                          {orderDirectionButton("students_count")}
-                        </div>
-                      </th>
-                      <th className="font-medium text-sm  rounded-tr-lg"></th>
-                  </tr>
+              <tr className="text-white bg-primary rounded-lg  border-transparent ">
+                <th className="font-medium text-sm rounded-tl-lg">#</th>
+                <th className="font-medium text-sm">
+                  <div className=" flex gap-2 items-center">
+                    Class
+                    {orderDirectionButton("name")}
+                  </div>
+                </th>
+                <th className="font-medium text-sm">
+                  <div className=" flex gap-2 items-center">
+                    Major
+                    {orderDirectionButton("major")}
+                  </div>
+                </th>
+                <th className="font-medium text-sm ">
+                  <div className="flex gap-2 items-center">
+                    Number
+                    {orderDirectionButton("number")}
+                  </div>
+                </th>
+                <th className="font-medium text-sm">
+                  <div className="flex gap-2 items-center">
+                    Teacher
+                    {orderDirectionButton("teacher")}
+                  </div>
+                </th>
+                <th className="font-medium text-sm">
+                  <div className="flex gap-2 items-center">
+                    Student
+                    {orderDirectionButton("students_count")}
+                  </div>
+                </th>
+                <th className="font-medium text-sm  rounded-tr-lg"></th>
+              </tr>
               </thead>
               <tbody>
-              {loading && data ?
-                (
-                  <tr>
-                    <td>
-                      hai
-                    </td>
-                  </tr>
-                )
-                :
-                <>
-                {data.map((item, index) => (
-
-                  <TableItem
-                    key={index}
-                    id={item.id}
-                    classroom={item.classroom}
-                    major={item.major}
-                    number={item.number}
-                    teacherName={item.teacher.name}
-                    teacherCode={item.teacher.code}
-                    teacherFullName={item.teacher.full_name}
-                    teacherAvatar={item.teacher.avatar.file_url}
-                    students_count={item.students_count}
-                  />
-                ))}
-                </>
-              }
+              {data.map((item, index) => (
+                <TableItem
+                  key={index}
+                  id={item.id}
+                  classroom={item.classroom}
+                  major={item.major}
+                  number={item.number}
+                  teacherName={item.teacher.name}
+                  teacherCode={item.teacher.code}
+                  teacherFullName={item.teacher.full_name}
+                  teacherAvatar={item.teacher.avatar.file_url}
+                  students_count={item.students_count}
+                  numberItem={numberItem++}
+                />
+              ))}
               </tbody>
-          </table>
+            </table>
+        }
+
+
       </div>
 
     </>
