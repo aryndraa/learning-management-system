@@ -1,7 +1,7 @@
 import {PageTitle} from "../../components/PageTitle.jsx";
 import {ClassroomProvider} from "../../contexts/ClassroomContext.jsx";
-import { DynamicDisplay } from "../../components/ClassroomTable/DynamicDisplay.jsx";
-import { Toolbar } from "../../components/ClassroomTable/Toolbar.jsx";
+import { DynamicDisplay } from "../../components/Classroom/DynamicDisplay.jsx";
+import { Toolbar } from "../../components/Classroom/Toolbar.jsx";
 
 export default function Classroom () {
 

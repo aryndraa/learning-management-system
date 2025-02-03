@@ -26,7 +26,10 @@ class ClassroomManagementController extends Controller
 
         $classrooms = Classroom::query()
             ->when($keywords, function (Builder $query) use ($keywords) {
-                $query->where('name', 'like', '%' . $keywords . '%');
+                $query->where('name', 'like', '%' . $keywords . '%')
+                    ->orWhereHas('major', function (Builder $query) use ($keywords) {
+                        $query->where('name', 'like', '%' . $keywords . '%');
+                    });
             })
             ->with(['teacher.profile', 'teacher.profile.avatar', 'major'])
             ->when($status == "online", function (Builder $query) use ($today) {
