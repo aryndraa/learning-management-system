@@ -16,13 +16,19 @@ const TableItem = ({id, numberItem, classroom, major, number, teacherName, teach
           {teacherName}
         </Link>
         <div className="absolute bg-white px-3 py-3 rounded-lg w-64 hidden mt-3 group-hover:flex items-center gap-2 shadow">
-          <div className="w-10 max-h-10 ">
-            <img 
-              src={teacherAvatar}
-              alt=""
-              className="w-full h-10 object-cover rounded-full" 
-            />
-          </div>
+            {teacherAvatar ?
+              <div className="w-10 max-h-10 ">
+                  <img
+                    src={teacherAvatar}
+                    alt=""
+                    className="w-full h-10 object-cover rounded-full"
+                  />
+              </div>
+              :
+              <div className="w-10 min-h-10 bg-primary rounded-full flex items-center justify-center text-white font-medium" >
+                {teacherName.substring(0, 1)}
+              </div>
+            }
           <div>
             <h3 className="text-sm font-medium text-font-300 mb-1">{teacherFullName}</h3>
             <p className="text-xs font-medium text-font-100">Code : {teacherCode}</p>
