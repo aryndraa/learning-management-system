@@ -78,6 +78,13 @@ class ClassroomManagementController extends Controller
         return response()->json($classroom);
     }
 
+    public function classroomJournals(Classroom $classroom)
+    {
+        $classroom->load(['journals']);
+
+        return response()->json($classroom);
+    }
+
     public function store(UpSerRequest $request)
     {
         $classroom = Classroom::query()->make($request->validated());
