@@ -71,14 +71,14 @@ class ClassroomManagementController extends Controller
         return ShowResource::make($classroom);
     }
 
-    public function classroomStudent(Classroom $classroom)
+    public function getStudents(Classroom $classroom)
     {
         $classroom->load(['students', 'students.profile', 'student.profile.avatar']);
 
         return response()->json($classroom);
     }
 
-    public function classroomJournals(Classroom $classroom)
+    public function getJournals(Classroom $classroom)
     {
         $classroom->load(['journals']);
 

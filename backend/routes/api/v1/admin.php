@@ -49,6 +49,8 @@ Route::prefix('admin')
                     ->group(function () {
                         Route::get('/', 'index')->name('index');
                         Route::get('/{classroom}', 'show')->name('show');
+                        Route::get('/{classroom}/student', 'getStudents')->name('student');
+                        Route::get('/{classroom}/journal', 'getJournals')->name('journal');
                         Route::post('', 'store')->name('store');
                         Route::patch('/{classroom}', 'update')->name('update');
                         Route::delete('/{classroom}', 'destroy')->name('destroy');
