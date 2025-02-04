@@ -66,11 +66,16 @@ class ClassroomManagementController extends Controller
 
     public function show(Classroom $classroom)
     {
-        $classroom->load(['teacher.profile', 'major', 'students']);
+        $classroom->load(['teacher.profile', 'teacher.profile.avatar', 'major']);
 
-        return [
-            "classroom" => ShowResource::make($classroom),
-        ];
+        return ShowResource::make($classroom);
+    }
+
+    public function classroomStudent(Classroom $classroom)
+    {
+        $classroom->load(['students', 'students.profile', 'student.profile.avatar']);
+
+        return response()->json($classroom);
     }
 
     public function store(UpSerRequest $request)

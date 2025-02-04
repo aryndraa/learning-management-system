@@ -22,16 +22,10 @@ class ShowResource extends JsonResource
             "teacher" => [
                 "name" => $this->teacher->profile->name,
                 "code" => $this->teacher->profile->code,
+                "avatar" => [
+                    "file_url" => $this->teacher->profile->avatar->file_url,
+                ]
             ],
-            "students" => $this->students->map(function($student) {
-                return [
-                    "name" => $student->full_name,
-                    "number" => $student->number,
-                    "avatar" => [
-                        "file_url" => $student->avatar->file_url ?? null,
-                    ]
-                ];
-            })
         ];
     }
 }
