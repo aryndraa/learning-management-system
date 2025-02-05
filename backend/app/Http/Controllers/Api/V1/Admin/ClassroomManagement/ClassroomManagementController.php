@@ -78,7 +78,7 @@ class ClassroomManagementController extends Controller
             }
         ]);
 
-        return response()->json($classroom);
+        return ShowResource::make($classroom);
     }
 
     public function getStudents(Classroom $classroom)

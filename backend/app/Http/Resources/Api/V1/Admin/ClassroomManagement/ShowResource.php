@@ -27,6 +27,19 @@ class ShowResource extends JsonResource
                     "file_url" => $this->teacher->profile->avatar->file_url ?? null,
                 ]
             ],
+            "student_permission" =>  $this->students->map(function ($student) {
+                return [
+                    "id" => $student->id,
+                    "full_name" => $student->full_name,
+                    "number" => $student->number,
+                    "attendances" => $student->student->attendances->map(function ($attendace) {
+                        return [
+                            "present" => $attendace->present,
+                            "reason" => $attendace->reason
+                        ];
+                    })
+                ];
+            })
         ];
     }
 }
