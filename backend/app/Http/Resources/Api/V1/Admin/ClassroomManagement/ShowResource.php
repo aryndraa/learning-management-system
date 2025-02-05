@@ -16,6 +16,7 @@ class ShowResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            "id"   => $this->id,
             "name" => $this->name,
             "major" => $this->major->name,
             "number" => $this->number != 0 ? $this->number : 0,
@@ -23,7 +24,7 @@ class ShowResource extends JsonResource
                 "name" => $this->teacher->profile->name,
                 "code" => $this->teacher->profile->code,
                 "avatar" => [
-                    "file_url" => $this->teacher->profile->avatar->file_url,
+                    "file_url" => $this->teacher->profile->avatar->file_url ?? null,
                 ]
             ],
         ];

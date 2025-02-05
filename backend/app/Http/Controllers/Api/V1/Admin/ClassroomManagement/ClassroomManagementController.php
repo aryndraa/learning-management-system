@@ -7,16 +7,16 @@ use App\Http\Requests\Api\V1\Admin\ClassroomManagement\UpSerRequest;
 use App\Http\Resources\Api\V1\Admin\ClassroomManagement\IndexResource;
 use App\Http\Resources\Api\V1\Admin\ClassroomManagement\ShowResource;
 use App\Models\Classroom;
-use App\Models\JournalClassroom;
 use App\Models\Major;
 use App\Models\Teacher;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class ClassroomManagementController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): JsonResource
     {
         $keywords  = $request->input('keywords');
         $order     = $request->input('order_by', 'number');
@@ -42,7 +42,7 @@ class ClassroomManagementController extends Controller
                     $query->whereDate('created_at', '!=', $today);
                 })->orWhereDoesntHave('journals', function (Builder $query) use ($today) {
                     $query->whereDate('created_at', '!=', $today);
-                }) ;
+                });
             })
             ->when($order == "major", function (Builder $query) use ($direction) {
                 $query->orderBy(
@@ -73,7 +73,7 @@ class ClassroomManagementController extends Controller
 
     public function getStudents(Classroom $classroom)
     {
-        $classroom->load(['students', 'students.profile', 'student.profile.avatar']);
+        $classroom->load(['students', 'students.profile', 'students.profile.avatar']);
 
         return response()->json($classroom);
     }
@@ -82,7 +82,17 @@ class ClassroomManagementController extends Controller
     {
         $classroom->load(['journals']);
 
-        return response()->json($classroom);
+        if ($classroom->journals->isEmpty()) {
+            return response()->json(['message' => 'No journals found'], 404);
+        }
+
+        $groupedJournals = [];
+
+        $groupedJournals = $classroom->journals->groupBy(function ($journal) {
+            return \Carbon\Carbon::parse($journal->created_at)->format('Y-m-d');
+        });
+
+        return response()->json($groupedJournals);
     }
 
     public function store(UpSerRequest $request)
