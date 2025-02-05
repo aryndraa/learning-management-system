@@ -66,9 +66,19 @@ class ClassroomManagementController extends Controller
 
     public function show(Classroom $classroom)
     {
-        $classroom->load(['teacher.profile', 'teacher.profile.avatar', 'major']);
+        $today = Carbon::today();
 
-        return ShowResource::make($classroom);
+        $classroom->load([
+            'teacher.profile',
+            'teacher.profile.avatar',
+            'major',
+            'students.student.attendances' => function ($query) use ($today) {
+                $query->whereDate('created_at', $today)
+                    ->where('present', 0);
+            }
+        ]);
+
+        return response()->json($classroom);
     }
 
     public function getStudents(Classroom $classroom)
