@@ -76,9 +76,10 @@ class ClassroomManagementController extends Controller
                 $query->whereDate('created_at', $today)
                     ->where('present', 0);
             }
-        ]);
+        ])->loadCount('students');
 
-        return ShowResource::make($classroom);
+
+        return response()->json($classroom);
     }
 
     public function getStudents(Classroom $classroom)
