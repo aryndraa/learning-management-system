@@ -76,7 +76,7 @@ class ClassroomManagementController extends Controller
                 $query->whereDate('created_at', $today)
                     ->where('present', 0);
             }
-        ])->loadCount('students');
+        ])->loadCount('students', 'subjectTeachers');
 
 
         return response()->json($classroom);
