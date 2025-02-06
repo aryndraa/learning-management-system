@@ -75,6 +75,9 @@ class ClassroomManagementController extends Controller
             'students.student.attendances' => function ($query) use ($today) {
                 $query->whereDate('created_at', $today)
                     ->where('present', 0);
+            },
+            'journals' => function ($query) use ($today) {
+                $query->whereDate('created_at', $today);
             }
         ])->loadCount('students', 'subjectTeachers');
 
