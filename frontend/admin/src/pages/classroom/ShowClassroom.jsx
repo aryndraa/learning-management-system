@@ -1,6 +1,6 @@
-import { DetailOverview } from "../../components/Classroom/Overview/DetailOverview.jsx";
 import {PageTitle} from "../../components/PageTitle.jsx";
 import {MeetingInformation} from "../../components/Classroom/Overview/MeetingInformation.jsx";
+import { DetailOverview } from "../../components/Classroom/overview/DetailOverview.jsx";
 
 export function ShowClassroom() {
   return (
