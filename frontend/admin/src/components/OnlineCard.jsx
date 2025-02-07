@@ -11,9 +11,9 @@ const OnlineCard = ({type = "primary", index, items}) => {
   };
 
   const icons = {
-    primary: <MdClass/> ,
-    secondary: <FaChalkboardTeacher/>,
-    trinary: <IoPeople/>,
+    primary:  <FaChalkboardTeacher/>,
+    secondary:  <IoPeople/>,
+    trinary:  <MdClass/>,
   }
 
 

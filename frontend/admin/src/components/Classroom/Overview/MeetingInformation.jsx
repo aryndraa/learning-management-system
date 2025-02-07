@@ -10,22 +10,22 @@ export const MeetingInformation = () => {
             <p className="text-font-100">Bahasa Indonesia</p>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-success rounded-full"></div>
-            <span className=" font-medium text-font-100">On Going</span>
+            <div className="w-3 h-3 bg-success rounded-full"></div>
+            <span className="text-sm font-medium text-font-100">On Going</span>
           </div>
         </div>
 
         <div className="mb-6 pb-6 border-b border-border">
-          <div className="flex justify-between items-center gap-6 bg-primary/20 p-4 rounded-lg">
-            <div className="bg-primary text-2xl font-medium text-white rounded-lg flex justify-center p-5 py-4">
+          <div className="flex justify-between items-center  bg-primary/20 p-4 rounded-lg">
+            <div className="bg-primary text-xl font-medium text-white rounded-lg flex justify-center py-3 p-4">
               <span>01</span>
             </div>
             <span className="text-3xl font-medium text-primary">:</span>
-            <div className="bg-primary text-2xl font-medium text-white rounded-lg flex justify-center p-5 py-4">
+            <div className="bg-primary text-xl font-medium text-white rounded-lg flex justify-center py-3 p-4">
               <span>20</span>
             </div>
             <span className="text-3xl font-medium text-primary">:</span>
-            <div className="bg-primary text-2xl font-medium text-white rounded-lg flex justify-center p-5 py-4">
+            <div className="bg-primary text-xl font-medium text-white rounded-lg flex justify-center py-3 p-4">
               <span>12</span>
             </div>
           </div>

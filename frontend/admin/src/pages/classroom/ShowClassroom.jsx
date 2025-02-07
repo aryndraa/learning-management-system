@@ -1,6 +1,7 @@
 import {PageTitle} from "../../components/PageTitle.jsx";
 import {MeetingInformation} from "../../components/Classroom/Overview/MeetingInformation.jsx";
 import { DetailOverview } from "../../components/Classroom/overview/DetailOverview.jsx";
+import { TotalCard } from "../../components/Classroom/Overview/TotalCard.jsx";
 
 export function ShowClassroom() {
   return (
@@ -9,6 +10,10 @@ export function ShowClassroom() {
         <PageTitle title="Classroom Management" />
         <DetailOverview/>
         <MeetingInformation/>
+        <div className="">
+          <TotalCard/>
+          <TotalCard/>
+        </div>
       </section>
     </>
   )
