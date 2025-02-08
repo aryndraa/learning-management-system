@@ -3,6 +3,7 @@ import {MeetingInformation} from "../../components/Classroom/Overview/MeetingInf
 import { DetailOverview } from "../../components/Classroom/overview/DetailOverview.jsx";
 import { TotalCard } from "../../components/Classroom/Overview/TotalCard.jsx";
 import { TabBar } from "../../components/TabBar.jsx";
+import { TableAbsent } from "../../components/Classroom/Overview/TableAbsent.jsx";
 
 export function ShowClassroom() {
   return (
@@ -20,6 +21,9 @@ export function ShowClassroom() {
               <div className="grid grid-cols-2 gap-3">
                 <TotalCard/>
                 <TotalCard/>
+              </div>
+              <div>
+                <TableAbsent/>
               </div>
             </div>
             <div className="w-full hidden lg:block">
