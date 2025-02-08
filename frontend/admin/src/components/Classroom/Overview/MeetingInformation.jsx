@@ -1,7 +1,7 @@
 export const MeetingInformation = () => {
   return (
     <>
-      <div className="bg-white p-4">
+      <div className="bg-white p-4 ">
         <h2 className="font-medium text-font-100 mb-4">Current Activity</h2>
 
         <div className="mb-4 flex justify-between items-end">

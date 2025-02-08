@@ -9,12 +9,23 @@ export function ShowClassroom() {
     <>
       <section className="grid grid-cols-1 gap-4 w-full ">
         <PageTitle title="Class A15" />
-        <TabBar/>
-        <DetailOverview/>
-        <MeetingInformation/>
-        <div className="grid grid-cols-2 gap-3">
-          <TotalCard/>
-          <TotalCard/>
+        <div className="grid grid-cols-1 gap-4">
+          <TabBar/>
+          <div className="flex flex-col lg:flex-row gap-4">
+            <div className="min-w-[70%] flex flex-col gap-4">
+              <DetailOverview/>
+              <div className="w-full block lg:hidden">
+                <MeetingInformation/>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <TotalCard/>
+                <TotalCard/>
+              </div>
+            </div>
+            <div className="w-full hidden lg:block">
+              <MeetingInformation/>
+            </div>
+          </div>
         </div>
       </section>
     </>

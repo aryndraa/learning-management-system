@@ -4,7 +4,7 @@ import { MdClass } from "react-icons/md";
 
 export const DetailOverview = () => {
   return (
-		<div className="bg-white p-4 rounded-lg	">
+		<div className="bg-white p-4 rounded-lg	h-fit">
 			<div className=" flex-col gap-1 pb-4 border-b border-border mb-4 hidden md:flex">
 				<h2 className="text-2xl font-medium text-font-300 flex items-center gap-2">
 					<span className="text-primary text-3xl"><MdClass/></span>
