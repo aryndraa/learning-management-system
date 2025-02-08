@@ -5,12 +5,12 @@ export const TableAbsentItem = () => {
       <td>Ryan Manggala</td>
       <td>12</td>
       <td>
-        <span>
-          Present
+        <span className="text-sm px-4 py-2 bg-danger/10 rounded-lg text-danger font-medium">
+          Absent
         </span>
       </td>
       <td>
-        <button className="text-sm px-4 py-2 bg-primary text-white font-medium rounded-lg">Description</button>
+        <button className="text-sm px-4 py-2 bg-primary text-white font-medium rounded-lg">Reason</button>
       </td>
     </tr>
   )
