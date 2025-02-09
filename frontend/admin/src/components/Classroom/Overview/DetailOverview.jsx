@@ -14,7 +14,7 @@ export const DetailOverview = () => {
 				<p className="text-font-100 text-sm">Number : 13</p>
 			</div>
 			<div className="pb-2">
-				<h2 className="text-sm font-medium text-font-100 mb-3">Class Teacher</h2>
+				<h2 className="font-medium text-font-100 mb-3">Class Teacher</h2>
 				<div className="flex gap-3">
 					<img
 						src="http://127.0.0.1:8000/storage/teacher/avatars/1MNtbj4qcgARkmKWpQh0cAgFJAwJRqPQGDfGT5O4.jpg"
