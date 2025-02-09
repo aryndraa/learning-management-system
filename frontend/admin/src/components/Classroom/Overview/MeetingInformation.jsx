@@ -7,7 +7,7 @@ export const MeetingInformation = () => {
         <div className="mb-4 flex justify-between items-end">
           <div>
             <h3 className="text-xl font-medium mb-1 text-font-300">Meeting Class</h3>
-            <p className="text-font-100">Bahasa Indonesia</p>
+            <p className="text-font-100">Mathematic</p>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-success rounded-full"></div>

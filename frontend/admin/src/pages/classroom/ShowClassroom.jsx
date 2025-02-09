@@ -4,6 +4,7 @@ import { DetailOverview } from "../../components/Classroom/overview/DetailOvervi
 import { TotalCard } from "../../components/Classroom/Overview/TotalCard.jsx";
 import { TabBar } from "../../components/TabBar.jsx";
 import { TableAbsent } from "../../components/Classroom/Overview/TableAbsent.jsx";
+import { ListAbsent } from "../../components/Classroom/Overview/ListAbsent.jsx";
 
 export function ShowClassroom() {
   return (
@@ -23,7 +24,12 @@ export function ShowClassroom() {
                 <TotalCard/>
               </div>
               <div>
-                <TableAbsent/>
+                <div className="hidden lg:block">
+                  <TableAbsent/>
+                </div>
+                <div className="block lg:hidden">
+                  <ListAbsent/>
+                </div>
               </div>
             </div>
             <div className="w-full hidden lg:block">

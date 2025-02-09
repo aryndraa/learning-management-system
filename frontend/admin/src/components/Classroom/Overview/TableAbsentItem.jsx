@@ -4,12 +4,12 @@ export const TableAbsentItem = () => {
 
   return (
     <tr className="text-base">
-      <td className="hidden lg:block">1</td>
-      <td className="hidden lg:block">Ryan Manggala</td>
-      <td className="">12</td>
-      <td className="">
+      <td>1</td>
+      <td>Ryan Manggala</td>
+      <td>12</td>
+      <td>
         <span className="text-sm px-4 py-2 bg-danger/10 rounded-lg text-danger font-medium">
-          Absent
+          Absent 
         </span>
       </td>
       <td>
