@@ -1,10 +1,28 @@
-import { Link } from "react-router-dom"
 import { GoKebabHorizontal } from "react-icons/go"
 import { useState } from "react"
+import { TabBarLink } from "./TabBarLink";
 
 export const TabBar = () => {
   const [openNav, setOpenNav] =  useState();
+  const links = [
+    {
+      path: 'classroom/:id',
+      name: "Overview"
+    },
+    {
+      path: 'classroom/:id/students',
+      name: "Students"
+    },
+    {
+      path: 'classroom/:id/subject-teachers',
+      name: "Subject Teachers"
+    },
+    {
+      path: 'classroom/:id/journals',
+      name: "All Journals"
+    },
 
+  ]
   return (
     <>
       <div className="flex lg:hidden justify-between relative items-center p-4 bg-white">
@@ -15,12 +33,12 @@ export const TabBar = () => {
           <button className="text-2xl" onClick={() => setOpenNav(!openNav)}><GoKebabHorizontal/></button>
         </div>
       </div>
-       <div className={`flex-col lg:flex-row lg:gap-2 lg:p-4 bg-white rounded-lg  ${
+       <div className={`flex-col lg:flex-row lg:gap-4 lg:p-4 bg-white rounded-lg  ${
         openNav ? "flex" : "hidden lg:flex"
       }`}>
-        <Link to={'/'} className="py-3 px-4 lg:py-2  font-medium text-font-100 hover:bg-neutral-100">Overview</Link>
-        <Link to={'/'} className="py-3 px-4 lg:py-2  font-medium text-font-100 hover:bg-neutral-100">Subject Teachers</Link>
-        <Link to={'/'} className="py-3 px-4 lg:py-2  font-medium text-font-100 hover:bg-neutral-100">List Students</Link>
+        {links.map((link, index) => (
+          <TabBarLink link={link} key={index}/>
+        ))}
       </div>
     </>
 
