@@ -27,7 +27,7 @@ export const DetailOverview = () => {
 							<p className="text-font-100">Code : 003</p>
 						</div>
 						<Link
-							to={'/'}
+							to={'/teacher/:id'}
 							className="p-2 text-3xl flex justify-center bg-primary rounded-full text-white"
 						>
 							<FaCaretRight/>
