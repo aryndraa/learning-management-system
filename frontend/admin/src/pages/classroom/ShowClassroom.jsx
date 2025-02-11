@@ -7,12 +7,33 @@ import { TableAbsent } from "../../components/Classroom/Overview/TableAbsent.jsx
 import { ListAbsent } from "../../components/Classroom/Overview/ListAbsent.jsx";
 
 export function ShowClassroom() {
+
+  const links = [
+    {
+      path: 'classroom/:id',
+      name: "Overview"
+    },
+    {
+      path: 'classroom/:id/students',
+      name: "Students"
+    },
+    {
+      path: 'classroom/:id/subject-teachers',
+      name: "Subject Teachers"
+    },
+    {
+      path: 'classroom/:id/journals',
+      name: "All Journals"
+    },
+
+  ]
+
   return (
     <>
       <section className="grid grid-cols-1 gap-4 w-full ">
         <PageTitle title="Class A15" />
         <div className="grid grid-cols-1 gap-4">
-          <TabBar/>
+          <TabBar links={links}/>
           <div className="flex flex-col lg:flex-row gap-4">
             <div className="min-w-[70%] flex flex-col gap-4">
               <DetailOverview/>
