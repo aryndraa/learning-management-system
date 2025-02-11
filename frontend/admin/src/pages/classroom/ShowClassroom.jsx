@@ -10,19 +10,19 @@ export function ShowClassroom() {
 
   const links = [
     {
-      path: 'classroom/:id',
+      path: '',
       name: "Overview"
     },
     {
-      path: 'classroom/:id/students',
+      path: 'students',
       name: "Students"
     },
     {
-      path: 'classroom/:id/subject-teachers',
+      path: 'subject-teachers',
       name: "Subject Teachers"
     },
     {
-      path: 'classroom/:id/journals',
+      path: 'journals',
       name: "All Journals"
     },
 

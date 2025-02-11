@@ -2,7 +2,7 @@ import { Link, useMatch } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export const TabBarLink = ({ link }) => {
-  const match = useMatch(link.path); // Mencocokkan dengan path dinamis
+  const match = useMatch(link.path); 
 
   return (
     <Link
