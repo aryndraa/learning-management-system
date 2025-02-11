@@ -1,28 +1,11 @@
 import { GoKebabHorizontal } from "react-icons/go"
 import { useState } from "react"
 import { TabBarLink } from "./TabBarLink";
+import PropTypes from "prop-types";
 
-export const TabBar = () => {
+export const TabBar = ({links}) => {
   const [openNav, setOpenNav] =  useState();
-  const links = [
-    {
-      path: 'classroom/:id',
-      name: "Overview"
-    },
-    {
-      path: 'classroom/:id/students',
-      name: "Students"
-    },
-    {
-      path: 'classroom/:id/subject-teachers',
-      name: "Subject Teachers"
-    },
-    {
-      path: 'classroom/:id/journals',
-      name: "All Journals"
-    },
 
-  ]
   return (
     <>
       <div className="flex lg:hidden justify-between relative items-center p-4 bg-white">
@@ -43,4 +26,8 @@ export const TabBar = () => {
     </>
 
   )
+}
+
+TabBar.propTypes = {
+  links: PropTypes.object.isRequired
 }
