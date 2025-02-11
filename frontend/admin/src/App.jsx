@@ -14,6 +14,7 @@ import {ShowClassroom} from "./pages/classroom/ShowClassroom.jsx";
 import {CreateClassroom} from "./pages/classroom/CreateClassroom.jsx";
 import {JournalClassroom} from "./pages/classroom/JournalClassroom.jsx";
 import {StudentClassroom} from "./pages/classroom/StudentClassroom.jsx";
+import { SubjectTeacher } from './pages/classroom/SubjectTeacher.jsx';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
                     <Route path="/classroom" element={<Classroom />} />
                     <Route path="/classroom/:classroom" element={<ShowClassroom />} />
                     <Route path="/classroom/:classroom/journals" element={<JournalClassroom />} />
+                    <Route path="/classroom/:classroom/subject-teachers" element={<SubjectTeacher />} />
                     <Route path="/classroom/:classroom/students" element={<StudentClassroom />} />
                     <Route path="/classroom/create" element={<CreateClassroom />} />
                     <Route path="/student" element={<Student />} />

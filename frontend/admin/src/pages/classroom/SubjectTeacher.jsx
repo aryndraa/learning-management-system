@@ -1,8 +1,7 @@
 import {PageTitle} from "../../components/PageTitle.jsx";
 import { TabBar } from "../../components/TabBar.jsx";
 
-export function JournalClassroom() {
-
+export const SubjectTeacher = () => {
   const links = [
     {
       path: '',
@@ -22,7 +21,7 @@ export function JournalClassroom() {
     },
 
   ]
-  
+
   return (
     <>
       <section className="grid grid-cols-1 gap-4 w-full ">
